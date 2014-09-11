@@ -1,1 +1,1 @@
-web: gunicorn vetcove.wsgi --log-file -
+web: gunicorn --pythonpath=./vetcove vetcove.wsgi:application --log-file -

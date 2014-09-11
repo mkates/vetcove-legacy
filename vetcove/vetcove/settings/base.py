@@ -1,6 +1,6 @@
 # Settings Common to all instances of the project
 # ===============================================
-
+#test
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from os.path import abspath, basename, dirname, join, normpath
 from sys import path
