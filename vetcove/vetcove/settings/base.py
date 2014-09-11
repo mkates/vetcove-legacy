@@ -192,7 +192,6 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
-print(CACHES)
 ########## END CACHE CONFIGURATION
 
 ROOT_URLCONF = 'vetcove.urls'

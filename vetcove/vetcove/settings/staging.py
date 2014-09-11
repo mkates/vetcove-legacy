@@ -66,6 +66,16 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 STATIC_ROOT = 'staticfiles'
 ########## END STATIC CONFIGURATION
 
+########## CACHE CONFIGURATION
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#caches
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+print(CACHES)
+print("TEST")
+########## END CACHE CONFIGURATION
 
 
 ########## SECRET CONFIGURATION
