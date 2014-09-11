@@ -111,12 +111,6 @@ TEMPLATE_DIRS = (
 ########## END TEMPLATE CONFIGURATION
 
 
-########## URL CONFIGURATION
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#root-urlconf
-ROOT_URLCONF = '%s.urls' % SITE_NAME
-########## END URL CONFIGURATION
-
-
 ########## APP CONFIGURATION
 INSTALLED_APPS = (
     'django.contrib.admin',
