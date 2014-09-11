@@ -73,8 +73,6 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
-print(CACHES)
-print("TEST")
 ########## END CACHE CONFIGURATION
 
 
