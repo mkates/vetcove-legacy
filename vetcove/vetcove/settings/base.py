@@ -181,6 +181,3 @@ ROOT_URLCONF = 'vetcove.urls'
 WSGI_APPLICATION = 'vetcove.wsgi.application'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'wh3fk$t@(zt@ir!che_w)mo!#v$+n+9d&8(a1+8%51*flz!@h+'
