@@ -1,0 +1,53 @@
+/**************************************/
+//******* Page Formatting ************//
+/**************************************/
+
+// There are two types of messages, a full width message and a
+// small message. Both messages appear top center of the screen
+
+// Message types: success, error
+
+//<div class="message success">
+//	{{Message Text}}
+//	<div class="x">&#x2716;</div>
+//</div>
+
+.message {
+	display:none; //Hide to start
+	height: 45px;
+	color: #000;
+	line-height: 45px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 14px;
+	position:absolute;
+	width: 100%;
+	background: @lightBlue; //Default message is light blue
+	.bottomRoundedCorners(2px);
+	//Option to make the message use relative positioning
+	&.relative {
+		position:relative
+	}
+	//Success Message
+	&.success {
+		background: #57b755;
+	}
+	//Error Message
+	&.error {
+		background: #ff5858;
+	}
+	// The X button, used to manually close a message
+	.x {
+		position:absolute;
+		right: 5px;
+		line-height: 40px;
+		padding: 5px;
+		top: 0;
+		font-size: 20px;
+		opacity: .3;
+		&:hover {
+			cursor:pointer;
+			opacity: .5;
+		}
+	}
+}

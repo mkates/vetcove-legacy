@@ -9,9 +9,15 @@ Welcome to vetcove's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    
+   architecture
+   deployment
+   installation
    gettingstarted
+   third-party-packages
+   addons
+   staticfiles
 
 
 

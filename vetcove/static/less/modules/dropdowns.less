@@ -1,0 +1,85 @@
+// //****** Dropdown Box Functionality ********* //  //
+
+// Usage: 
+// <div class="dropdown-container">
+// 	<a class="dropdown-trigger" data-dropdown='{{dropdown_id}}'>Dropdown Name</a>
+// 	<div id="{{dropdown_id}}" class="dropdown-box"> Dropdown Content</div>
+// </div>
+
+// The dropdown utility. Contains a parent dropdown-container and two subelements:
+// Dropdown trigger and dropdown box. All dropdowns work in unison so if one is
+// opened all others close
+
+.dropdown-container { // Container
+	position:relative;
+}
+.dropdown-box { // Dropdown box
+	padding: 5px 0;
+	position:absolute;
+	background: #fff;
+	z-index: 99;
+	width: auto;
+	min-width: 210px;
+	max-width: 900px;
+	left: 0;
+	border:1px solid @borderColor;
+	border-top: none;
+	border-radius: 2px;
+	display:none;
+	.divider {
+		border-top:1px solid #ddd;
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+	a:not(.button) {
+		color: #555;
+		display:block;
+		font-size: 12px;
+		padding: 3px 10px;
+		text-align: left;
+	}
+	a:not(.button):hover {
+		color: #222;
+		background: #eee;
+	}
+	p,a {
+		white-space: nowrap; // Don't allow multiple lines
+		.ellipsis;
+	}
+}
+
+.dropdown-box.dropdown-left { // Align to the left
+	left:auto;
+	right: 4px;
+} 
+.dropdown-box.dropdown-right { // Align to the right
+	right: 0px;
+	left:auto;
+}
+
+
+// The Top Caret CSS functionality
+
+.dropdown-box:before {
+  position: absolute;
+  top: -7px;
+  right: 7px;
+  display: inline-block;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #e6e6e6;
+  border-left: 7px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, .1);
+  content: '';
+}
+
+.dropdown-box:after {
+  position: absolute;
+  top: -6px;
+  right: 8px;
+  display: inline-block;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  border-left: 6px solid transparent;
+  content: '';
+}
+

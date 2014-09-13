@@ -31,8 +31,8 @@ TEMPLATE_DEBUG = DEBUG
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.',
-        'NAME': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': normpath(join(DJANGO_ROOT, 'default.db')),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -135,7 +135,28 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    # Core Vetcove Apps
+    'accounts',
+    'core',
+    'clinics',
+    'emails',
+    'general',
+    'news',
+    'notifications',
+    'payments',
+    'products',
+    'questions',
+    'recommendations',
+    'reports',
+    'reviews',
+    'rewards',
+    'search',
+    'shop',
+    'staff',
+    'suppliers',
+    # Add-ons
+    'imagekit' #Used for image processing and uploading
 )
 
 
@@ -184,6 +205,9 @@ MIDDLEWARE_CLASSES = (
 )
 ########## END MIDDLEWARE CONFIGURATION
 
+########## USER CONFIGURATION
+AUTH_USER_MODEL = 'accounts.BasicUser'
+########## END USER CONFIGURATION
 
 ########## CACHE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#caches

@@ -1,0 +1,77 @@
+[
+	{
+	"model": "accounts.basicuser",
+	"pk": 1,
+		"fields": {
+			"first_name": "Will",
+			"last_name": "Tashman",
+			"username":"will@mit.edu",
+			"email":"will@mit.edu",
+			"password": "123456"
+		}
+	},
+	{
+	"model": "accounts.basicuser",
+	"pk": 2,
+		"fields": {
+			"first_name": "Jimmy",
+			"last_name": "Burke",
+			"username":"jim@mit.edu",
+			"email":"will@mit.edu",
+			"password": "123456"
+		}
+	},
+	{
+	"model": "clinics.clinic",
+	"pk": 1,
+		"fields": {
+			"practitioner_name": "Eric Kates",
+			"state":"NJ",
+			"organization_type":"llc",
+			"practice_type":"large_animal"
+		}
+	},
+	{
+	"model": "suppliers.supplier",
+	"pk": 1,
+		"fields": {
+			"primary_contact": "Joe Sullivan"
+		}
+	},
+	{
+	"model": "accounts.group",
+	"pk": 1,
+		"fields": {
+			"name": "Colts Neck Equine",
+			"administrator":1,
+			"phonenumber":7325471234,
+			"referrer_id":"1234567890ACBDEF",
+			"group_type":"clinic",
+			"clinic":1
+		}
+	},
+	{
+	"model": "accounts.group",
+	"pk": 2,
+		"fields": {
+			"name": "Auburn Labs",
+			"administrator":2,
+			"phonenumber":7325471234,
+			"referrer_id":"1234567890ACBDEF",
+			"group_type":"supplier",
+			"supplier":1
+		}
+	},
+	{
+	"model": "accounts.address",
+	"pk": 1,
+		"fields": {
+			"name": "Nick Sather",
+			"address_one":"2 Norfolk Terrace",
+			"address_two":"Apartment 2",
+			"city":"Cambridge",
+			"state":"MA",
+			"postalcode": "02139"
+		}
+	}
+]

@@ -1,0 +1,38 @@
+############################################
+############ Products ######################
+############################################
+class UsedEquipment(models.Model):
+	### Reference to the user ###
+	user = models.ForeignKey('account.BasicUser')
+	creation_date = models.DateField(auto_now_add=True)
+
+	### Pricing ###
+	msrp_price = models.BigIntegerField(max_length=20,null=True,blank=True)
+	price = models.BigIntegerField(max_length=20,null=True,blank=True)
+
+	### General Product Information ###
+	name = models.CharField(max_length=200)
+	category = models.ForeignKey(Category,null=True,blank=True)
+	manufacturer = models.ForeignKey(Manufacturer,null=True,blank=True)
+
+	### Image ###
+	mainimage = models.ForeignKey('Image',null=True,blank=True)
+
+	### Counts ###
+	liststage = models.IntegerField(default=0) # Used to track progress through listing an item
+	savedcount = models.IntegerField(default=0)
+	views = models.IntegerField(default=0) # Counts number of page requests
+
+	### Charity ###
+	charity = models.BooleanField(default=False)
+	charity_name = models.ForeignKey('general.Charity',null=True,blank=True)
+
+	### List Status ###
+	LISTSTATUS_OPTIONS =  (('active', 'Active'),('disabled', 'Disabled'),('incomplete', 'Incomplete'),('sold', 'Sold'),('unsold', 'Not Sold'))
+	liststatus = models.CharField(max_length=30,choices=LISTSTATUS_OPTIONS,db_index=True,default='incomplete')
+	
+	def __str__(self):
+		return self.name
+
+	def msrp_discount(self):
+		return int((self.price-self.msrp_price)/float(self.price)*100)

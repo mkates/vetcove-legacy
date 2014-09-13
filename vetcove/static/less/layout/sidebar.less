@@ -1,0 +1,108 @@
+
+// //****** Sidebar ********* //  //
+
+// Sidebar with hidden submenus
+
+.sidebar-submenus {
+	padding: 15px 15px 15px 0px;
+	ul {
+		list-style-type: none;
+		li {
+			&:not(:first-child) { // All links except the top one have a border
+				border-top:1px solid #dadada;
+			}
+			a { // Each link
+				display:block;
+				padding: 10px 0;
+				font-size: 13px;
+				font-weight: 400;
+				color: #333;
+				&.active { // When item is active, heavy weight and rotate arrow
+					font-weight: 500;
+					.arrow {
+						.rotation(90deg);
+					}
+				}
+				&:hover {
+					text-decoration:none;
+				}
+				&:not(.active):hover { // Don't colorize the active menu item
+					color: @link-color;
+					.arrow { // When hovering, the arrow should be colored
+						background: @link-color;
+					}
+				}
+				.arrow { // Arrow formatting
+					margin-top: 2px;
+					float: right;
+					font-size: 14px;
+					font-weight: 500;
+					color: #fff;
+					width: 14px;
+					height: 14px;
+					background: #333;
+					border-radius: 7px;
+					padding-left: 3px;
+					line-height: 12px;
+				}
+				&.sub-item { // Submenu items
+					margin-left: 10px;
+					border-top:none;
+					font-size: 11px;
+					padding: 5px;
+					span { // The block before a submen item
+						display:inline-block;
+						vertical-align: middle;
+						min-width: 8px;
+						height: 8px;
+						border-radius: 2px;
+						background: #ccc;
+						margin-right: 5px;
+					}
+					&.active { // Color the link and span when active
+						color: @link-color;
+						span {
+							background: #333;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+.side-layout-mainbar {
+		border-left:1px solid #e6e6e6;
+		height: 500px;
+		h2 {
+			color: #333;
+			margin: 20px;
+		}
+		h5 {
+			color: #999;
+			margin: 20px;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 18px;
+		}
+		ul {
+			margin: 20px;
+			.horizontal-nav;
+			li {
+				margin-right: 20px;
+				font-size: 15px;
+				color: #777;
+				font-weight: 400;
+				&.active {
+					border-bottom: 2px solid @link-color;
+					color: #333;
+					font-weight: 500;
+				}
+				&:not(.active):hover{
+					color: @link-color;
+				}
+			}
+		}
+	}
