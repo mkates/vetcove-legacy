@@ -14,7 +14,6 @@ def build():
 		return
 
 	## Try to git 
-	run("git add . --all")
-	run("git commit -am 'push message'")
-	run("git push staging master")
-	print ("Complete")
+	print(run("git add . --all"))
+	print(run("git commit -am 'push message'"))
+	print(run("git push staging master"))
