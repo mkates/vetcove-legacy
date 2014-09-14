@@ -1,0 +1,89 @@
+
+// Formatting for all the static pages
+
+
+//************ General Static ****************
+
+.static-page {
+	margin: 40px @sideGutter 20px @sideGutter;
+	p {
+		font-size: 13px;
+	}
+	&.centered {
+		text-align: center;
+	}
+	.section {
+		margin: 60px auto 40px auto;
+		max-width: 800px;
+		&.thin {
+			max-width: 600px;
+		}
+		h3 {
+			color: @link-color;
+			margin-bottom: 30px;
+		}
+		ul {
+			margin-left: 15px;
+		}
+	}
+	p {
+		margin-bottom: 20px;
+	}
+}
+
+// Testimonial grids
+.testimonial-grid {
+	.collage-box {
+		position:relative;
+		padding: 5px;
+		&.collage-box-tall {
+			height: 300px;
+		}
+		&.collage-box-short {
+			height: 150px;
+		}
+		&.collage-box-fat {
+			width: 50%;
+		}
+		&.collage-box-skinny {
+			width: 25%;
+		}
+		float: left;
+		.img {
+			width: 100%;
+			height: 100%;
+			background: #dadada;
+			
+		}
+	}
+}
+
+//Job Listings
+.job-class {
+	margin-bottom: 30px;
+	.job {
+		span {
+			float: right;
+		}
+	}
+}
+
+//Press Images
+.press-image-container {
+	padding: 5px;
+	float: left;
+	width: 25%;
+	.press-image {
+		text-align: center;
+		border:1px solid #ccc;
+		a {
+			display:block;
+			width: 100%;
+			background-size:contain;
+			background-repeat:no-repeat;
+			background-position:center center;
+			height: 150px;
+		}
+	}
+}
+

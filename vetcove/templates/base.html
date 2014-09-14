@@ -35,6 +35,7 @@
 <!-- Less Files -->
 <link href="{{STATIC_URL}}less/main.less" rel="stylesheet/less" type="text/css" />
 <script src="{{STATIC_URL}}js/less.js"></script>
+<script>less.watch();</script>
 
 </head>
 
@@ -76,8 +77,11 @@
 	<!-- End of Header -->
 
 	<!-- Content -->
-	{% block content %}
 	<div class="content">
+		{% block content %}
+		 <div class="hero">
+			Order History
+		</div>
 		<div class="side-layout">
 			<div class="side-layout-col side-layout-sidebar sidebar-submenus">
 				<ul>
@@ -148,22 +152,17 @@
 			<div class="side-layout-col side-layout-mainbar">
 				{# <h2>My Questions</h2> #}
 				<h5>Questions are the center of peer knowledge on Vetcove, where you can directly interact with other veterinarians and directly with manufacturers. We encourage you to check the questions section of each product as your first resource.</h5>
-				<ul>
-					<li>Open Questions</li>
-					<li class="active">Asked Questions</li>
-					<li>Answered Questions</li>
-					<li>Comments on Answers</li>
+				<ul class="horizontal-menu">
+					<li><a href='#'>Open Questions</a></li>
+					<li><a class="active" href='#'>Asked Questions</a></li>
+					<li><a href='#'>Answered Questions</a></li>
+					<li><a href='#'>Comments on Answers</a></li>
 				</ul>
 			</div>
 		</div>
 
-
-
-
-
-
+		{% endblock %}
 	</div>
-	{% endblock %}
 	<!-- End of Content -->
 
 	<!-- Footer -->
@@ -269,8 +268,7 @@ $.fn.textColorizer = function(original,highlight) {
 			function() {
 	        	$(letter).animate({color: original},120,
 	        		function() {
-	        			setTimeout(function() {
-	        			colorize(letter)},5000);
+	        			setTimeout(function() {colorize(letter)},5000);
 	        		}
 	        	);
 	        }

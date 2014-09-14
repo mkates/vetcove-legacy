@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero">
+	{% block hero %} Legal {% endblock %}
+</div>
+
+<div class="menu-horizontal menu-horizontal-static">
+	<ul>
+		<li><a {% if generalpolicy %}class="active"{% endif %} href='{% url "general:generalpolicy" %}'>Policy Overview</a></li>
+		<li><a {% if privacypolicy %}class="active"{% endif %} href='{% url "general:privacypolicy" %}'>Privacy Policy</a></li>
+		<li><a {% if termsofservice %}class="active"{% endif %} href='{% url "general:termsofservice" %}'>Terms of Service</a></li>
+		<li><a {% if selleragreement %}class="active"{% endif %} href='{% url "general:selleragreement" %}'>Seller Agreement</a></li>
+		<div class="pull-right">
+			<li><a href='mailto:team@vetcove.com'>team@vetcove.com</a></li>
+		</div>
+	</ul>
+</div>
+{% endblock %}

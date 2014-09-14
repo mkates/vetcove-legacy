@@ -1,0 +1,44 @@
+{% extends 'general/company/base.html' %}
+
+{% block hero %} Careers {% endblock %}
+
+{% block content %}
+
+{{block.super}}
+
+<div class="static-page">
+	<div class="section thin">
+		<h3>Careers at Vetcove</h3>
+		<p>Vetcove is a startup based in New York City. We've built the most advanced veterinary supply ordering
+		platform and we're looking for great people to join us. When you join Vetcove, you're part of a small but 
+		growing team and your impact is immediately felt. Every job is vital at Vetcove. Please send a cover letter
+		& resume to jobs@vetcove.com.</p>
+	</div>
+	<div class="section thin">
+		<div class="job-class">
+			<h5>Engineering</h5>
+			<div class="job"><a href="#">Software Engineer - Back End </a><span>New York, NY</span></div>
+			<div class="job"><a href="#">Software Engineer - Front End </a><span>New York, NY</span></div>
+			<div class="job"><a href="#">Software Engineer - iOS </a><span>New York, NY</span></div>
+			<div class="job"><a href="#">Software Engineer - Android </a><span>New York, NY</span></div>
+		</div>
+		<div class="job-class">
+			<h5>Sales</h5>
+			<div class="job"><a href="#">Acount Executive - New Business</a><span>New York, NY</span></div>
+		</div>
+		<div class="job-class">
+			<h5>Creative</h5>
+			<div class="job"><a href="#">Designer - User Interface</a><span>New York, NY</span></div>
+		</div>
+		<div class="job-class">
+			<h5>Other Open Positions</h5>
+			<div class="job"><a href="#">Content Strategist</a><span>New York, NY</span></div>
+		</div>
+	</div>
+	<div class="section thin">
+		<h3>Don't see the job you are looking for?</h3>
+		<p>Even if you don't see a job that specifically matches your skillset, reach out and talk to us!</p>
+	</div>
+</div>
+
+{% endblock %}

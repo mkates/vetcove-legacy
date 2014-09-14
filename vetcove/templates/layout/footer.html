@@ -1,21 +1,21 @@
 <footer class="footer">
 	<div class="footer-links">
 		<div class="column">
-			<h3>Browse Vetcove</h3>
+			<h3>Explore Vetcove</h3>
 			<ul>
-				<li><a href='/categories'>Take A Virtual Tour</a></li>
-				<li><a href='/dashboard'>Deals and Promotions</a></li>
-				<li><a href='/promotions'>Trending Products</a></li>
-				<li><a href='/trending'>Recommended Products</a></li>
+				<li><a href='#'>Take A Virtual Tour</a></li>
+				<li><a href='{% url "general:features" %}'>Features</a></li>
+				<li><a href='{% url "general:suppliers" %}'>Benefits for Suppliers</a></li>
+				<li><a href='{% url "general:lead" %}'>Become a Supplier</a></li>
 			</ul>
 		</div>
 		<div class="column">
 			<h3>Company</h3>
 			<ul>
-				<li><a href='/sitemap'>About the Company</a></li>
-				<li><a href='/manufacturer'>Jobs and Careers</a></li>
-				<li><a href='/tos'>Press and Media Kit</a></li>
-				<li><a href='/tos'>Feedback</a></li>
+				<li><a href='{% url "general:about" %}'>About Us</a></li>
+				<li><a href='{% url "general:careers" %}'>Jobs and Careers</a></li>
+				<li><a href='{% url "general:presskit" %}'>Press and Media Kit</a></li>
+				<li><a href='{% url "general:feedback" %}'>Feedback</a></li>
 			</ul>
 		</div>
 		<div class="column">
@@ -30,18 +30,19 @@
 		<div class="column">
 			<h3>Let Us Help You</h3>
 			<ul>
-				<li><a href='#'>Shipping & Policies</a></li>
-				<li><a href='#'>Returns & Replacements</a></li>
-				<li><a href='#'>Privacy & TOS</a></li>
+				<li><a href='#'>Redeem Credits</a></li>
+				<li><a href='#'>Issue a Return</a></li>
+				<li><a href='#'>FAQ</a></li>
 				<li><a href='#'>Support Center</a></li>
 			</ul>
 		</div>
 		<div class="column">
-			<h3>Let Us Help You</h3>
+			<h3>Legal</h3>
 			<ul>
-				<li><a href='#'>Shipping & Policies</a></li>
-				<li><a href='#'>Returns & Replacements</a></li>
-				<li><a href='#'>Help</a></li>
+				<li><a href='{% url "general:generalpolicy" %}'>General Policies</a></li>
+				<li><a href='{% url "general:privacypolicy" %}'>Privacy Policy</a></li>
+				<li><a href='{% url "general:termsofservice" %}'>Terms of Service</a></li>
+				<li><a href='{% url "general:selleragreement" %}'>Seller Agreement</a></li>
 			</ul>
 		</div>
 	</div>

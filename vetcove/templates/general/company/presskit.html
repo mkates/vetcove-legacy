@@ -1,0 +1,74 @@
+{% extends 'general/company/base.html' %}
+
+{% load staticfiles %}
+
+{% block hero %} Press Kit {% endblock %}
+
+{% block content %}
+
+{{block.super}}
+
+<div class="static-page">
+	<div class="section thin">
+		<h3>Media Resources</h3>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/cart-icon.png" %}' style="background-image:url('{% static "img/cart-icon.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="press-image-container">
+			<div class="press-image">
+				<a href='{% static "img/logo_hex_gray.png" %}' style="background-image:url('{% static "img/logo_hex_gray.png" %}')">
+			</a>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="section thin">
+		<h3>Quick Facts</h3>
+		<p><strong>Headquarters: </strong> New York, NY</p>
+		<p><strong>Industry: </strong> Veterinary, eCommerce</p>
+		<p><strong>Mission Statement: </strong> Text Here</p>
+		<p><strong>Mission Statement: </strong> Text Hee</p>
+
+	</div>
+</div>
+
+{% endblock %}

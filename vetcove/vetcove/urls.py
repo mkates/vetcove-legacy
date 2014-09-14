@@ -10,8 +10,8 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    # All general URLS (corporate)
-    url(r'^', include('general.urls')),
+    ### General URLS (takes the namespaces of company,legal,and explore)
+    url(r'^', include('general.urls',namespace='general')),
     
     url(r'^clinics/', include('clinics.urls',namespace='clinics')),
     url(r'^emails/', include('emails.urls',namespace='emails')),

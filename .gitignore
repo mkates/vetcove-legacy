@@ -3,4 +3,6 @@ venv
 staticfiles
 .psd
 docs/build
+node_modules
+vetcove/media
 __pycache__

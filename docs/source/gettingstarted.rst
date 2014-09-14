@@ -14,3 +14,10 @@ Importing Sequence:
 2. Imports from core Django
 3. Imports from third-party apps including those unrelated to Django
 4. Imports from the app that you careated as part of the project (use explicit relative imports)
+
+Installations
+==============
+- Install all the local plugins
+- Install node.js globally with write permissions
+- Install grunt globally
+
