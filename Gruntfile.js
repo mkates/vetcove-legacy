@@ -5,11 +5,7 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    banner: 'VetCove, Copyright 2014',
     uglify: {
-      options: {
-        banner: '<%= banner %=>'
-      },
       build: {
         src: ['vetcove/static/js/**/*.js'],
         dest: 'vetcove/static/compiled/main.min.js'
@@ -42,15 +38,6 @@ module.exports = function(grunt) {
         src: 'vetcove/static/compiled/main.css'
       },
     },
-    usebanner: {
-      options: {
-        position: 'top',
-        banner: '<%= banner %>'
-      },
-      files: {
-        src: 'vetcove/static/compiled/main.css'
-      }
-    },
     cssmin: {
       combine: {
         files: {
@@ -80,7 +67,7 @@ module.exports = function(grunt) {
   // JS distribution task
   grunt.registerTask('_js', ['uglify']);
   // Less Scripts
-  grunt.registerTask('_less', ['less:compiler','autoprefixer','usebanner','cssmin']);
+  grunt.registerTask('_less', ['less:compiler','autoprefixer','cssmin']);
 
   // Combine the tasks to run by default //
   grunt.registerTask('default',['_less','_js']);
