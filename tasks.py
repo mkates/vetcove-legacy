@@ -6,14 +6,15 @@ from invoke import task,run
 
 @task
 def build():
+	pass
 	## Run the grunt compiler
-	try:
-		run("grunt _less")
-	except Exception as e:
-		print(e)
-		return
+	# try:
+	# 	run("grunt _less")
+	# except Exception as e:
+	# 	print(e)
+	# 	return
 
-	## Try to git 
-	print(run("git add . --all"))
-	print(run("git commit -am 'push message'"))
-	print(run("git push staging master"))
+	# ## Try to git 
+	# print(run("git add . --all"))
+	# print(run("git commit -am 'push message'"))
+	# print(run("git push staging master"))
