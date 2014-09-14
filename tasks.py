@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-### Automation scripts for deployment
+### Automation scripts for deployment ###
 
 from invoke import task,run
 
@@ -11,6 +11,7 @@ def build():
 		run("grunt _less")
 	except Exception as e:
 		print(e)
+		return
 
 	## Try to git 
 	run("git add . --all")

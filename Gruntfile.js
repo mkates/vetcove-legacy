@@ -80,7 +80,7 @@ module.exports = function(grunt) {
   // JS distribution task
   grunt.registerTask('_js', ['uglify']);
   // Less Scripts
-  grunt.registerTask('_less', ['less:compilers','autoprefixer','usebanner','cssmin']);
+  grunt.registerTask('_less', ['less:compiler','autoprefixer','usebanner','cssmin']);
 
   // Combine the tasks to run by default //
   grunt.registerTask('default',['_less','_js']);
