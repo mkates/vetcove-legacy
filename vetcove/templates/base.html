@@ -33,7 +33,7 @@
 {# <link href="{{STATIC_URL}}general/form.css" rel="stylesheet" type="text/css" /> #}
 
 <!-- Less Files -->
-{% if DEBUG %}
+{% if debug %}
 	<link href="{{STATIC_URL}}less/main.less" rel="stylesheet/less" type="text/css" />
 	<script src="{{STATIC_URL}}js/less.js"></script>
 {% else %}
@@ -44,7 +44,9 @@
 
 
 <body>
+	
 {% block body %}
+
 <div class="body-container">
 
 	<!-- Full Screen Overlay -->
