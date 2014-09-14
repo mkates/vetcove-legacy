@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: ['vetcove/static/js/**/*.js'],
-        dest: 'vetcove/static/compiled/main.js'
+        dest: 'vetcove/static/compiled/main.min.js'
       }
     },
     less: {
