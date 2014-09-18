@@ -1,0 +1,241 @@
+// background: linear-gradient(to bottom, #37aaea 0px, #117ed2 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+//     border-color: #1992da #0c75bb #00589c;
+//     box-shadow: 0 1px 1px 0 #6fc5f5 inset;
+//     color: #fff;
+
+
+// General Button Formatting //
+.button {
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: middle;
+  height: 32px;
+  letter-spacing: .5px;
+  line-height: 32px;
+  padding: 0px 25.6px;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0;
+  text-decoration: none;
+  text-align: center;
+  &:hover {
+  	cursor: pointer;
+  }
+  &:active {
+  	box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
+  	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.4);
+  	background: #eeeeee;
+  	color: #bbbbbb;
+  }
+  &:focus {
+  	outline: none;
+  }
+  .button-colors;
+}
+
+// Block buttons
+.button-block {
+  display: block;
+}
+
+// Disabled Buttons
+.button.disabled,
+.button.disabled:hover,
+.button.disabled:active,
+input.button:disabled,
+button.button:disabled {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  background: #dadada;
+  border: 1px solid #dddddd;
+  text-shadow: 0 1px 1px white;
+  color: #CCC;
+  cursor: default;
+}
+
+// Button Wrapper
+.button-wrap {
+  .gradient(#e3e3e3, #e3e3e3, #f2f2f2);
+  border-radius: 200px;
+  box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.04);
+  padding: 10px;
+  display: inline-block;
+}
+
+// Rounded Button
+.button-rounded {
+  border-radius: 2px;
+}
+
+//***** Button Colors ********
+
+
+// ***** Flat Buttons **** //
+
+// Button Color Formatting
+.button-colors(@color: #aaa) {
+  box-shadow: none;
+  transition-property: background;
+  transition-duration: 0.3s;
+  background: @color;
+  color:#fff !important;
+  border: none;
+  text-shadow: none;
+  &:hover {
+  	background: darken(@color,5%);
+    color: #fff;
+  }
+  &:active {
+  	text-shadow:none;
+  	transition-duration: 0s;
+  	background: darken(@color,10%);
+  	color: #fff;
+  }
+  &.disabled {
+  	box-shadow:none;
+  }
+}
+
+.button-shaded {
+  .button-colors;
+    background: rgba(0,0,0,.2);
+  &:hover {
+    background: rgba(0,0,0,.3);
+  }
+  &:active {
+    background: rgba(0,0,0,.4);
+  }
+
+}
+.button-primary {
+	.button-colors(@colorMain);
+}
+.button-teal {
+	.button-colors(@colorTeal);
+}
+.button-purple {
+  .button-colors(@colorPurple);
+}
+.button-violet {
+	.button-colors(@colorViolet);
+}
+.button-lime {
+	.button-colors(@colorLime);
+}
+.button-red {
+	.button-colors(@colorRed);
+}
+.button-success {
+  .button-colors(@colorGreen);
+}
+
+// ****** Button Sizes ******
+
+.button-large {
+  font-size: 13px;
+  font-weight: 200;
+  height: 38.4px;
+  line-height: 38.4px;
+  padding: 0px 30.72px;
+}
+
+.button-small {
+  font-size: 12px;
+  height: 25.6px;
+  line-height: 25.6px;
+  padding: 0px 20.48px;
+}
+
+.button-tiny {
+  font-size: 11px;
+  height: 22.4px;
+  line-height: 22.4px;
+  padding: 0px 17.92px;
+}
+
+//Button Weights
+.button-bold {
+  font-weight: 500
+}
+.button-light {
+  font-weight: 200;
+}
+// ****** Button Dropdowns ******
+
+.button-dropdown {
+  position: relative;
+  overflow: visible;
+  display: inline-block;
+}
+
+.button-dropdown .button-overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 999;
+}
+
+.button-dropdown .button .icon-caret-down {
+  font-size: 90%;
+  margin: 0px 0px 0px 3px;
+  vertical-align: middle;
+}
+
+.button-dropdown ul.button-dropdown-menu-below {
+  top: 115%;
+}
+
+.button-dropdown ul.button-dropdown-menu-above {
+  bottom: 115%;
+  top: auto;
+}
+
+.button-dropdown ul {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  display: none;
+  position: absolute;
+  background: #fcfcfc;
+  top: -2px;
+  left: -2px;
+  z-index: 1000;
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  min-width: 102%;
+}
+
+.button-dropdown ul li {
+  padding: 0px;
+  margin: 0px;
+  display: block;
+}
+
+.button-dropdown ul li:first-child a {
+  .topRoundedCorners;
+}
+
+.button-dropdown ul li:last-child a {
+  .bottomRoundedCorners
+}
+
+.button-dropdown ul .button-dropdown-divider {
+  box-shadow: inset 0px 1px 0px white;
+  border-top: 1px solid #e4e4e4;
+}
+
+.button-dropdown ul a {
+  display: block;
+  padding: 0px 20px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #333333;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.button-dropdown ul a:hover {
+  background-color: #3c6ab9;
+  color: white;
+}

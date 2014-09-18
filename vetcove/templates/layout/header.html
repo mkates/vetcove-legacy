@@ -9,12 +9,10 @@
 			<!--Navigation Items-->
 			<div class="menu">
 				<ul>
-					<li><a class="item standard-link" href='#'>Dashboard</a></li><!--
-					--><li><a class="item standard-link" href='#'>Deals</a></li><!--
-					--><li><a class="item standard-link" href='#'>Shop</a></li><!--
-					--><li><a class="item standard-link" href='#'>News</a></li><!--
-					--><li><a class="item standard-link" href='#'>Help</a></li><!--
-					--><li><a id="menu-promotion" class="item special-link" href='#'>*Spring Vaccines*</a></li>
+					<li><a class="item standard-link features-link {% if features %}active{% endif %}" href='{% url "general:features" %}'>Veterinarians</a></li><!--
+					--><li><a class="item standard-link suppliers-link {% if suppliers %}active{% endif %}" href='{% url "general:suppliers" %}'>Suppliers</a></li><!--
+					--><li><a class="item standard-link dashboard-link {% if dashboard %}active{% endif %}" href='{% url "general:dashboard" %}#'>Explore Vetcove</a></li><!--
+					--><li><a class="item standard-link support-link {% if support %}active{% endif %}" href='{% url "general:support" %}#'>Support</a></li>
 				</ul>
 			</div>
 		</div>
@@ -22,7 +20,8 @@
 		<div class="header-right">
 			<div class="menu">
 				<ul>
-					<li>
+
+					<!--<li>
 						<div class="dropdown-container">
 							<a title="Notifications" class="item notification-link dropdown-trigger" href='#' data-dropdown="notification-dropdown"><span>2</span></a>
 							<div id="notification-dropdown" class="dropdown-box dropdown-right">
@@ -58,9 +57,16 @@
 							</div>
 							
 						</div>
-					</li>
+					</li>-->
 					{# <li><a class="item standard-link" href='#'>Log In</a></li> #}
-					<li><a class="item checkout-link" href='#'>Checkout ></a></li>
+					<li><a class="item standard-link" href='#'>Log In</a></li>
+					<li><a class="item signup-link
+						{% if index %}index-color {% endif %}
+						{% if features %}features-color {% endif %}
+						{% if suppliers %}suppliers-color {% endif %}
+						{% if dashboard %}dashboard-color {% endif %}
+						{% if support %}support-color {% endif %}
+						" href='{% url "accounts:signin" %}'>Sign Up</a></li>
 				</ul>
 			</div>
 		</div>
@@ -72,7 +78,7 @@
 		<div class="element fixed dropdown-container">
 			<a class="element-link dropdown-trigger categories" data-dropdown="categories-dropdown">
 				<p>Browse by</p>
-				<p>Categories <b class="caret"></b></p>
+				<p>Categories <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="categories-dropdown" class="category-box dropdown-box">
 				<div class="category-menu">
@@ -158,7 +164,7 @@
 		<div class="element fixed dropdown-container">
 			<a class="element-link list double-row dropdown-trigger" data-dropdown='lists-dropdown'>
 				<p>Your</p>
-				<p>Lists <b class="caret"></b></p>
+				<p>Lists <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="lists-dropdown" class="dropdown-box dropdown-left">
 				<a class="" href="/rewards">Recently Purchased</a>
@@ -171,7 +177,7 @@
 		<div class="element fixed dropdown-container">
 			<a class="element-link double-row dropdown-trigger" data-dropdown='credit-dropdown'>
 				<p>Earn</p>
-				<p>Rewards <b class="caret"></b></p>
+				<p>Rewards <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="credit-dropdown" class="dropdown-box goal-dropdown dropdown-left">
 				<a><strong>Credit Balance: 320 credits</strong></a>
@@ -183,13 +189,13 @@
 		<div class="element fixed account-element dropdown-container">
 			<a class="element-link double-row account dropdown-trigger" data-dropdown="account-dropdown">
 				<p class="companyname">{% if basicuser %}{% if clinic %}Colts Neck Equine{% else %}Stokes Pharmacy{% endif %}{% else %}Hello. Log In{% endif %}</p>
-				<p>Your Account <b class="caret"></b></p>
+				<p>Your Account <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="account-dropdown" class="dropdown-box account-dropdown dropdown-left">
 			{% if not basicuser %}
 				<div class="portal-enter">
 					<div>
-						<a href='/signin' class="sigin button button-rounded button-primary">Log In</a>
+						<a href='/signin' class="sigin button button-rounded button-flat button-flat-primary">Log In</a>
 					</div>
 					<span class="newcustomer"><p>New Customer?</p> <a href='/signup'>Sign Up Here</a></span>
 					<div class="divider"></div>

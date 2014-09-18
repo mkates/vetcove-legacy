@@ -26,6 +26,10 @@ TEMPLATE_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
 
 
+########## PASSWORD CONFIGURATION
+# A reset password link only lasts for 24 hours 
+PASSWORD_RESET_TIMEOUT_DAYS = 1 # Days
+########## END PASSWORD CONFIGURATION
 
 ########## DATABASE CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -156,7 +160,8 @@ INSTALLED_APPS = (
     'staff',
     'suppliers',
     # Add-ons
-    'imagekit' #Used for image processing and uploading
+    'imagekit', #Used for image processing and uploading
+    'widget_tweaks' # Gives ability to render custom css and styling to form fields
 )
 
 

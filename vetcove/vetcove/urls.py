@@ -12,6 +12,9 @@ urlpatterns = patterns('',
 
     ### General URLS (takes the namespaces of company,legal,and explore)
     url(r'^', include('general.urls',namespace='general')),
+
+    ### All activity related to accounts (signin,singout,password,etc.)
+    url(r'^', include('accounts.urls',namespace='accounts')),
     
     url(r'^clinics/', include('clinics.urls',namespace='clinics')),
     url(r'^emails/', include('emails.urls',namespace='emails')),

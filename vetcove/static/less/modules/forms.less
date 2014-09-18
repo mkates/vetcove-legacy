@@ -1,96 +1,123 @@
 
 //*********** Forms **************
 
-.form { // Set the standard form width
-	width: 500px;
-	margin: 0 auto;
+.form { // Set the standard form width and properties
+	margin: 10px auto;
 }
 
-.radio-container, .checkbox-container {
-	clear:both;
-}
-
-.form-group {
+.form-group { // Different types of form groups
 	position:relative;
-	&.has-error {
-		label {
-			color: #f43d34;
-		}
-		input,select {
-			//background: #fef6f5;
-		}
+	clear:both; //Standard forms clear both
+	&.half { // Half the full width
+		width: 50%;
 	}
-	&.has-success {
-		label {
-			color: #f43d34;
-		}
-		input,select {
-		}
+	&.third { // 25% of the full width
+		width: 33.33%;
 	}
-
+	&.quarter { // 25% of the full width
+		width: 25%;
+	}
+	.help-block { // The help block
+		font-size: 11px;
+		height: 6px;
+		margin: 0;
+	}
 	label {
-		margin-bottom: 0px;
+		margin-left: 2px;
 	}
-}
-.inlined-together .form-group {
-	width: 50%;
-	float: left;
-	&:first-child input,select {
-		.customRoundedCorners(0,0,3px,3px);
+	label span { // Span text
+		font-weight: 300;
+		color: #666;
 	}
-	&:not(:first-child) input,select {
-		.customRoundedCorners(3px,3px,0,0);
-		border-left:0px;
-	}
-}
-.inlined-seperate .form-group {
-	width: 50%;
-	float: left;
-	&:first-child input,select {
-		.customRoundedCorners(0,0,3px,3px);
-	}
-	&:not(:first-child) input,select {
-		.customRoundedCorners(3px,3px,0,0);
-		border-left:0px;
-	}
-}
-// Input, radio, select, textarea
-input {
-	box-shadow: none;
-	&:focus {
-		border:1px solid @link-color;
+	textarea { // The text area
+		resize:vertical;
+		height: 100px;
+		min-height: 50px;
 	}
 }
 
-// Status Icon Formatting 
-.status {
-	position:absolute;
-	right: 7px;
-	font-size: 16px;
-	line-height: 20px;
-	bottom: 6px;
-	.icon-x { // Status Error
-		color: #f43d34;
+.radio-container, .checkbox-container { //Radio and checkbox container
+	clear:both;
+	label { //Each choice should have normal thickness
+		font-weight: normal;
 	}
-	.icon-check { // Status Success
-		color: green;
-		font-weight: 800;
+	.radio-half, .checkbox-half {
+		width: 50%;
+		margin-bottom: 4px;
+		float: left;
+		display:block;
 	}
 }
 
-// Status Icon Toggling 
-.has-error {
+
+.inlined-together .form-group { // When two elements should be connected 
+	clear:none;
+	float: left;
+	&:not(:first-child) input, &:not(:first-child) select {
+		.customRoundedCorners(0,0,3px,3px);
+		border-radius: 0px;
+	}
+	&:first-child input, &:first-child select {
+		.customRoundedCorners(0,0,3px,3px);
+	}
+	&:last-child input,&:last-child select {
+		border-left:none;
+		.customRoundedCorners(3px,3px,0,0);
+	}
+	// &:not(:first-child) input,select {
+	// 	border-left: none;
+	// 	border-radius: 0px;
+	// }
+}
+
+.inlined-separate .form-group { // Inline elements that are not related
+	clear:none;
+	width: 50%;
+	float: left;
+	.error-message {
+		right: 5px;
+	}
+	&:first-child {
+		padding-right: 5px;
+		.form-control-feedback {
+			right: 5px;
+		}
+	}
+}
+
+
+.status { // Status Icon Formatting 
+	.form-control-feedback {
+		display:none;
+	}
+	.icon-check {
+		color:@brand-success;
+	}
+}
+
+
+.has-error { // Status Icon Toggling 
+	label {
+		color: #f25454;
+	}
 	.icon-x {
 		display:block;
 	}
 	.icon-check {
 		display:none;
 	}
-	.error-message {
-		display:block;
+	input:focus + .error-message, select:focus + .error-message, textarea:focus + .error-message { 
+		.error-message-fade-in;
+	}
+	input:not(:focus) + .error-message, select:not(:focus) + .error-message, textarea:not(:focus) + .error-message { 
+		.error-message-fade-out;
+	}
+
+	input:not([type="file"]),select,textarea { //No background on files
+		background: #fff2f2;
 	}
 }
-.has-check {
+.has-check { // Has check
 	.icon-x {
 		display:none;
 	}
@@ -102,38 +129,63 @@ input {
 	}
 }
 
-// The error messages
-.error-message {
-	padding: 2px 5px;
+.error-message { // Error Message
+	padding: 2px 8px;
 	background: #f43d34;
 	position:absolute;
-	bottom: -30px;
-	right: 3px;
-	left: 0px;
+	top: -15px;
+	max-width: 99%;
+	right: 0px;
 	border-radius: 3px;
 	z-index: 10;
 	color: #fff;
 	font-weight: 500;
 	font-size: 12px;
-	&:before {
-		position: absolute;
-		top: -7px;
-		left: 7px;
-		display: inline-block;
-		border-right: 7px solid transparent;
-		border-bottom: 7px solid #f43d34;
-		border-left: 7px solid transparent;
-		border-bottom-color: rgba(0, 0, 0, .1);
-		content: '';
-	}
+	visibility:hidden;
+	transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
+	visibility: hidden;
+	opacity: 0;
 	&:after {
 		position: absolute;
-		top: -6px;
-		left: 8px;
+		bottom: -6px;
+		right: 8px;
 		display: inline-block;
 		border-right: 6px solid transparent;
-		border-bottom: 6px solid #f43d34;
+		border-top: 6px solid #f43d34;
 		border-left: 6px solid transparent;
 		content: '';
+	}
+}
+.error-message-fade-in { // When the message fades in
+	transform: translateY(5px);
+    visibility: visible;
+    opacity: 1;
+}
+.error-message-fade-out {  // When the message fades out
+	visibility: hidden;
+}
+
+// Form Submit 
+.form-group-submit {
+	border-top: 1px solid #dfdfdf;
+	margin-top: 20px;
+	padding-top: 20px;
+	display:table;
+	width: 100%;
+	.text-div {
+		display:table-cell;
+		vertical-align: middle;
+		padding-top: 1px;
+		p {
+			margin-bottom: 0px;
+			font-weight: 300;
+			font-size: 12px;
+			line-height: 16px;
+		}
+	}
+	.submit-div {
+		display:table-cell;
+		text-align: right;
+		vertical-align: middle;
 	}
 }

@@ -1,1 +1,29 @@
-new supplier form
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form id="LeadSupplierForm" class="form" action="{% url "general:lead" %}" method="POST">
+
+	{% csrf_token %}
+
+	{{ form.non_field_errors }}
+
+
+    <div class="fieldWrapper">
+    	{% comment %} <p>label: {{ field.label_tag }}</p>
+        <p>errors: {{ field.errors }}</p>
+        <p>value: {{ field.value }}</p>
+		<p>html name: {{ field.html_name }}</p>
+		<p>help text: {{ field.help_text }}</p>
+		<p>erors: {{ field.errors }}</p>
+		<p>hidden?: {{ field.is_hidden }}</p>
+		<p>field {{ field }}</p>
+		<p>field {{ field.company }}</p> {% endcomment %}
+		{{form}}
+		<button class="submit" value="submit">Submmit</button>
+    </div>
+
+<div id="response"></div>
+
+{% endblock %}

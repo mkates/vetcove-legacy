@@ -2,6 +2,12 @@
 //** The Main LESS file that imports everything **
 //************************************************
 
+//Bootstrap less files
+@import "bootstrap/bootstrap.less";
+
+//Font Awesome files
+@import "fontawesome/font-awesome.less";
+
 // Generic: Core generic mixins and utilities
 @import "generic/mixins.less";
 @import "generic/utilities.less";
@@ -14,8 +20,10 @@
 // Layout: Page Layout Styling
 @import "layout/base.less"; //General page formatting
 @import "layout/layout.less"; // Common layout designs (grid,tables,sidebar,etc.)
+@import "layout/grid.less"; // Custom grid layout to support responsive toggling (based on Bootstrap)
 @import "layout/header.less";
 @import "layout/footer.less";
+
 @import "layout/sidebar.less";
 @import "layout/hero.less";
 
@@ -31,3 +39,4 @@
 
 // Pages
 @import "pages/static.less";
+@import "pages/accounts.less";

@@ -4,11 +4,10 @@
 from django.db import models
 
 # Third Party App Imports
-
+from model_utils.models import TimeStampedModel
 
 # Create your models here.
-class SupplierInformation(models.Model):
-	created = models.DateTimeField(auto_now_add=True)
+class SupplierLead(TimeStampedModel):
 	company = models.CharField(max_length=100)
 	current_selling_method = models.CharField(max_length=100)
 	interest_listings = models.BooleanField(default=False)
@@ -16,4 +15,3 @@ class SupplierInformation(models.Model):
 	interest_promotions = models.BooleanField(default=False)
 	interest_direct = models.BooleanField(default=False)
 	product_size = models.CharField(max_length=100)
-	referral_source = models.CharField(max_length=100,blank=True)

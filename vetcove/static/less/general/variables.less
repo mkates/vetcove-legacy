@@ -3,20 +3,36 @@
 //
 // =====================================
 
-// Colors
-@backgroundColor: #353535;
-@mainColor: #b4babe;
 
 
-@borderColor: #dadada;
-@lightBlue: #63cade;
-@trueBlue: #2996cc;
-@link-color: #009cc3;
-@borderRadius: 3px;
-@insetShadow: 0 0 12px rgba(0,0,0,.1) inset;
-//colors: http://paletton.com/#uid=33p0u0koHtef7FbkgvPsRp1vkjS
-
-//Layout Gutter and page width 
+// Layout Gutter and page width 
 @pageWidth: 1100px;
 @sideGutter: 30px;
 @totalpageWidth: calc(@pageWidth+@sideGutter*2);
+
+//Colors
+
+//*Darks
+@colorDark: #353535;
+
+//*Main Colors
+@colorMain: #5ecadf; //Main Color (primary color)
+@colorBlue: #5cb8e6; // Pastel Blue (accent 1)
+@colorTeal: #5bd4c0; // Pastel Teal (accent 2)
+@colorViolet: #809ae5; // Pastel Violet (accent 3)
+@colorLime: #afcc5a; // Pastel Lime (accent 4)
+@colorPurple: #9d73c7; // Pastel Purple (accent 5)
+@colorYellow: #e0c437; // Pastel Yellow (accent 6)
+@colorRed: #eb5252; // Pastel Red (only for bad alerts) 
+@colorOrange: #e5c380; // Orange (if necessary)
+@colorGreen: #57c559; // Green for checkmarks and success
+// Borders
+@borderColor: #dadada;
+
+// Miscallenanous
+@borderRadius: 3px;
+@insetShadow: 0 0 12px rgba(0,0,0,.1) inset;
+
+a {
+	color: @colorBlue;
+}

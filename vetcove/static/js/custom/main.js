@@ -1,3 +1,10 @@
+// Helper class to add a class 
+$.fn._addClass = function(class_name) {
+	if (!($(this).hasClass(class_name))) {
+		$(this).addClass(class_name);
+	}
+}
+
 //*************************************************
 //************** Logo Effect **********************
 //*************************************************
@@ -16,7 +23,7 @@ $(document).ready(function(){
 });
 
 //*************************************************
-//************** Dropdowns and Categories *********
+//************** Dropdown Functionality ***********
 //*************************************************
 $(document).ready(function() {
 
@@ -57,6 +64,7 @@ $(document).click(function(event) {
 //*************************************************
 //********** Scroll to Top ************************
 //*************************************************
+
 $(document).ready(function() {
     var offset = 220;
     var duration = 500;
@@ -77,7 +85,8 @@ $(document).ready(function() {
 
 // *************************************************
 // ********** Menu-Aim *****************************
-//*************************************************
+//**************************************************
+
 $(document).ready(function(){
 	$(function(){
 		$("#category-menu-ul").menuAim({
@@ -100,6 +109,77 @@ $(document).ready(function(){
 // *************************************************
 // ********** Enable all tooltips ******************
 // *************************************************
+
 $(document).ready(function(){
 	$('.tooltip-div').tooltip();
 });
+
+
+// *************************************************
+// ********** Create Loaders ***********************
+// *************************************************
+
+$(document).ready(function(){
+	createLoader($(".loader"),'#5ecadf');
+});
+
+// *************************************************
+// ********** Footer Effect ************************
+// *************************************************
+
+$(document).ready(function(){
+	$(".footer-links a").hover(function() {
+		$(".footer-links a").addClass('faded');
+		$(this).removeClass('faded');
+	},function() {
+		$(".footer-links a").removeClass('faded');
+	});
+});
+
+// *************************************************
+// ********** Message X Functionality **************
+// *************************************************
+
+// A user can dismiss the message bar
+$(document).ready(function(){
+	$('.message-container .x').click(function() {
+		$(this).closest('.message-container').slideToggle();
+	});
+});
+
+// Activates the message bar
+// Takes two parameters: a message type and a message text
+function activateMessage(type,text) {
+	// Remove all formatting classes
+	$(".message-container").removeClass("success");
+	$(".message-container").removeClass("error");
+	$(".message-container").removeClass("info");
+
+	// Add the appropriate tag
+	if (type=='error') {
+		$(".message-container")._addClass("error");
+	} else if (type=='success') {
+		$(".message-container")._addClass("success");
+	} else if (type=='info') {
+		$(".message-container")._addClass("error");
+	}
+
+	// Add the appropriate text
+	$(".message-container p").text(text);
+
+	// Slide Toggle the element
+	$(".message-container").stop();
+	if ($(".message-container").is(':visible')) {
+		$(".message-container").css('display','block');
+	} else {
+		$(".message-container").slideToggle();
+	}
+}
+
+// Deactivated the message bar 
+function deactivateMessage() {
+	$(".message-container").stop();
+	if ($(".message-container").is(':visible')) {
+		$(".message-container").slideToggle();
+	} 
+}

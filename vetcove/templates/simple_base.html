@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% comment %}
+The simple base does not include any of the common
+base elements, such as header, footer, side coloring.
+It still has messages and full page overlay though.
+{% endcomment %}
+
+{% block title %}Vetcove{% endblock %}
+
+{% block header %}
+{# We don't want the standard header #}
+{% endblock %}
+
+{% block body %}
+<div class="simple_body_container">
+	<div class="simple_header">
+		<a href='/'><img src="{% static 'img/logo_hex_gray.png' %}" alt="Vetcove"></a>
+	</div>
+	<div class="simple_background">
+		<div class="simple-container">
+			<div class="simple-outer">
+				<div class="simple-content">
+					{% block simplecontent %}
+
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block footer %}
+{# We don't want a footer with a simple base #}
+{% endblock %}
+
+{% block backtotop %}
+{# Disable the Back To Top button #}
+{% endblock %}
+

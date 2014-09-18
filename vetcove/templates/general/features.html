@@ -1,1 +1,223 @@
-clinic features
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Features{% endblock %}
+
+{% block content %}
+
+<div class="hero features">
+	<div class="row">
+		<div class="text col-6 col-xs-12">
+			<h1>Clinic Features</h1>
+			<h2>Ordering and managing supplies just got a whole lot easier</h2>
+			<a href='{% url "accounts:signin" %}' class="button button-rounded button-shaded">Get Started</a>
+		</div>
+		<div class="image col-6 col-xs-12">
+			<img src='{% static "img/test/macbook.png" %}'>
+		</div>
+	</div>
+</div>
+
+
+<div class="section feature white">
+	<div class="row">
+		<div class="col-6">
+			<div class="text">
+				<h3 class="purple">A Community of Trust</h3>
+				<p>Be the smartest purchaser and gain competitive edge with community insights.</p>
+				<h4>Trustworthy Product Reviews</h4>
+				<p>Compare products using helpful ratings and reviews from your trusted veterinary peers.</p>
+				<h4>Your Questions, Answered Fast</h4>
+				<p>View community-answered questions about products, or ask one yourself and hear directly from the product's manufacturer.</p>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="image">
+				<img src='{% static "img/reviews.png" %}'>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section feature">
+	<div class="row">
+		<div class="col-12">
+			<div class="text centered">
+				<h3 class="purple">Effortless Order Management</h3>
+				<p class="thin">Stop relying on reps and flyers to uncover discounts. Vetcove does the work for you.</p>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="text">
+				<h4>Many Suppliers, One Invoice</h4>
+				<p>All your orders to all suppliers are organized into consolidated Vetcove invoices.</p>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="text">
+				<h4>Real-time Package Tracking</h4>
+				<p>Always know where your shipments are and when they're getting delivered.</p>
+			</div>
+		</div>
+		<div class="col-4">
+			<div class="text">
+				<h4>Easy Returns and Customer Service</h4>
+				<p>Get in touch with suppliers and request returns with one click.</p>
+			</div>
+		</div>
+		<!-- <div class="col-3">
+			<div class="text">
+				<h4>Smart Price Tracking</h4>
+				<p>Easily track price changes on commonly ordered products to avoid ordering mistakes</p>
+			</div>
+		</div> -->
+		<div class="col-12">	
+			<div class="oh">
+				<div class="row colored">
+					<div class="col-4 orders">
+						<div class="order">
+							<h1>Order # 24232-12A</h1>
+							<p>Order Processed</p>
+							<p>Expected Delivery: Wednesday 12-3PM</p>
+							<img src='{% static "img/test/ordermanagement_1.png" %}'>
+						</div>
+						<div class="order active">
+							<h1>Order # 24232-12A</h1>
+							<p>In Transit: Newark, NJ Shipping Facility</p>
+							<p>Expected Delivery: Tomorrow 9-12AM</p>
+							<img src='{% static "img/test/ordermanagement_3.png" %}'>
+						</div>
+						<div class="order">
+							<h1>Order # 24232-12A</h1>
+							<p>Order Complete</p>
+							<p>Delivered on: March 13th, 9:38AM</p>
+							<img src='{% static "img/test/ordermanagement_4.png" %}'>
+						</div>
+					</div>
+
+					<div class="col-8 details">
+						<div class="actions">
+							<a class="button button-rounded button-flat-shaded">Return An Item</a>
+							<a class="button button-rounded button-flat-shaded">Print This Order</a>
+						</div>
+						<div class="items">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Item</th>
+										<th>Quantity</th>
+										<th>Unit Price</th>
+										<th>Total Price</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Equizone 100 Phenylbutazone Powder</td>
+										<td>2</td>
+										<td>$17.20</td>
+										<td>$34.40</td>
+									</tr>
+									<tr>
+										<td>Dual Headed Stethoscope</td>
+										<td>3</td>
+										<td>$3.31</td>
+										<td>$9.93</td>
+									</tr>
+									<tr class="bottomborder">
+										<td>Teflon Catheters</td>
+										<td>10</td>
+										<td>$12.11</td>
+										<td>$121.10</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td></td>
+										<td class="right">Total: </td>
+										<td class="total">$165.43</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="changes">
+								The item <strong>Equizone 100 Phenylbutazone Powder</strong> is $2.40 cheaper than when you last purchased the item on <strong> March 13th, 2015</strong>.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+<div class="section feature white">
+	<div class="row">
+		<div class="col-6 col-push-6">
+			<div class="text">
+				<h3 class="purple">Discover Great Deals</h3>
+				<p>Stop relying on reps and flyers to uncover discounts. Vetcove does the work for you.</p>
+				<h4>Bring Order to Promotions</h4>
+				<p>Vetcove sorts and prioritizes all supplier discounts and promotions. Order smarter and save money for your clinic effortlessly.</p>
+				<h4>Exclusives for your Clinic</h4>
+				<p>With exclusive Vetcove deals that match your practice type and ordering habits, you'll save even more.</p>
+				<h4>Discover that New Perfect Product</h4>
+				<p>Get introduced to newly released and trending products that fit your clinic's operating space.</p>
+			</div>
+		</div>
+		<div class="col-6 col-pull-6">
+			<div class="image">
+				<img src='{% static "img/deals.png" %}'>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="feature">
+	<div class="row">
+		<div class="col-6">
+			<div class="text">
+				<h3 class="purple">Rewards Made Simple</h3>
+				<p>Tracking incentive programs from all your suppliers used to be a chore. Not anymore.</p>
+				<h4>Visual Milestone Tracking</h4>
+				<p>Vetcove helps you achieve supplier milestones with automated tracking and reminders. You'll never miss out on rewards and rebates again.</p>
+				<h4>Participate and Be Rewarded</h4>
+				<p>When you participate in the Vetcove community, you'll earn great rewards for you and your clinic.</p>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="image">
+				<img src='{% static "img/test/rewards.png" %}'>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="feature white">
+	<div class="row">
+		<div class="col-12">
+			<div class="text centered">
+				<h3 class="purple">Insights Into Your Clinic</h3>
+				<p class="thin">Easily visualize your clinic's ordering habits, and track key financial metrics over time. Vetcove puts you in control of your own data to help you manage your margins more effectively. Go ahead, play with the demo below!</p>
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="image paddingbottom">
+				<div class="chart" id="featurechart"></div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="section">
+	<div class="row call-to-action">
+		<div class="col-12">
+			<h4>View Vetcove for yourself</h4>
+			<p>Signing up takes less than 60 seconds, and we'll have your account quickly approved. What do you have to lose? It's 100% free to use!</p>
+			<a href='{% url "general:dashboard" %}' class="button button-rounded">Explore Vetcove</a><a href='{% url "accounts:signin" %}' class="button button-rounded button-purple">Get Started</a>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

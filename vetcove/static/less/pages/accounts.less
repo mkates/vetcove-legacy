@@ -1,0 +1,109 @@
+
+// Simple Content Page Formatting //
+// Simple allows the page elements to be centered
+
+// The simple header
+.simple_header {
+	position:absolute;
+	z-index: 1;
+	height: 50px;
+	width: 100%;
+	text-align: center;
+	background: @colorDark;
+	img {
+		padding: 5px;
+		max-height: 45px;
+	}
+}
+
+// The simple page formatting
+.simple_background {
+	height: 100%;
+	left: 0;
+	right: 0;
+	position:absolute;
+}
+.simple-container {
+	position:absolute;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	display: table;
+	background: #fafafa;
+}
+.simple-outer {
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 50px;
+}
+.simple-content {
+    margin-left: auto;
+    margin-right: auto; 
+    //text-align: center;
+    max-width: 800px;
+}
+
+// Account Boxes
+.account-box {
+	background: #fff;
+	margin: 0 auto;
+	width: 400px;
+    border:1px solid #dadada;
+    border-radius: 3px;
+    h1 {
+    	.gradient(#eee,#eee,#fff);
+    	text-align: center;
+    	border-bottom:1px solid #dadada;
+    	font-size: 16px;
+    	letter-spacing: .5px;
+    	padding: 10px 5px;
+    	margin: 0 0 10px 0;
+    	text-transform: uppercase;	
+    }
+    .form {
+    	padding: 5px 20px;
+    	width: 100%;
+    }
+}
+
+.account-footer {
+	padding-top: 20px;
+	p {
+		font-size: 13px;
+	}
+	img {
+		margin-top: 20px;
+		opacity: .1;
+		max-width: 30px;
+	}
+}
+
+// Account Password Formatting
+.account-password {
+	padding: 5px 20px 10px 20px;
+	text-align: center;
+	.reset-icon {
+		font-size: 40px;
+		margin-bottom: 10px;
+		opacity: .3;
+	}
+	p .email {
+		font-weight: 600;
+		color: #5dbd53;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

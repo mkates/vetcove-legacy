@@ -3,24 +3,21 @@
 /**************************************/
 
 body {
-	background: @backgroundColor;
+	background: @colorDark;
 	text-rendering: optimizelegibility;
 }
+
 .body-container {
 	max-width: @totalpageWidth;
-	position: relative;
 	margin: 0 auto;
 }
 .content { 
-	overflow: auto; // To prevent margin headers from distorting the main content div
+	overflow: hidden; // Hide any overflowed content
 	min-height: 500px;
-	padding-bottom: 100px;
 	background: #f1f1f1;
 }
 
-a { color: @link-color }
-
-//Background on highlighting
+// Background on highlighting
 ::selection {
   background: #e6e6e6; /* WebKit/Blink Browsers */
 }

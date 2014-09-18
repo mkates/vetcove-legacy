@@ -1,1 +1,200 @@
 {% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+<div class="index-hero">
+	<h1>Veterinary Supply Starts Here.</h1>
+	<h2>One smart platform brings together manufacturers, distributors, and compounders to make supplying your clinic a breeze.</h2>
+	<div class="buttons">
+{# 		<a href='#' class="button button-large button-rounded button-flat button-flat-action">Explore Vetcove</a> #}
+		<a href='#' class="button button-large button-rounded button-primary">Get Started For Free</a>
+	</div>
+</div>
+
+<div class="index-banner">
+	<p><span class="label label-success"></span> Take a virtual tour and see how Vetcove can benefit your clinic. <a href='#'>Start Exploring > </a></p>
+</div>
+
+<div class="section white">
+	<div class="section-header">
+		<h3>One Source is All You Need</h3>
+		<p>Vetcove is compatible with the largest network of suppliers, ensuring the absolute largest inventory of in-stock items anywhere.</p>
+	</div>
+	<div class="row index-suppliers">
+		<div class="col-3 col-xs-12">
+			<div class="index-supplier">
+				<div class="supplier-types supplier-manufacturers"></div>
+				<h6>Manufacturers</h6>
+				<p>Manufacturers provide quality product information and direct shipments on select products.</p>
+			</div>
+		</div>
+		<div class="col-3 col-xs-12">
+			<div class="index-supplier">
+				<div class="supplier-types supplier-compounders"></div>
+				<h6>Compounders</h6>
+				<p>Compounders offer a full suite of products to help your business replace backordered and specialty ordrs.</p>
+			</div>
+		</div>
+		<div class="col-3 col-xs-12">
+			<div class="index-supplier">
+				<div class="supplier-types supplier-distributors"></div>
+				<h6>Distributors</h6>
+				<p>You can count on our distributors to supply all your day to day supply needs.</p>
+			</div>
+		</div>
+		<div class="col-3 col-xs-12">
+			<div class="index-supplier">
+				<div class="supplier-types supplier-diagnosticlabs"></div>
+				<h6>Diagnostic Labs</h6>
+				<p>Compare prices and find tests for specialty diagnostic lab testings.</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="section light">
+	<div class="section-header">
+		<h3>The Platform for Everything Supply</h3>
+		<p>Vetcove is compatible with the largest network of suppliers, ensuring the absolute largest inventory of in-stock items anywhere.</p>
+	</div>
+	<div class="row index-categories ">
+		<div class="col-4 col-xs-12">
+			<a href='#' class="index-category category-pharmaceuticals">
+				<div class="fader"></div>
+				<h6>Pharmaceuticals</h6>
+				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+			</a>
+		</div>
+		<div class="col-4 col-xs-12">
+			<a href='#'class="index-category category-equipment">
+				<div class="fader"></div>
+				<h6>Equipment</h6>
+				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+			</a>
+		</div>
+		<div class="col-4 col-xs-12">
+			<a href='#' class="index-category category-diagnostics">
+				<div class="fader"></div>
+				<h6>Diagnostics</h6>
+				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+			</a>
+		</div>
+		<div class="col-4 col-xs-12">
+			<a href='#' class="index-category category-biologics">
+				<div class="fader"></div>
+				<h6>Biologics</h6>
+				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+			</a>
+		</div>
+		<div class="col-4 col-xs-12">
+			<a href='#' class="index-category category-food">
+				<div class="fader"></div>
+				<h6>Food</h6>
+				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+			</a>
+		</div>
+		<div class="col-4 col-xs-12">
+			<a href='#' class="index-category category-insect">
+				<div class="fader"></div>
+				<h6>Parasite/Insect</h6>
+				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="section white">
+	<div class="section-header">
+		<h3>What You Can Do With Vetcove</h3>
+		<p>Vetcove gives you more than just a single source for ordering supplies</p>
+	</div>
+	<div class="row index-features">
+		<div class="index-feature-list col-6 col-xs-12">
+			<p>Research &#38; compare products<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Track price changes<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Track manufacturer rebates<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Place &#38; track orders<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Consolidate invoices &#38; reports<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Ask product questions to our community<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Return items<span class="glyphicon glyphicon-ok"></span></p>
+		</div>
+		<div class="index-feature-list col-6 col-xs-12">
+			<p>Online Help &#38; Support<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Find trending &#38; new products<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Purchase analytics & insights<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Community rewards<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Exclusive deals<span class="glyphicon glyphicon-ok"></span></p>
+			<p>Mobile ordering<span>Coming Soon</span></p>
+			<p>Used equipment and supplies<span>Coming Soon</span></p>
+		</div>
+		<div class="col-12 centered">
+			<a href='{% url "general:features" %}' class="button button-rounded button-success">View All Features</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="section light">
+	<div class="section-header">
+		<h3>Testimonials</h3>
+	</div>
+	<div class="row index-testimonial">
+		<div class="testimonial-grid">
+			<div class="collage-box-container collage-box-tall collage-box-fat">
+				<div class="collage-box">
+					<img class="large-img" src='{% static "img/testimonial_cnequine/cn_2.jpg" %}' alt="">
+				</div>
+			</div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_3.jpg" %}' alt="">
+				</div>
+			</div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_5.jpg" %}' alt="">
+				</div>
+			</div>
+			<div class="collage-box-container collage-box-short collage-box-fat">
+				<div class="collage-box primary">
+					<div class="text">
+						<p>Vetcove is simply remarkable. We went from spending hours ordering to minutes.</p>
+						<p class="author">Eric Kates, Owner Colts Neck Equine</p>
+					</div>
+				</div>
+			</div>
+			<div class="collage-box-container collage-box-short collage-box-fat">
+				<div class="collage-box action">
+					<div class="text">
+						<p>I love that you can see reviews and questions on so many products.</p>
+						<p class="author">Jaime Nagle, Offic Manager Colts Neck Equine</p>
+					</div>
+				</div>
+			</div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_4.jpg" %}' alt="">
+				</div>
+			</div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_1.jpg" %}' alt="">
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<div class="section white">
+	<div class="row call-to-action">
+		<div class="col-12">
+			<h4>Join the Vetcove community</h4>
+			<p>Signing up takes less than 60 seconds, and we will have your account quickly approved. What do you have to lose? It's 100% free to use!</p>
+			<a href='#' class="button button-rounded button-primary">Get Started</a>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

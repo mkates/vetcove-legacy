@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Features{% endblock %}
+
+{% block content %}
+
+<div class="hero dashboard centered noimage">
+	<div class="row">
+		<div class="text col-12 col-xs-12">
+			<h1>Explore VetCove</h1>
+			<h2>View A Live Dashboard</h2>
+			<a href='{% url "accounts:signin" %}' class="button button-rounded button-shaded">Activate Your Dashboard</a>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

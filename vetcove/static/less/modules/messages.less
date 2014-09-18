@@ -5,49 +5,59 @@
 // There are two types of messages, a full width message and a
 // small message. Both messages appear top center of the screen
 
-// Message types: success, error
-
-//<div class="message success">
-//	{{Message Text}}
-//	<div class="x">&#x2716;</div>
+// Message types: success, error, info
+//<div class="message-container">
+//  <div class="message success">
+//	  {{Message Text}}
+//	  <div class="x">&#x2716;</div>
+//  </div>
 //</div>
 
-.message {
-	display:none; //Hide to start
-	height: 45px;
-	color: #000;
-	line-height: 45px;
-	margin-bottom: 10px;
-	text-align: center;
-	font-size: 14px;
-	position:absolute;
+.message-container {
+	display:none;
 	width: 100%;
-	background: @lightBlue; //Default message is light blue
-	.bottomRoundedCorners(2px);
-	//Option to make the message use relative positioning
-	&.relative {
-		position:relative
+	position:fixed;
+	z-index: 200;
+	.message {
+		padding: 0px 10px;
+		height: 50px;
+		max-width: 100%;
+		width: @pageWidth+@sideGutter*2;
+		margin: 0px auto;
+		background:#35a3dc;
+		.bottomRoundedCorners(2px);
+		overflow: auto;
+		display:table;
+		p {
+			vertical-align: middle;
+			display:table-cell;
+			text-align: center;
+			line-height: 17px;
+			color: #fff;
+			font-size: 13px;
+			font-weight: 500;
+			padding-left: 30px;
+		}
+		.x {
+			display:table-cell;
+			vertical-align: middle;
+			text-align: center;
+			width: 30px;
+			font-size: 20px;
+			opacity: .4;
+			&:hover {
+				cursor:pointer;
+				opacity: .8;
+			}
+		}
 	}
-	//Success Message
-	&.success {
+	&.info .message {
+		background: #35a3dc;
+	}
+	&.success .message{
 		background: #57b755;
 	}
-	//Error Message
-	&.error {
+	&.error .message {
 		background: #ff5858;
-	}
-	// The X button, used to manually close a message
-	.x {
-		position:absolute;
-		right: 5px;
-		line-height: 40px;
-		padding: 5px;
-		top: 0;
-		font-size: 20px;
-		opacity: .3;
-		&:hover {
-			cursor:pointer;
-			opacity: .5;
-		}
 	}
 }

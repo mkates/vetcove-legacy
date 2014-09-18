@@ -1,0 +1,174 @@
+// Only if body is reponsive wil the rows degrade gracefully
+// Custom grid layout
+body:not(.responsive) {
+	min-width: 800px;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+}
+// General Layout 
+.generate-columns(12);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+  .col-@{i} {
+		float:left; 
+    position:relative;
+	}
+	.col-@{i} {
+		width: (@i * 100% / @n);
+	}
+	.col-pull-@{i} {
+		right: (@i * 100% / @n);
+	}
+	.col-push-@{i} {
+		left: (@i * 100% / @n);
+	}
+	.col-offset-@{i} {
+		margin-left: (@i * 100% / @n);
+	}
+  .generate-columns(@n, (@i + 1));
+}
+
+.generate-columns(12);
+
+// Small Layout 
+.generate-xs-columns(12);
+
+.generate-xs-columns(@n, @i: 1) when (@i =< @n) {
+  @media(max-width: 768px) {
+    .responsive {
+      .col-xs-@{i} {
+        float:left; 
+      }
+      .col-xs-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .col-xs-pull-@{i} {
+        right: (@i * 100% / @n);
+      }
+      .col-xs-push-@{i} {
+        left: (@i * 100% / @n);
+      }
+      .col-xs-offset-@{i} {
+        margin-left: (@i * 100% / @n);
+      }
+    }
+  }
+  .generate-xs-columns(@n, (@i + 1));
+}
+
+.generate-xs-columns(12);
+
+
+// Generate sm columns
+.generate-sm-columns(@n, @i: 1) when (@i =< @n) {
+  @media(min-width: 930px) {
+    .responsive {
+      .col-sm-@{i} {
+        float:left; 
+      }
+      .col-sm-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .col-sm-pull-@{i} {
+        right: (@i * 100% / @n);
+      }
+      .col-sm-push-@{i} {
+        left: (@i * 100% / @n);
+      }
+      .col-sm-offset-@{i} {
+        margin-left: (@i * 100% / @n);
+      }
+    }
+  }
+  .generate-sm-columns(@n, (@i + 1));
+}
+
+.generate-sm-columns(12);
+
+
+// Some extras to add (1/5,1/7,1/8,and 1/10)
+
+// A column that is 1/5
+.col-12-5,.col-xs-12-5,.col-sm-12-5,.col-md-12-5,.col-lg-12-5 {
+  width: 20%;
+  float: left;
+  position:relative;
+}
+
+// A column that is 1/7
+.col-12-7,.col-xs-12-7,.col-sm-12-7,.col-md-12-7,.col-lg-12-7 {
+  width: 14.825%;
+  float: left;
+  position:relative;
+}
+
+// A column that is 1/8
+.col-12-8,.col-xs-12-8,.col-sm-12-8,.col-md-12-8,.col-lg-12-8 {
+  width: 12.5%;
+  float: left;
+  position:relative;
+}
+
+// A column that is 1/10
+.col-12-10,.col-xs-12-10,.col-sm-12-10,.col-md-12-10,.col-lg-12-10 {
+  width: 10%;
+  float: left;
+  position:relative;
+}
+
+
+
+.clearfix:before,
+.clearfix:after,
+.container:before,
+.container:after,
+.container-fluid:before,
+.container-fluid:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after,
+.container:after,
+.container-fluid:after,
+.row:after {
+  clear: both;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
+}
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.affix {
+  position: fixed;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}

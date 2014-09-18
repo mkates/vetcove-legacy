@@ -1,6 +1,7 @@
 //The top header bar which includes the following components:
 // Logo, left navigation, and right navigation
 
+
 .header-first {
 	max-width: @totalpageWidth;
 	padding: 2px @sideGutter;
@@ -18,18 +19,23 @@
 		line-height: 16px;
 		letter-spacing: 1px;
 		text-transform: uppercase;
-		border-radius: 2px;
-		transition: background .3s, color .3s;
+		border-radius: 2px; 
+		border: none;
+		transition: background .2s, color .2s;
 		&:hover {
 			text-decoration:none;
 		}
 		//A standard link on the bar
 		&.standard-link {
 			padding: 17px 15px;
-			color: @mainColor;
-			&:hover {
+			color: #ddd;
+			&:not(.active):hover {
 				color: #fff;
 			}
+			&.active.features-link  {  color: @colorPurple  }
+			&.active.suppliers-link {  color: @colorViolet  }
+			&.active.dashboard-link {  color: @colorBlue    }
+			&.active.support-link   {  color: @colorLime    }
 		}
 		//A special link, such as a special or promotion link
 		&.special-link {
@@ -40,13 +46,16 @@
 		&.signup-link {
 			margin: 7px 0 7px 15px;
 			padding: 8px 13px;
-			border:2px solid #76cde0;
-			color: #76cde0;
+			border:2px solid #ddd;
+			color: #ddd;
 			&:hover {
-				//border-color: #69b863;
 				background: #2a2a2a;
-				//color: #ccc;
 			}
+			&.index-color     {  border-color: @colorMain;   color: @colorMain   }
+			&.features-color  {  border-color: @colorPurple; color: @colorPurple }
+			&.suppliers-color {  border-color: @colorViolet; color: @colorViolet }
+			&.dashboard-color {  border-color: @colorBlue;   color: @colorBlue   }
+			&.support-color   {  border-color: @colorLime;   color: @colorLime   }
 		}
 		// Checkout button
 		&.checkout-link {
@@ -124,6 +133,7 @@
 	padding: 4px @sideGutter 0 @sideGutter; // Pad the bar
 	.gradient(#555,#555,#666);
 	display:table;
+	display:none;
 	a:hover { // Not elements underline in this bar
 		text-decoration:none;
 	}
@@ -140,9 +150,8 @@
 			margin: 0;
 			white-space: nowrap; // Nothing should be more than one line on this bar
 		}
-		.caret { // Element Carets
-			border-bottom-color: #aaa;
-    		border-top-color: #aaa;
+		.glyphicon { // Element Carets
+			font-size: 8px;
 		}
 		.element-link { // All element links should be the same height (total 50)
 			display:block;
@@ -189,7 +198,7 @@
 				border:1px solid #aaa;
 				background: #f6f6f6;
 				&:focus {
-					border:1px solid @lightBlue;
+					border:1px solid @colorBlue;
 					box-shadow: none; //Overrides bootstrap shadow
 					background: #fff;
 				}

@@ -27,3 +27,29 @@
 		display:inline-block;
 	}
 }
+.centered {
+	text-align: center;
+}
+.centered-div {
+	margin: 0 auto;
+}
+.right {
+	text-align: right;
+}
+.left {
+	text-align: left;
+}
+
+//Padding and margins
+.generateMarginsAndPadding(@n, @i: 5) when (@i =< @n) {
+  .padding-@{i} {
+    padding: @i*1px;
+  }
+  .margin-@{i} {
+    margin: @i*1px;
+  }
+  .generateMarginsAndPadding(@n, (@i + 5));
+}
+
+.generateMarginsAndPadding(40);
+

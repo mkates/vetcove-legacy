@@ -1,1 +1,61 @@
-supplier information
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Suppliers{% endblock %}
+
+{% block content %}
+
+<div class="hero suppliers">
+	<div class="row">
+		<div class="text col-6 col-xs-12">
+			<h1>Supplier Features</h1>
+			<h2>Separate your products from the competition </h2>
+			<a href='{% url "general:lead" %}' class="button button-rounded button-shaded">Become a Supplier</a>
+		</div>
+		<div class="image col-6 col-xs-12">
+			<img src='{% static "img/test/macbook.png" %}'>
+		</div>
+	</div>
+</div>
+
+
+<div class="row section">
+	<div class="section-header">
+		<h3 class="teal">Features</h3>
+	</div>
+	<div class="col-3 col-xs-12">
+		<div class="index-supplier">
+			<div class="supplier-types supplier-manufacturers"></div>
+			<h6>Manufacturers</h6>
+			<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+		</div>
+	</div>
+	<div class="col-3 col-xs-12">
+		<div class="index-supplier">
+			<div class="supplier-types supplier-compounders"></div>
+			<h6>Compounders</h6>
+			<p>gether manufacturers, distributors, and compounders to make supplying your clinic a breeze.</p>
+		</div>
+	</div>
+	<div class="col-3 col-xs-12">
+		<div class="index-supplier">
+			<div class="supplier-types supplier-distributors"></div>
+			<h6>Distributors</h6>
+			<p>gether manufacturers, distributors, and compounders to make supplying your clinic a breeze.</p>
+		</div>
+	</div>
+	<div class="col-3 col-xs-12">
+		<div class="index-supplier">
+			<div class="supplier-types supplier-diagnosticlabs"></div>
+			<h6>Diagnostic Labs</h6>
+			<p>gether manufacturers, distributors, and compounders to make supplying your clinic a breeze.</p>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}

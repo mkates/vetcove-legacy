@@ -1,0 +1,105 @@
+<form role="form" class="form validated-form">
+	<div class="inlined-together">
+		<div class="form-group third">
+			<label for="email">Title</label>
+			<select data-type="select" data-required="true" class="form-control">
+				<option value=''>Select a Title. . . </option>
+				<option value="fsdfa">Dr.</option>
+			</select>
+			<div class="error-message">Please choose a title</div>
+		</div>
+		<div class="form-group third">
+			<label for="password">First Name</label>
+			<input type="text" data-type="text" data-required="true" class="password form-control" placeholder="Password">
+			<div class="error-message">Must be at least 8 characters</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+		<div class="form-group third">
+			<label for="password">Last Name</label>
+			<input type="text" data-type="text" data-required="true" class="password form-control" placeholder="Password">
+			<div class="error-message">Required</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+	</div>
+	<div class="inlined-separate">
+		<div class="form-group half">
+			<label for="password">First Name</label>
+			<input type="password" data-type="password" data-required="true" class="password form-control" placeholder="Password">
+			<div class="error-message">Must be at least 8 characters</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+		<div class="form-group half">
+			<label for="password">Last Name</label>
+			<input type="password" data-type="password" data-required="true" class="password form-control" placeholder="Password">
+			<div class="error-message">Required</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name">Name</label>
+		<textarea data-type="text" data-required="true" class="form-control"></textarea>
+		<div class="error-message">Email already in use</div>
+	</div>
+	<div class="form-group short">
+		<label for="state">Password</label>
+		<select data-type="select" data-required="true" class="form-control">
+			<option value=''>Select a Name. . . </option>
+			<option value="fsdfa">Cool</option>
+		</select>
+		<div class="error-message">Please select a name</div>
+	</div>
+	<div class="form-group">
+		<label for="state">Confirm Password</label>
+		<input data-required="true" data-type="confirmpassword" type="password" class="form-control confirmpassword">
+		<div class="status">
+			<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+			<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+		</div>
+		<div class="error-message">Email already in use</div>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputFile">File input</label>
+		<input data-required="true" data-type="file" type="file" accept="image/*">
+		<div class="error-message">Email already in use</div>
+	</div>
+	<div class="form-group">
+		<label for="exampleInputPassword1">Equine Type <span>(select at least one)</span></label>
+		<div class="radio-container">
+			<div class="radio-half">
+				<label>
+					<input name="option" type="radio"> Check me out
+				</label>
+			</div>
+			<div class="radio-half">
+				<label>
+					<input name="option" type="radio"> Check me out
+				</label>
+			</div>
+			<div class="radio-half">
+				<label>
+					<input name="option" type="radio"> Check me out
+				</label>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="error-message">Email already in use</div>
+	</div>
+	<div class="form-group-submit">
+		<div class="text">
+			forgot password?
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</div>
+</form>

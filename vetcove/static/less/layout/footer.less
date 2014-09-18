@@ -1,5 +1,6 @@
 // Page Footer //
 
+// The general page footer 
 .footer {
 	padding: 20px @sideGutter;
 	.footer-links {
@@ -34,20 +35,42 @@
 		}
 	}
 	.additional {
+		margin-top: 20px;
 		clear:both;
 		text-align: center;
 		margin-top: 40px;
 		padding-top: 20px;
 		color: #666;
-		//border-top: 1px solid #444;
+		border-top: 1px solid #444;
 		p {
 			font-size: 11px;
+			margin-bottom: 5px;
 		}
 		.address {
 			font-size: 12px;
 			color: #999;
-			padding-top: 20px;
-			border-top: 1px solid #444;
+			padding-top: 5px;
+			padding-bottom: 10px;
+		}
+		.social a {
+			color: #888;
+			transition: color .2s;
+			margin: 0 3px;
+			.fa-facebook-square {
+				&:hover {
+					color: #3b5998
+				}
+			}
+			.fa-twitter-square {
+				&:hover {
+					color: #00aced;
+				}
+			}
+			.fa-linkedin-square {
+				&:hover {
+					color: #007bb6;
+				}
+			}
 		}
 		img {
 			opacity: .2;
@@ -57,5 +80,14 @@
 				opacity: .6;
 			}
 		}
+	}
+}
+
+// The simple page footer
+.simple_footer {
+	text-align: center;
+	img {
+		opacity: .2;
+		max-width: 20px;
 	}
 }

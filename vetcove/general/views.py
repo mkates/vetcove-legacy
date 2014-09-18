@@ -5,19 +5,29 @@ from __future__ import absolute_import
 
 # Core Django Imports
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView, RedirectView, View, CreateView
 from django.contrib.auth.views import redirect_to_login
+from django.core.urlresolvers import reverse
 
 # Third Party App Imports
 
 # In-App Imports
+from .forms import SupplierLeadForm
+from core.views import AjaxableResponseMixin
+
+######################################################################
 
 
 class Index(TemplateView):
 	template_name = 'general/index.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(Index, self).get_context_data(**kwargs)
+		context['index'] = True
+		return context
 
 ############################################
 ###### Company Pages #######################
@@ -57,8 +67,9 @@ class Feedback(TemplateView):
 
 
 class Company(RedirectView):
-	'''Redirect the root company to the about page'''
-
+	'''
+	Redirect the root company to the about page
+	'''
 	url = '/company/about'
 
 ############################################
@@ -104,8 +115,17 @@ class SellerAgreement(TemplateView):
 class Support(TemplateView):
 	template_name = 'general/support.html'
 
-class FAQ(TemplateView):
-	template_name = 'general/faq.html'
+	def get_context_data(self, **kwargs):
+		context = super(Support, self).get_context_data(**kwargs)
+		context['support'] = True
+		return context
+
+
+class FAQ(RedirectView):
+
+	def get_redirect_url(self):
+		return reverse("general:support")
+
 
 ############################################
 ###### Explore Pages #######################
@@ -114,14 +134,35 @@ class FAQ(TemplateView):
 class Features(TemplateView):
 	template_name = 'general/features.html'
 
+	def get_context_data(self, **kwargs):
+		context = super(Features, self).get_context_data(**kwargs)
+		context['features'] = True
+		return context
+
 class Suppliers(TemplateView):
 	template_name = 'general/suppliers.html'
 
-class Lead(TemplateView):
+	def get_context_data(self, **kwargs):
+		context = super(Suppliers, self).get_context_data(**kwargs)
+		context['suppliers'] = True
+		return context
+
+class Dashboard(TemplateView):
+	template_name = 'general/dashboard.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(Dashboard, self).get_context_data(**kwargs)
+		context['dashboard'] = True
+		return context
+
+class Lead(AjaxableResponseMixin,CreateView):
+	'''
+	Supplier Lead Form
+	'''
+	form_class = SupplierLeadForm
 	template_name = 'general/lead.html'
-
-
-
+	ajax = True
+	success_url = '/' # Required for create View
 
 
 
