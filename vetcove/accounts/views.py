@@ -14,7 +14,7 @@ from django.contrib.auth import login
 # Third Party App Imports
 
 # In-App Imports
-from .forms import EmailAuthenticationForm
+from .forms import TestForm
 
 
 #######################################################################
@@ -26,7 +26,7 @@ class SignIn(FormView):
 	Form to sign a user in
 	'''
 	template_name = 'accounts/signin.html'
-	form_class = EmailAuthenticationForm
+	form_class = TestForm
 	success_url = '/home'
 
 	def form_valid(self,form):

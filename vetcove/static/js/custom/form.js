@@ -20,6 +20,13 @@
 
 $.fn.formValidator = function() {
 
+	// Set all the error messages, which are part of the input field
+	var elements = $(this).find("input, select, textarea");
+	$.each(elements,function(index,value) {
+		var error_message = $(value).attr('data-invalid');
+		$(value).closest('.form-group').find(".error-message").html(error_message);
+	});
+
 	// Aggregate all the potential form actions
 
 	$(this).find("input").blur(function() {
@@ -73,7 +80,7 @@ $.fn.formValidator = function() {
 	// Runs it through a series of validators
 	var validateInput = function(input,action) {
 		var data_type = $(input).attr("data-type");
-		var required = $(input).attr('data-required') == 'true' ? true : false;
+		var required = $(input).attr('data-required') == 'True' ? true : false;
 		if (data_type == 'text') {
 			var valid = $(input).val().length >= 2;
 		} else if (data_type == 'email') {

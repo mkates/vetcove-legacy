@@ -20,42 +20,149 @@
 </div>
 
 
-<div class="row section">
-	<div class="section-header">
-		<h3 class="teal">Features</h3>
-	</div>
-	<div class="col-3 col-xs-12">
-		<div class="index-supplier">
-			<div class="supplier-types supplier-manufacturers"></div>
-			<h6>Manufacturers</h6>
-			<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
+<div class="section feature white">
+	<div class="row">
+		<div class="col-6">
+			<div class="text">
+				<h3 class="violet">Selling Made Easy</h3>
+				<p class="thin">eCommerce orders, payment processing, invoicing, shipment tracking, returns and support. Vetcove does it all. Our eCommerce technology lets you sell direct effortlessly without the headache.</p>
+				<h4>End-to-End Order Processing</h4>
+				<p>Customers can easily find your products and place orders through Vetcove. You’ll receive the order instantly along with a customer profile and license information. All you have to do is ship!</p>
+				<h4>Ultra-fast Payments</h4>
+				<p>When a customer places an order for your products, we’ll charge the customer’s card and you’ll receive immediate payment for the order before you ship.</p>
+				<h4>Automated Invoicing</h4>
+				<p>Vetcove generates invoices for customers, and packing slips for you. Say goodbye to manual order entry and paperwork forever.</p>
+				<h4>Real-time Package Tracking</h4>
+				<p>Whether you use UPS, Fedex, USPS or DHL, our technology lets customers know in real time where their shipments are and when they’re delivered.</p>
+			</div>
+		</div>
+		<div class="col-6">
+			<div style="margin-top:80px" class="image">
+				<img src='{% static "img/orders.png" %}'>
+			</div>
 		</div>
 	</div>
-	<div class="col-3 col-xs-12">
-		<div class="index-supplier">
-			<div class="supplier-types supplier-compounders"></div>
-			<h6>Compounders</h6>
-			<p>gether manufacturers, distributors, and compounders to make supplying your clinic a breeze.</p>
+</div>
+
+<div class="section feature">
+	<div class="row">
+		<div class="col-12">
+			<div class="text centered">
+				<h3 class="violet">Represent Your Own Products</h3>
+				<p class="thin">Manage your own presence and community—whether you sell direct or not.</p>
+			</div>
 		</div>
-	</div>
-	<div class="col-3 col-xs-12">
-		<div class="index-supplier">
-			<div class="supplier-types supplier-distributors"></div>
-			<h6>Distributors</h6>
-			<p>gether manufacturers, distributors, and compounders to make supplying your clinic a breeze.</p>
+		<div class="col-6">
+			<div class="text">
+				<h4>Company Page</h4>
+				<p>As a product manufacturer, you have your own interactive page on Vetcove with your products, contact information, news updates, and current promotions.</p>
+				<h4>Q&A Directly with Customers</h4>
+				<p>Don’t let intermediaries represent your products for you! If a customer asks a question about your product or category, you’ll be notified so you can engage and answer them directly.</p>
+			</div>
 		</div>
-	</div>
-	<div class="col-3 col-xs-12">
-		<div class="index-supplier">
-			<div class="supplier-types supplier-diagnosticlabs"></div>
-			<h6>Diagnostic Labs</h6>
-			<p>gether manufacturers, distributors, and compounders to make supplying your clinic a breeze.</p>
+		<div class="col-6">
+			<div class="text">
+				<h4>Rich Product Listings</h4>
+				<p>You manage how veterinary customers view your products. Include extensive product and usage information, high-resolution images, and videos to help sell your products.</p>
+				<h4>Respond to Reviews</h4>
+				<p>Customers can review your products/services on Vetcove, and you have the ability to respond publicly to demonstrate world-class support and improve customer confidence.</p>
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="image paddingbottom">
+				<img src='{% static "img/company.png" %}'>
+			</div>
 		</div>
 	</div>
 </div>
 
 
+<div class="section feature white">
+	<div class="row">
+		<div class="col-6 col-push-6">
+			<div class="text">
+				<h3 class="violet">Reach More Customers</h3>
+				<p class="thin">Get your products in front of more customers to drive sales like never before.</p>
+				<h4>Organic Recommendations</h4>
+				<p>Vetcove algorithms analyze ordering patterns and recommend your products to clinics most likely to want to purchase them.</p>
+				<h4>Targeted Promotions</h4>
+				<p>We give manufacturers the ability to build custom audiences to promote their products to clinics. You’ll be able to track views and purchases to determine the ROI of your marketing efforts.</h4>
+			</div>
+		</div>
+		<div class="col-6 col-pull-6">
+			<div class="sp">
+				<p>Equizone Demographic Selection Tool</p>
+				<div class="form-group">
+					<label>Practice Type</label>
+					<select class="demographic demographic_one form-control">
+						<option value="1">All</option>
+						<option value="0.5" selected>Equine</option>
+						<option value="0.3">Small Animal</option>
+						<option value="0.2">Bovine</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Region</label>
+					<select id="practiceregion" class="demographic demographic_two form-control">
+						<option value="1">All</option>
+						<option value=".3" selected>Northeast</option>
+						<option value=".13" >Southeast</option>
+						<option value=".1" >Midwest</option>
+						<option value=".17" >Southwest</option>
+						<option value=".2" >West</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>Customer Type</label>
+					<select id="customertype" class="demographic demographic_three form-control">
+						<option value=".05">Purchased Before</option>
+						<option value=".1">Viewed Before</option>
+						<option value=".85" selected>Never Purchased or Viewed Before</option>
+					</select>
+				</div>
+				<div class="reach">
+					Expected Reach: <span>1275 Veterinarians</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
+<div class="section feature">
+	<div class="row">
+		<div class="col-12">
+			<div class="text centered">
+				<h3 class="violet">Understand Your Business Better</h3>
+				<p class="thin">A fully customized analytics dashboard provides visual understanding of your business.</p>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="text">
+				<h4>Visual Sales Tracking</h4>
+				<p>Track product sales for any and all products and categories. View gains and losses over time by state, region, clinic type, or hospital size.</p>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="text">
+				<h4>Performance Metrics</h4>
+				<p>See who’s viewing products, how your product pages are converting, and how your community engagement on Vetcove is contributing to your sales.</h4>
+			</div>
+		</div>
+		<div class="col-12">
+			<div class="image paddingbottom">
+				<div class="chart" id="supplierchart"></div>
+			</div>
+		</div>
+	</div>
+</div>
 
-
+<div class="section white">
+	<div class="row call-to-action">
+		<div class="col-12">
+			<h4>Join our Network of Suppliers</h4>
+			<p>Take control of your products, with no monthly fees, and no commitments.</p>
+			<a href='{% url "general:lead" %}' class="button button-rounded button-violet">Become a Supplier</a>
+		</div>
+	</div>
+</div>
 {% endblock %}

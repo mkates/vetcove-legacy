@@ -183,3 +183,44 @@ function deactivateMessage() {
 		$(".message-container").slideToggle();
 	} 
 }
+
+// *************************************************
+// ********** Supplier Demographic Tool ************
+// *************************************************
+
+$(document).ready(function(){
+	$(".demographic").change(function(){
+		one = parseFloat($(".demographic_one").val());
+		two = parseFloat($(".demographic_two").val());
+		three = parseFloat($(".demographic_three").val());
+		number = parseInt(one*two*three*10000);
+		$(".sp .reach span").html(number+" veterinarians");
+	})
+
+});
+
+// *************************************************
+// ********** JQuery Knobs *************************
+// *************************************************
+$(document).ready(function(){
+	$(function() {
+    	$(".dial").knob({
+    		'min':0,
+    		'thickness':.1,
+    		"fgColor":'#45b9f3',
+    		'inputColor':'#45b9f3',
+    		'fontWeight':200,
+    		'width':120,
+    		'height':120,
+    		'readOnly':true, 
+    		'draw' : function () { 
+				if ($(this.$).attr('data-type')=='dollar') {
+					$(this.i).val(this.cv+"%");
+				} else {
+		       		$(this.i).val(this.cv + '/'+$(this.$).attr('data-max'));
+		       	}
+		      }
+    	});
+    	$(".dial").css('font-size','16px');
+    });
+});

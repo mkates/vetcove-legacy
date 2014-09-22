@@ -9,7 +9,7 @@ def build(message):
 	pass
 	## Run the grunt compiler
 	try:
-		run("grunt _less")
+		run("grunt")
 	except Exception as e:
 		print(e)
 		return

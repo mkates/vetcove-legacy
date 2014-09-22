@@ -161,7 +161,7 @@ INSTALLED_APPS = (
     'suppliers',
     # Add-ons
     'imagekit', #Used for image processing and uploading
-    'widget_tweaks' # Gives ability to render custom css and styling to form fields
+    'floppyforms' # Advanced Form Rendering Control
 )
 
 

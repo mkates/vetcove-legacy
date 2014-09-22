@@ -7,7 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls'')),
     # https://docs.djangoproject.com/en/dev/topics/http/urls/
 
-
     url(r'^admin/', include(admin.site.urls)),
 
     ### General URLS (takes the namespaces of company,legal,and explore)

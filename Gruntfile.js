@@ -1,5 +1,5 @@
 // The Grunt file, which performs all minification and compression locally before uploading
-
+// Things to do: Add Image Compression, html minification (https://github.com/cobrateam/django-htmlmin)
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -7,7 +7,11 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       build: {
-        src: ['vetcove/static/js/**/*.js'],
+        src: ['vetcove/static/js/required/*js',
+        'vetcove/static/js/bootstrap/*js',
+        'vetcove/static/js/plugins/*js',
+        'vetcove/static/js/local/*js', //Don't include in production
+        'vetcove/static/js/custom/*js'],
         dest: 'vetcove/static/compiled/main.min.js'
       }
     },
@@ -44,14 +48,6 @@ module.exports = function(grunt) {
           'vetcove/static/compiled/main.min.css': 'vetcove/static/compiled/main.css'
         }
       }
-    },
-    'heroku-deploy' : {
-        production : {
-            deployBranch : 'prod'
-        },
-        staging : {
-            deployBranch : 'staging'
-        }
     }
   });
 

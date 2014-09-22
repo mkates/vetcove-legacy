@@ -1,19 +1,10 @@
-{% load widget_tweaks %} 
-
-<label for="{{field.id_for_label}}">{{field.label}}</label>
-
-{% render_field field data-type=type data-required=required class="form-control" %}
-
-{% if field.help_text %}
-	<p class="help-block">{{field.help_text}}</p>
-{% endif %}
-
-<div class="error-message">
-	Error in this field
-	{# Appended via form.js #}
-</div>
-
-<div class="status">
-	<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
-	<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+<div class="form-group">
+	<label for="name">{{field.label}}</label>
+	{{field}}
+	{% if field.help_text %}<p class="help-block">{{field.help_text}}</p>{% endif %}
+	<div class="error-message"></div>
+	<div class="status">
+		<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+		<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+	</div>
 </div>
