@@ -1,7 +1,7 @@
 //**** Styling for dashboard elements ******//
 
 .dashboard-container {
-	margin: 20px 30px 0 30px;
+	margin: 20px 30px 50px 30px;
 }
 .dial-container {
 	//border:1px solid red;
@@ -26,7 +26,6 @@
 	padding: 20px;
 	color: #fff;
 	.fa {
-		margin-top: 20px;
 		opacity: .3;
 	}
 	h5 {
@@ -34,21 +33,56 @@
 	}
 	p {
 		font-size: 13px;
+		max-width: 400px;
+		margin: 0 auto 10px auto;
 	}
 	a {
-		margin-top: 30px;
+		margin-top: 20px;
+	}
+	ul {
+		text-align: left;
+		margin-left: 20px;
+	}
+	.glyphicon {
+		position:absolute;
+		top: 5px;
+		padding: 3px;
+		right: 5px;
+		color: #aaa;
+		font-size: 14px;
+		&:hover {
+			color: #ddd;
+			cursor:pointer;
+		}
 	}
 }
+.dashboard-question {
+	position:absolute;
+	right:5px;
+	top: 5px;
+	text-align: center;
+	height: 16px;
+	border-radius: 8px;
+	width: 16px;
+	color: #888;
+	font-size: 10px;
+	background: rgba(0,0,0,.1);
+	transition: background .2s .1s;
+	&:hover {
+		background: rgba(0,0,0,.2);
+		cursor:pointer;
+	}
+
+}
 .dashboard-item {
-	padding-bottom: 25px;
 	.title {
 		.topRoundedCorners;
-		padding: 10px 20px;
+		padding: 5px 20px;
 		.gradient(#eee,#ddd,#fff);
 		overflow: auto;
 		border-bottom:1px solid #dadada;
 		h3 {
-			margin: 5px 0 5px 0;
+			margin: 5px 0 0px 0;
 			font-weight: 500;
 			font-size: 18px;
 		}
@@ -56,6 +90,9 @@
 			margin-bottom: 0px;
 			font-size: 11px;
 		}
+	}
+	.tablecell-body {
+		padding-bottom: 25px;
 	}
 }
 .rewards {
@@ -128,7 +165,7 @@
 }
 
 .news {
-	padding: 5px 20px;
+	padding: 10px 20px 0 20px;
 	.news-item {
 		.label {
 		background: @colorViolet;
@@ -145,5 +182,18 @@
 		.product-box {
 			//border:1px solid red;
 		}
+	}
+}
+.question {
+	padding: 10px 20px;
+	//border:1px solid red;
+	.text {
+		line-height: 1.4;
+		margin-bottom: 0;
+	}
+	.product, .product a {
+		font-size: 11px;
+		margin: 0;
+		color: #777;
 	}
 }

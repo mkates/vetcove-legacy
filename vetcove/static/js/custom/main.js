@@ -206,21 +206,38 @@ $(document).ready(function(){
 	$(function() {
     	$(".dial").knob({
     		'min':0,
-    		'thickness':.1,
+    		'thickness':.2,
     		"fgColor":'#45b9f3',
     		'inputColor':'#45b9f3',
     		'fontWeight':200,
-    		'width':120,
-    		'height':120,
+    		'width':100,
+    		'height':80,
+    		'angleOffset':-120,
+			'angleArc':240,
     		'readOnly':true, 
     		'draw' : function () { 
 				if ($(this.$).attr('data-type')=='dollar') {
 					$(this.i).val(this.cv+"%");
 				} else {
-		       		$(this.i).val(this.cv + '/'+$(this.$).attr('data-max'));
+		       		$(this.i).val(this.cv + ' of '+$(this.$).attr('data-max'));
 		       	}
 		      }
     	});
     	$(".dial").css('font-size','16px');
     });
 });
+
+// *************************************************
+// ********** Dashboard Question Box ***************
+// *************************************************
+$(document).ready(function(){
+	$(".dashboard-question").click(function(){
+		$('.dashboard-item-overlay').fadeOut('fast');
+		$(this).closest('.dashboard-item').find('.dashboard-item-overlay').fadeIn('fast');
+	});
+	$(".dashboard-item-overlay .exit").click(function(){
+		$(this).closest('.dashboard-item-overlay').fadeOut('fast');
+	});
+});
+
+dashboard-question

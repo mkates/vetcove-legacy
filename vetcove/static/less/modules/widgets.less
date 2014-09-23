@@ -56,6 +56,24 @@
 .piecounter2 { background-position: @piecounter-size*-4 0;}
 .piecounter1 { background-position: @piecounter-size*-5 0;}
 
+// **********************
+// **** Flames **********
+// **********************
+
+@flames-height: 40px;
+@flames-width: @flames-height*0.5;
+.flameicon {
+	height: @flames-height;
+	display:inline-block;
+	vertical-align: top;
+	width: @flames-width;
+	overflow: hidden;
+	background-size: @flames-width*3px @flames-height;
+	background-image: url("../img/fireicons.png");
+}
+.flameicon_medium { background-position: @flames-width*-1 0;}
+.flameicon_hot { background-position: @flames-width*-2 0;}
+
 // *****************
 // **** Stars ******
 // *****************
