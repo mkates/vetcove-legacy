@@ -6284,7 +6284,6 @@ body:not(.responsive) {
   -webkit-background-size: -webkit-calc(36px*6) 36px;
           background-size: calc(36px*6) 36px;
   background-image: url("../img/piecounter.png");
-  border: 1px solid red;
 }
 .piecounter5 {
   background-position: -webkit-calc(36px*-1) 0;
@@ -6456,7 +6455,7 @@ body:not(.responsive) {
   background: rgba(0, 0, 0, 0.7);
 }
 .menu-horizontal {
-  margin: 10px;
+  margin: 10px 10px 0 10px;
   list-style-type: none;
 }
 .menu-horizontal li {
@@ -6480,7 +6479,7 @@ body:not(.responsive) {
   padding-left: 8px;
 }
 .menu-horizontal li a.active {
-  border-bottom: 2px solid #428bca;
+  border-bottom: 2px solid #5ecadf;
   color: #333;
   font-weight: 500;
 }
@@ -7657,19 +7656,17 @@ button.button:disabled {
 .call-to-action .button {
   margin: 20px 10px;
 }
-.hero {
-  overflow: auto;
-  text-align: left;
+.hero-container {
   padding-bottom: 50px;
+  border-bottom: 1px solid #dadada;
   background: #cccccc;
   background-image: -o-linear-gradient(bottom, #a6a6a6 0%, #cccccc 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #a6a6a6), color-stop(1, #cccccc));
   background-image: -webkit-linear-gradient(bottom, #a6a6a6 0%, #cccccc 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, from(#a6a6a6), to(#cccccc));
   background-image: linear-gradient(to top, #a6a6a6 0%, #cccccc 100%);
-  border-bottom: 1px solid #dadada;
 }
-.hero.index {
+.hero-container.index {
   background: #5ecadf;
   background-image: -o-linear-gradient(bottom, #28aec9 0%, #5ecadf 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #28aec9), color-stop(1, #5ecadf));
@@ -7677,7 +7674,7 @@ button.button:disabled {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#28aec9), to(#5ecadf));
   background-image: linear-gradient(to top, #28aec9 0%, #5ecadf 100%);
 }
-.hero.features {
+.hero-container.features {
   background: #9d73c7;
   background-image: -o-linear-gradient(bottom, #7744aa 0%, #9d73c7 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #7744aa), color-stop(1, #9d73c7));
@@ -7685,7 +7682,7 @@ button.button:disabled {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#7744aa), to(#9d73c7));
   background-image: linear-gradient(to top, #7744aa 0%, #9d73c7 100%);
 }
-.hero.suppliers {
+.hero-container.suppliers {
   background: #809ae5;
   background-image: -o-linear-gradient(bottom, #4067d8 0%, #809ae5 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #4067d8), color-stop(1, #809ae5));
@@ -7693,7 +7690,7 @@ button.button:disabled {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#4067d8), to(#809ae5));
   background-image: linear-gradient(to top, #4067d8 0%, #809ae5 100%);
 }
-.hero.dashboard {
+.hero-container.dashboard {
   background: #5cb8e6;
   background-image: -o-linear-gradient(bottom, #2199d5 0%, #5cb8e6 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2199d5), color-stop(1, #5cb8e6));
@@ -7701,7 +7698,7 @@ button.button:disabled {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#2199d5), to(#5cb8e6));
   background-image: linear-gradient(to top, #2199d5 0%, #5cb8e6 100%);
 }
-.hero.support {
+.hero-container.support {
   background: #afcc5a;
   background-image: -o-linear-gradient(bottom, #89a633 0%, #afcc5a 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #89a633), color-stop(1, #afcc5a));
@@ -7709,9 +7706,14 @@ button.button:disabled {
   background-image: -webkit-gradient(linear, left bottom, left top, from(#89a633), to(#afcc5a));
   background-image: linear-gradient(to top, #89a633 0%, #afcc5a 100%);
 }
+.hero {
+  overflow: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
 .hero .text {
   margin-top: 70px;
-  padding-left: 30px;
   color: white;
 }
 .hero .text h1 {
@@ -7731,12 +7733,11 @@ button.button:disabled {
   color: #fff;
 }
 .hero .image {
-  margin-top: 30px;
-  padding: 20px;
-  text-align: center;
+  margin-top: 50px;
+  text-align: right;
 }
 .hero .image img {
-  max-width: 80%;
+  max-width: 100%;
   max-height: 100%;
 }
 .hero.centered {
