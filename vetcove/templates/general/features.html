@@ -6,15 +6,17 @@
 
 {% block content %}
 
-<div class="hero features">
-	<div class="row">
-		<div class="text col-6 col-xs-12">
-			<h1>Clinic Features</h1>
-			<h2>Ordering and managing supplies just got a whole lot easier</h2>
-			<a href='{% url "accounts:signin" %}' class="button button-rounded button-shaded">Get Started</a>
-		</div>
-		<div class="image col-6 col-xs-12">
-			<img src='{% static "img/test/macbook.png" %}'>
+<div class="hero-container features">
+	<div class="hero">
+		<div class="row">
+			<div class="text col-6 col-xs-12">
+				<h1>Clinic Features</h1>
+				<h2>Ordering and managing supplies just got a whole lot easier</h2>
+				<a href='{% url "accounts:signin" %}' class="button button-rounded button-shaded">Get Started</a>
+			</div>
+			<div class="image col-6 col-xs-12">
+				<img src='{% static "img/test/macbook.png" %}'>
+			</div>
 		</div>
 	</div>
 </div>

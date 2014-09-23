@@ -6,15 +6,17 @@
 
 {% block content %}
 
-<div class="hero suppliers">
-	<div class="row">
-		<div class="text col-6 col-xs-12">
-			<h1>Supplier Features</h1>
-			<h2>Separate your products from the competition </h2>
-			<a href='{% url "general:lead" %}' class="button button-rounded button-shaded">Become a Supplier</a>
-		</div>
-		<div class="image col-6 col-xs-12">
-			<img src='{% static "img/test/macbook.png" %}'>
+<div class="hero-container suppliers">
+	<div class="hero">
+		<div class="row">
+			<div class="text col-6 col-xs-12">
+				<h1>Supplier Features</h1>
+				<h2>Separate your products from the competition </h2>
+				<a href='{% url "general:lead" %}' class="button button-rounded button-shaded">Become a Supplier</a>
+			</div>
+			<div class="image col-6 col-xs-12">
+				<img src='{% static "img/test/macbook.png" %}'>
+			</div>
 		</div>
 	</div>
 </div>

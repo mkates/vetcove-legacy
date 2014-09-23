@@ -270,19 +270,23 @@
 }
 
 // General Hero Formatting
-.hero {
-	overflow: auto;
-	text-align: left;
+.hero-container {
 	padding-bottom: 50px;
+	border-bottom:1px solid #dadada;
 	.gradient(#ccc,darken(#ccc,15%),#ccc);
 	&.index     {  .gradient(@colorMain,darken(@colorMain,15%),@colorMain)       }
 	&.features  {  .gradient(@colorPurple,darken(@colorPurple,15%),@colorPurple) }
 	&.suppliers {  .gradient(@colorViolet,darken(@colorViolet,15%),@colorViolet) }
 	&.dashboard {  .gradient(@colorBlue,darken(@colorBlue,15%),@colorBlue)       }
 	&.support   {  .gradient(@colorLime,darken(@colorLime,15%),@colorLime)       }
+}
+.hero {
+	overflow: auto;
+	max-width: 900px;
+	margin: 0 auto;
+	text-align: left;
 	.text {
 		margin-top: 70px;
-		padding-left: 30px;
 		color: white;
 		h1 {
 			text-transform: uppercase;
@@ -302,20 +306,17 @@
 		}
 	}
 	.image {
-		margin-top: 30px;
-		padding: 20px;
-		text-align: center;
+		margin-top: 50px;
+		text-align: right;
 		img {
-			max-width: 80%;
+			max-width: 100%;
 			max-height: 100%;
 		}
 	}
-	border-bottom:1px solid #dadada;
 	&.centered {
 		text-align: center;
 	}
 	//For headers with no images
-
 	&.noimage {
 		.text {
 			margin-top: 30px;

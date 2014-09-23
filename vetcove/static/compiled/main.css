@@ -6281,40 +6281,49 @@ body:not(.responsive) {
   vertical-align: top;
   width: 36px;
   overflow: hidden;
-  -webkit-background-size: 36px*6 36px;
-          background-size: 36px*6 36px;
+  -webkit-background-size: -webkit-calc(36px*6) 36px;
+          background-size: calc(36px*6) 36px;
   background-image: url("../img/piecounter.png");
+  border: 1px solid red;
 }
 .piecounter5 {
-  background-position: 36px*-1 0;
+  background-position: -webkit-calc(36px*-1) 0;
+  background-position: calc(36px*-1) 0;
 }
 .piecounter4 {
-  background-position: 36px*-2 0;
+  background-position: -webkit-calc(36px*-2) 0;
+  background-position: calc(36px*-2) 0;
 }
 .piecounter3 {
-  background-position: 36px*-3 0;
+  background-position: -webkit-calc(36px*-3) 0;
+  background-position: calc(36px*-3) 0;
 }
 .piecounter2 {
-  background-position: 36px*-4 0;
+  background-position: -webkit-calc(36px*-4) 0;
+  background-position: calc(36px*-4) 0;
 }
 .piecounter1 {
-  background-position: 36px*-5 0;
+  background-position: -webkit-calc(36px*-5) 0;
+  background-position: calc(36px*-5) 0;
 }
 .flameicon {
   height: 40px;
   display: inline-block;
   vertical-align: top;
-  width: 40px*0.5;
+  width: -webkit-calc(40px*0.5);
+  width: calc(40px*0.5);
   overflow: hidden;
-  -webkit-background-size: 40px*0.5*3px 40px;
-          background-size: 40px*0.5*3px 40px;
+  -webkit-background-size: -webkit-calc(40px*1.5) 40px;
+          background-size: calc(40px*1.5) 40px;
   background-image: url("../img/fireicons.png");
 }
 .flameicon_medium {
-  background-position: 40px*0.5*-1 0;
+  background-position: -webkit-calc(40px*0.5*-1) 0;
+  background-position: calc(40px*0.5*-1) 0;
 }
 .flameicon_hot {
-  background-position: 40px*0.5*-2 0;
+  background-position: -webkit-calc(40px*0.5*-2) 0;
+  background-position: calc(40px*0.5*-2) 0;
 }
 .star {
   height: 16px;

@@ -1,48 +1,87 @@
 {% extends 'general/company/base.html' %}
 
+{% load staticfiles %}
+
+{% block title %} About Us {% endblock %}
 {% block hero %} About Us {% endblock %}
 
 {% block content %}
 
 {{block.super}}
 
-<div class="static-page centered">
-	<div class="section thin">
-		<h3>We're Making Order Supplies Dead Simple</h3>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit </p>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. </p>
+<div class="section white">
+	<div class="row">
+		<div class="col-12">
+			<div class="text centered">
+				<h3>We're Making Order Supplies Dead Simple</h3>
+				<p class="thin">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+				<p class="thin">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit </p>
+				<p class="thin">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. </p>
+			</div>
+		</div>
 	</div>
-	<div class="section">
+</div>
+
+
+<div class="section light">
+	<div class="row index-testimonial">
 		<div class="testimonial-grid">
-			<div class="collage-box collage-box-tall collage-box-fat">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-tall collage-box-fat">
+				<div class="collage-box">
+					<img class="large-img" src='{% static "img/testimonial_cnequine/cn_2.jpg" %}' alt="">
+				</div>
 			</div>
-			<div class="collage-box collage-box-short collage-box-skinny">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_3.jpg" %}' alt="">
+				</div>
 			</div>
-			<div class="collage-box collage-box-short collage-box-skinny">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_5.jpg" %}' alt="">
+				</div>
 			</div>
-			<div class="collage-box collage-box-short collage-box-fat">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-short collage-box-fat">
+				<div class="collage-box primary">
+					<div class="text">
+						<p>Vetcove is simply remarkable. We went from spending hours ordering to minutes.</p>
+						<p class="author">Eric Kates, Owner Colts Neck Equine</p>
+					</div>
+				</div>
 			</div>
-			<div class="collage-box collage-box-short collage-box-fat">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-short collage-box-fat">
+				<div class="collage-box action">
+					<div class="text">
+						<p>I love that you can see reviews and questions on so many products.</p>
+						<p class="author">Jaime Nagle, Offic Manager Colts Neck Equine</p>
+					</div>
+				</div>
 			</div>
-			<div class="collage-box collage-box-short collage-box-skinny">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_4.jpg" %}' alt="">
+				</div>
 			</div>
-			<div class="collage-box collage-box-short collage-box-skinny">
-				<div class="img"></div>
+			<div class="collage-box-container collage-box-short collage-box-skinny">
+				<div class="collage-box">
+					<img class="small-img" src='{% static "img/testimonial_cnequine/cn_1.jpg" %}' alt="">
+				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
 	</div>
-	<div class="section thin">
-		<h3>Our Team</h3>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit </p>
+</div>
+
+<div class="section white">
+	<div class="row">
+		<div class="col-12">
+			<div class="text centered">
+				<h3>We're Making Order Supplies Dead Simple</h3>
+				<p class="thin">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+				<p class="thin">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit </p>
+				<p class="thin">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. </p>
+			</div>
+		</div>
 	</div>
 </div>
 

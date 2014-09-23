@@ -39,40 +39,50 @@
 // **** Pie Counters ****
 // **********************
 
-@piecounter-size: 36px;
+@piecountersize: 36px;
 
 .piecounter {
-	height: @piecounter-size;
+	height: @piecountersize;
 	display:inline-block;
 	vertical-align: top;
-	width: @piecounter-size;
+	width: @piecountersize;
 	overflow: hidden;
-	background-size: @piecounter-size*6 @piecounter-size;
+	background-size: calc(@piecountersize*6) @piecountersize;
 	background-image: url("../img/piecounter.png");
 }
-.piecounter5 { background-position: @piecounter-size*-1 0;}
-.piecounter4 { background-position: @piecounter-size*-2 0;}
-.piecounter3 { background-position: @piecounter-size*-3 0;}
-.piecounter2 { background-position: @piecounter-size*-4 0;}
-.piecounter1 { background-position: @piecounter-size*-5 0;}
+.piecounter5 { 
+	background-position: calc(@piecountersize*-1) 0;
+}
+.piecounter4 { 
+	background-position: calc(@piecountersize*-2) 0;
+}
+.piecounter3 { 
+	background-position: calc(@piecountersize*-3) 0;
+}
+.piecounter2 { 
+	background-position: calc(@piecountersize*-4) 0;
+}
+.piecounter1 { 
+	background-position: calc(@piecountersize*-5) 0;
+}
 
 // **********************
 // **** Flames **********
 // **********************
 
-@flames-height: 40px;
-@flames-width: @flames-height*0.5;
+@flamesheight: 40px;
+@flameswidth: calc(@flamesheight*0.5);
 .flameicon {
-	height: @flames-height;
+	height: @flamesheight;
 	display:inline-block;
 	vertical-align: top;
-	width: @flames-width;
+	width: @flameswidth;
 	overflow: hidden;
-	background-size: @flames-width*3px @flames-height;
+	background-size: calc(@flamesheight*1.5) @flamesheight;
 	background-image: url("../img/fireicons.png");
 }
-.flameicon_medium { background-position: @flames-width*-1 0;}
-.flameicon_hot { background-position: @flames-width*-2 0;}
+.flameicon_medium { background-position: calc(@flamesheight*0.5*-1) 0 }
+.flameicon_hot { background-position: calc(@flamesheight*0.5*-2) 0 }
 
 // *****************
 // **** Stars ******
