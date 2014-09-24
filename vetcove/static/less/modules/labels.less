@@ -1,0 +1,33 @@
+.label-colors(@color: #aaa) {
+  background: @color;
+  color:#fff !important;
+}
+
+.label-shaded {
+  .label-colors;
+  background: rgba(0,0,0,.2);
+}
+.label-primary {
+	.label-colors(@colorMain);
+}
+.label-blue {
+  .label-colors(@colorBlue);
+}
+.label-teal {
+	.label-colors(@colorTeal);
+}
+.label-purple {
+  .label-colors(@colorPurple);
+}
+.label-violet {
+	.label-colors(@colorViolet);
+}
+.label-lime {
+	.label-colors(@colorLime);
+}
+.label-red {
+	.label-colors(@colorRed);
+}
+.label-success {
+  .label-colors(@colorGreen);
+}

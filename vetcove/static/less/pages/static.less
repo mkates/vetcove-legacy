@@ -1,7 +1,6 @@
 
 // Formatting for all the static pages
 
-
 .chart {
 	min-height: 400px;
 	width: 100%;
@@ -9,32 +8,57 @@
 }
 // Index Page Hero //
 .index-hero {
-	background-image:url("../img/heroindex.jpg");
-	background-size: cover;
+	position:relative;
+	background: @colorMain;
+	background-image:url("../img/test/patternbg.png");
+	background-image: url("../img/test/patternbg.png"),   -moz-linear-gradient(top, @colorMain, darken(@colorMain,15%));
 	border-bottom:1px solid #dadada;
-	height: 400px;
-	overflow: auto;
+	//.gradient(@colorMain,darken(@colorMain,10%),@colorMain);
+	text-align: center;
+	color: #fff;
 	h1 {
-		font-size: 38px;
+		font-size: 50px;
+		margin: 0;
 		padding: 60px 30px 10px 30px;
-		font-weight: 200;
+		font-weight: 300;
+		text-shadow: 0 0 1px #999;
 	}
 	h2 {
 		max-width: 600px;
-		font-size: 16px;
+		margin: 0 auto;
+		font-size: 18px;
 		line-height: 24px;
-		font-weight:300;
+		font-weight:500;
+		text-shadow: 0 0 2px #777;
 		padding: 10px 30px 10px 30px;
 	}
 	.buttons {
-		padding: 20px 30px;
+		padding: 30px 30px 95px 30px;
+		position:relative;
+		z-index: 1;
 		.button {
+			background: rgba(0,0,0,.4);
 			margin-right: 10px;
 			font-weight: 500;
+			&:hover {
+				background: rgba(0,0,0,.5);
+			}
 		}
 	}
 }
-
+.dog {
+	position:absolute;
+	bottom: 0;
+	margin: 0 auto;
+	text-align: center;
+	right: 0;
+	width: 100%;
+	height: 160px;
+	img {
+		width: 230px;
+		margin-right: 465px;
+	}
+}
 // ections Formatting
 .section {
 	// General Formatting
@@ -529,7 +553,7 @@
 	&.white {
 		background: #fff;
 	}
-	padding: 70px 15px 0 15px;
+	padding: 70px 15px 50px 15px;
 	.row {
 		max-width: 900px;
 		margin: 0 auto;

@@ -9,9 +9,10 @@
 	<h1> Sign In </h1>
 	<form role="form" class="form validated-form" method="POST" action="{% url 'accounts:signin' %}">
 
-		{% include 'generic/form.html' with field=form.email %}
-		{% include 'generic/form.html' with field=form.password %}
-		{% include 'generic/form.html' with field=form.confirmpassword %}
+		{% for field in form %}
+		    {{field.field.widget.attrs}}
+			{% include 'generic/form.html' with field=field %}
+		{% endfor %}
 	</form>
 
 {% endblock %}

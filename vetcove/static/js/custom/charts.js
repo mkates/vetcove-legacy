@@ -135,6 +135,12 @@ $(document).ready(function(){
 		var chart_three = AmCharts.makeChart("featureschart", {
 		    "type": "serial",
 		    "theme": "none",
+		    "titles": [
+				{
+					"text": "Midvalley Equine Injectable NSAIDs",
+					"size": 13
+				}
+			],
 		    "pathToImages": STATIC_URL+"img/amcharts/",
 		    "legend": {
 		        "equalWidths": false,

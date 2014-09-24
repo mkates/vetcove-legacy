@@ -1,10 +1,40 @@
-<div class="form-group">
-	<label for="name">{{field.label}}</label>
-	{{field}}
-	{% if field.help_text %}<p class="help-block">{{field.help_text}}</p>{% endif %}
-	<div class="error-message"></div>
-	<div class="status">
-		<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
-		<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
-	</div>
-</div>
+
+{# Iterate through the different ways to draw a form element #}
+
+{% with field.field.widget.attrs.type as type %} {# Django pops if type==text #}
+
+	{% if type == "select" %} 
+
+		<div class="form-group">
+			<label for="name">{{field.label}}</label>
+			{{field}}
+			{% if field.help_text %}<p class="help-block">{{field.help_text}}</p>{% endif %}
+			<div class="error-message"></div>
+		</div>
+
+	{% elif type == 'checkbox' %}
+
+		<div class="checkbox">
+    		<label>
+      			{{field}} {{field.label}}
+    		</label>
+  		</div>
+
+  	{% else %}
+
+  		<div class="form-group third">
+			<label for="password">{{field.label}}</label>
+			{{field}}
+			<div class="error-message"></div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+
+
+
+	{% endif %}
+
+
+{% endwith %}

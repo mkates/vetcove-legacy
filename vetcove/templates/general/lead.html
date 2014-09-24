@@ -11,16 +11,9 @@
 
 
     <div class="fieldWrapper">
-    	{% comment %} <p>label: {{ field.label_tag }}</p>
-        <p>errors: {{ field.errors }}</p>
-        <p>value: {{ field.value }}</p>
-		<p>html name: {{ field.html_name }}</p>
-		<p>help text: {{ field.help_text }}</p>
-		<p>erors: {{ field.errors }}</p>
-		<p>hidden?: {{ field.is_hidden }}</p>
-		<p>field {{ field }}</p>
-		<p>field {{ field.company }}</p> {% endcomment %}
-		{{form}}
+		{% for field in form %}
+			{% include 'generic/form.html' with field=field %}
+		{% endfor %}
 		<button class="submit" value="submit">Submmit</button>
     </div>
 

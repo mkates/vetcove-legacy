@@ -20,7 +20,6 @@ from .forms import TestForm
 #######################################################################
 
 
-
 class SignIn(FormView):
 	''' 
 	Form to sign a user in

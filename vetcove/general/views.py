@@ -15,7 +15,7 @@ from django.core.urlresolvers import reverse
 # Third Party App Imports
 
 # In-App Imports
-from .forms import SupplierLeadForm
+from .forms import *
 from core.views import AjaxableResponseMixin
 
 ######################################################################
