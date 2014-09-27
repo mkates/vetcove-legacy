@@ -23,6 +23,8 @@ path.append(DJANGO_ROOT)
 DEBUG = False
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-debug
 TEMPLATE_DEBUG = DEBUG
+### 
+STATIC_DEBUG = DEBUG
 ########## END DEBUG CONFIGURATION
 
 
@@ -117,6 +119,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'vetcove.context_processors.static_variables'
 )
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#template-loaders
 TEMPLATE_LOADERS = (
@@ -161,7 +164,8 @@ INSTALLED_APPS = (
     'suppliers',
     # Add-ons
     'imagekit', #Used for image processing and uploading
-    'floppyforms' # Advanced Form Rendering Control
+    'widget_tweaks', # Simple widget rendering
+    'localflavor' # Provides widgets and such for states, etc.
 )
 
 

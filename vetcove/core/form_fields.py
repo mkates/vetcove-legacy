@@ -5,38 +5,57 @@ from django import forms
 TEMPLATE_ATTRS = {
     'class':'form-control',
     'data-invalid':'Required',
-    'data-required':True
+    'data-required':'True'
 }
 
 ###### General Text Input ############
-class TextInput(forms.TextInput):
-     def __init__(self, attrs=None):
-        default_attrs = dict(TEMPLATE_ATTRS)
-        custom_attrs = {
-            'type':'text',
-            'data-type':'text',
-        }
-        default_attrs.update(custom_attrs)
-        if attrs:
-            default_attrs.update(attrs)
-        super(TextInput, self).__init__(default_attrs)
-
-###### Email Input ###################
-class EmailInput(forms.TextInput):
+class CoreEmailInput(forms.TextInput):
      def __init__(self, attrs=None):
         default_attrs = dict(TEMPLATE_ATTRS)
         custom_attrs = {
             'type':'email',
             'data-type':'email',
-            'placeholder':'Email Address'
+            'placeholder':'you@example.com',
+            'data-invalid':'Invalid Email Address'
         }
         default_attrs.update(custom_attrs)
         if attrs:
             default_attrs.update(attrs)
-        super(EmailInput, self).__init__(custom_attrs)
+        super(CoreEmailInput, self).__init__(default_attrs)
+
+###### General Text Input ############
+class CoreIntegerInput(forms.NumberInput):
+     def __init__(self, attrs=None):
+        default_attrs = dict(TEMPLATE_ATTRS)
+        custom_attrs = {
+            'type':'number',
+            'data-type':'number',
+            'data-invalid':'Invalid Number',
+            'min':0
+        }
+        default_attrs.update(custom_attrs)
+        if attrs:
+            default_attrs.update(attrs)
+        super(CoreIntegerInput, self).__init__(default_attrs)
+
+###### General Text Input ############
+class CorePhoneNumberInput(forms.TextInput):
+     def __init__(self, attrs=None):
+        default_attrs = dict(TEMPLATE_ATTRS)
+        custom_attrs = {
+            'type':'text',
+            'data-type':'phonenumber',
+            'placeholder':'(xxx) xxx-xxxx',
+            'data-invalid':'Invalid Phone Number',
+            'max-length':15
+        }
+        default_attrs.update(custom_attrs)
+        if attrs:
+            default_attrs.update(attrs)
+        super(CorePhoneNumberInput, self).__init__(default_attrs)
 
 ###### Password Input ##################
-class PasswordInput(forms.PasswordInput):
+class CorePasswordInput(forms.PasswordInput):
      def __init__(self, attrs=None):
         default_attrs = dict(TEMPLATE_ATTRS)
         custom_attrs = {
@@ -48,49 +67,21 @@ class PasswordInput(forms.PasswordInput):
         default_attrs.update(custom_attrs)
         if attrs:
             default_attrs.update(attrs)
-        super(PasswordInput, self).__init__(default_attrs)
+        super(CorePasswordInput, self).__init__(default_attrs)
 
 ###### Confirm Password Input ##################
-class ConfirmPasswordInput(forms.PasswordInput):
+class CoreConfirmPasswordInput(forms.PasswordInput):
      def __init__(self, attrs=None):
         default_attrs = dict(TEMPLATE_ATTRS)
         custom_attrs = {
             'type':'text',
-            'data-type':'text',
+            'data-type':'confirmpassword',
             'placeholder':'Confirm Password',
             'class':'form-control confirmpassword'
         }
         default_attrs.update(custom_attrs)
         if attrs:
             default_attrs.update(attrs)
-        super(ConfirmPasswordInput, self).__init__(default_attrs)
-
-###### Select Input ##################
-class Select(forms.Select):
-     def __init__(self, attrs=None):
-        default_attrs = dict(TEMPLATE_ATTRS)
-        custom_attrs = {
-            'type':'select',
-            'data-type':'select'
-        }
-        default_attrs.update(custom_attrs)
-        if attrs:
-            default_attrs.update(attrs)
-        super(Select, self).__init__(default_attrs)
-
-###### Select Input ##################
-class CheckboxInput(forms.CheckboxInput):
-     def __init__(self, attrs=None):
-        default_attrs = dict(TEMPLATE_ATTRS)
-        custom_attrs = {
-            'type':'checkbox',
-            'data-type':'checkbox',
-            'class':''
-        }
-        default_attrs.update(custom_attrs)
-        if attrs:
-            default_attrs.update(attrs)
-        super(CheckboxInput, self).__init__(default_attrs)
-
+        super(CoreConfirmPasswordInput, self).__init__(default_attrs)
 
 

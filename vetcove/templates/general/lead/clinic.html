@@ -1,0 +1,67 @@
+{% extends "simple_base.html" %}
+
+{% block simplecontent %}
+
+<form id="clinicform" class="form-validation ajaxform form" action="{% url "general:cliniclead" %}" method="POST">
+    {% csrf_token %}
+    <div class="intro">
+        <h1>Join the Most Advanced Buying Platform Exclusive to Veterinarians</h1>
+        <p>Are you a clinic or hospital interested in using Vetcove when it becomes available? Fill out the form below to get in touch with us and secure your spot in our beta launch. It’s <strong>absolutely free</strong> and there is <strong>zero obligation</strong> to place orders until you’re ready and comfortable.</p>
+    </div>
+
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        <div class="inlined-separate">
+            {% include "generic/form.html" with field=form.clinic_name width='half' %}
+            {% include "generic/form.html" with field=form.zipcode width='quarter' %}
+            {% include "generic/form.html" with field=form.state width='quarter' %}
+        </div>
+        <div class="inlined-separate">
+            {% include "generic/form.html" with field=form.practice_type width='half' %}
+            {% include "generic/form.html" with field=form.number_of_licensed_veterinarians width='quarter' %}
+            {% include "generic/form.html" with field=form.total_employees width='quarter' %}
+        </div>
+        <div class="inlined-separate">
+        {% comment %}   {% include "generic/form.html" with field=form.feature_webpresence width='full' %}
+            {% include "generic/form.html" with field=form.feature_support width='full' %}
+            {% include "generic/form.html" with field=form.feature_analytics width='full' %}
+            {% include "generic/form.html" with field=form.feature_invoicing width='full' %}
+            {% include "generic/form.html" with field=form.feature_sales width='full' %}{% endcomment %}
+        </div>
+        <div class="inlined-separate">
+            {% include "generic/form.html" with field=form.your_name width='half' %}
+            {% include "generic/form.html" with field=form.your_position width='half' %}
+        </div>
+        <div class="inlined-separate">
+            {% include "generic/form.html" with field=form.your_email width='half' %}
+            {% include "generic/form.html" with field=form.phone_number width='half' %}
+        </div>
+        <div class="inlined-separate bottompadding">
+            {% include "generic/form.html" with field=form.placing_orders width='full' %}
+            {% include "generic/form.html" with field=form.authorized width='full' %}
+        </div>
+        <div class="inlined-separate bottompadding">
+            <label>We are enthusiastically seeking clinics to be part of our beta program and help us determine the
+                most useful pieces of Vetcove. Check below if you'd like to be a beta clinic.</label>
+            {% include "generic/form.html" with field=form.beta_user width='full' %}
+        </div>
+        <div class="inlined-separate">
+            {% include "generic/form.html" with field=form.clinic_website width='half' %}
+            {% include "generic/form.html" with field=form.howdidyouhear width='half' %}
+        </div>
+        <div class="form-group-submit">
+            <div class="text-div">
+                Would you rather talk by phone? Call us at (732) 598-6434.
+            </div>
+            <div class="submit-div">
+                <button type="submit" class="button button-rounded button-primary submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+{% include 'general/lead/lead_thanks.html' %}
+
+{% endblock %}

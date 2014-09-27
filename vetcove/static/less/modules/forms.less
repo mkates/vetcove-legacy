@@ -3,11 +3,33 @@
 
 .form { // Set the standard form width and properties
 	margin: 10px auto;
+	.intro {
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		border-bottom: 1px solid #dadada;
+		h1 {
+			font-size: 30px;
+			line-height: 1.5;
+			font-weight: 200;
+		}
+		p {
+			font-weight: 500;
+			font-size: 13px;
+			color: #999;
+			line-height: 1.4;
+		}
+	}
 }
 
+input[type="radio"], input[type="checkbox"] {
+	margin-top: 2px;
+}
 .form-group { // Different types of form groups
 	position:relative;
 	clear:both; //Standard forms clear both
+	&.full {
+		width: 100%;
+	}
 	&.half { // Half the full width
 		width: 50%;
 	}
@@ -34,6 +56,9 @@
 		height: 100px;
 		min-height: 50px;
 	}
+	.checkbox {
+		margin: 3px 0;
+	}
 }
 
 .radio-container, .checkbox-container { //Radio and checkbox container
@@ -54,7 +79,7 @@
 	clear:none;
 	float: left;
 	&:not(:first-child) input, &:not(:first-child) select {
-		.customRoundedCorners(0,0,3px,3px);
+		border-left:none;
 		border-radius: 0px;
 	}
 	&:first-child input, &:first-child select {
@@ -64,20 +89,16 @@
 		border-left:none;
 		.customRoundedCorners(3px,3px,0,0);
 	}
-	// &:not(:first-child) input,select {
-	// 	border-left: none;
-	// 	border-radius: 0px;
-	// }
+
 }
 
 .inlined-separate .form-group { // Inline elements that are not related
 	clear:none;
-	width: 50%;
 	float: left;
 	.error-message {
 		right: 5px;
 	}
-	&:first-child {
+	&:not(:last-child) {
 		padding-right: 5px;
 		.form-control-feedback {
 			right: 5px;
@@ -85,7 +106,16 @@
 	}
 }
 
-
+.inlined-separate, .inlined-together { //To clear the floats
+	&:after {
+		display:table;
+		content: " ";
+		clear:both;
+	}
+	&.bottompadding {
+		padding-bottom: 15px;
+	}
+}
 .status { // Status Icon Formatting 
 	.form-control-feedback {
 		display:none;
@@ -143,8 +173,6 @@
 	font-size: 12px;
 	visibility:hidden;
 	transition: opacity 0.3s ease 0s, transform 0.3s ease 0s;
-	visibility: hidden;
-	opacity: 0;
 	&:after {
 		position: absolute;
 		bottom: -6px;
@@ -188,4 +216,16 @@
 		text-align: right;
 		vertical-align: middle;
 	}
+}
+
+
+// Field errors 
+form .non-field-errors {
+	color: white;
+	font-weight: 500;
+	background: @colorRed;
+	border-radius: 3px;
+	padding: 5px;
+	margin-bottom: 10px;
+	text-align: center;
 }

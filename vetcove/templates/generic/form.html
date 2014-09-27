@@ -1,40 +1,75 @@
 
-{# Iterate through the different ways to draw a form element #}
+{% load core_tags %}
+{% load widget_tweaks %}
 
-{% with field.field.widget.attrs.type as type %} {# Django pops if type==text #}
+{% with field.field.widget.attrs as attrs %} {# Django pops if type==text #}
+{% with field|widgetType as widget_type %}
 
-	{% if type == "select" %} 
+	{% if widget_type == 'CheckboxInput' %}
+		<div style="margin-bottom: 0px;" class="form-group {{width}}">
+			<div class="checkbox">
+	    		<label for="{{field.id_for_label}}">
+	      			{{field}} {{field.label}}
+	    		</label>
+	  		</div>
+	  	</div>
 
-		<div class="form-group">
-			<label for="name">{{field.label}}</label>
-			{{field}}
-			{% if field.help_text %}<p class="help-block">{{field.help_text}}</p>{% endif %}
-			<div class="error-message"></div>
+  	{% elif widget_type == 'Select' %}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">{{field.label}}{% if field.field.required %}*{% endif %}</label>
+			{% render_field field type="select" data-type="select" class="form-control" data-required=field.field.required %}
+			<p class="help-block">{{field.help_text}}</p>
+			<div class="error-message">Required</div>
 		</div>
 
-	{% elif type == 'checkbox' %}
 
-		<div class="checkbox">
-    		<label>
-      			{{field}} {{field.label}}
-    		</label>
-  		</div>
+	{% elif widget_type == 'TextInput' %}
 
-  	{% else %}
-
-  		<div class="form-group third">
-			<label for="password">{{field.label}}</label>
-			{{field}}
-			<div class="error-message"></div>
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">{{field.label}}{% if field.field.required %}*{% endif %}</label>
+			{% render_field field type="text" data-type="text" class="form-control" data-required=field.field.required %}
+			<div class="error-message">Required</div>
 			<div class="status">
 				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
 				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
 			</div>
 		</div>
 
+	{% elif widget_type == 'Textarea' %}
 
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">{{field.label}}{% if field.field.required %}*{% endif %}</label>
+			{% render_field field class="form-control" data-required=field.field.required %}
+			<div class="error-message">Required</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+
+	{% elif widget_type == 'CoreIntegerInput' %}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">{{field.label}}{% if field.field.required %}*{% endif %}</label>
+			{{field}}
+			<div class="error-message">Required</div>
+			
+		</div>
+
+	{% else %} {# Draw Everything Else #}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">{{field.label}}{% if field.field.required %}*{% endif %}</label>
+			{{field}}
+			<div class="error-message">Required</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
 
 	{% endif %}
 
-
+{% endwith %}
 {% endwith %}

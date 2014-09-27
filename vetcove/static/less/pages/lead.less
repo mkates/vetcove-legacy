@@ -1,0 +1,60 @@
+.lead-home {
+	width: 644px;
+	margin: 0 auto;
+	text-align: center;
+	&:hover .lead-hex {
+		opacity: .4;
+	}
+	.button {
+		margin-top: 150px;
+		font-size: 14px;
+	}
+	.lead-hex {
+		opacity: .95;
+		display:block;
+		float: left;
+		width:300px;
+		margin: 0 10px;
+		height: 346px;
+		background-image: url("../img/test/lead.png");
+		background-size: 600px 346px;
+		transition: opacity .2s;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	.lead-supplier {
+		background-position: -300px 0;
+	}
+	&:after {
+		content:".";
+		visibility: hidden;
+	}
+}
+.lead-thanks {
+	width: 500px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px;
+	border-radius: 3px;
+	background: white;
+	border:1px solid #dadada;
+	display:none;
+	i {
+		color: @colorMain;
+	}
+	h4 {
+		font-weight: 300;
+		margin: 20px 0;
+		font-size: 14px;
+		line-height: 1.4;
+	}
+	img {
+		width: 140px;
+	}
+}
+
+#clinicform, #supplierform {
+	width: 650px;
+	margin: 50px auto;
+}

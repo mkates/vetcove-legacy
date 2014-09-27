@@ -62,7 +62,7 @@
 // ections Formatting
 .section {
 	// General Formatting
-	padding: 30px 0 50px 0;
+	padding: 30px 0 30px 0;
 	&.white {
 		background: #fff;
 	}
@@ -72,7 +72,6 @@
 	&.nobottompadding { //For sections with no bottom padding
 		padding-bottom: 0px;
 	}
-
 	//Section Header
 	.section-header {
 		padding: 20px 20px 40px 20px;
@@ -96,6 +95,7 @@
 		h3 {
 			font-weight: 500;
 			font-size: 26px;
+			margin-bottom: 20px;
 			&.purple { color: @colorPurple };
 			&.violet { color: @colorViolet };
 			
@@ -110,7 +110,10 @@
 			text-align: center;
 			.thin {
 				max-width: 600px;
-				margin: 0 auto;
+				margin: 0 auto 10px auto;
+			}
+			.left-align {
+				text-align: left;
 			}
 		}
 	}
@@ -216,9 +219,9 @@
 			background: #000;
 			z-index: 1
 		}
-		&:hover .fader {
-			opacity: .35;
-		}
+		// &:hover .fader {
+		// 	opacity: .35;
+		// }
 		&.category-pharmaceuticals {
 			background-position: -300px -200px;
 		}
@@ -303,6 +306,7 @@
 	&.suppliers {  .gradient(@colorViolet,darken(@colorViolet,15%),@colorViolet) }
 	&.dashboard {  .gradient(@colorBlue,darken(@colorBlue,15%),@colorBlue)       }
 	&.support   {  .gradient(@colorLime,darken(@colorLime,15%),@colorLime)       }
+	&.company   {  .gradient(@colorTeal,darken(@colorTeal,20%),@colorTeal)       }
 }
 .hero {
 	overflow: auto;
@@ -436,15 +440,6 @@
 	}
 }
 
-//Job Listings
-.job-class {
-	margin-bottom: 30px;
-	.job {
-		span {
-			float: right;
-		}
-	}
-}
 
 //Press Images
 .press-image-container {
@@ -465,10 +460,6 @@
 	}
 }
 
-//Feedback form {
-.form {
-	width: 500px;
-}
 
 .help-search {
 	height: 100px;
@@ -500,18 +491,19 @@
 
 
 // Help
-.questions {
-	max-width: 700px;
-	margin: 0 auto 120px auto;
-	.category {
-		margin: 20px;
-		h5 {
+.help-container {
+	max-width: 800px;
+	margin: 50px auto 120px auto;
+	h5 {
+		margin-bottom: 50px;
+		text-align: center;
+	}
+	h2 {
+		text-align: center;
+	}
+	.question {
+		h3 {
 			font-size: 15px;
-		}
-		a {
-			display:block;
-			font-size: 13px;
-			padding-bottom: 10px;
 		}
 	}
 }
@@ -553,7 +545,7 @@
 	&.white {
 		background: #fff;
 	}
-	padding: 70px 15px 50px 15px;
+	padding: 70px 15px 70px 15px;
 	.row {
 		max-width: 900px;
 		margin: 0 auto;
@@ -576,7 +568,7 @@
 	max-width: 900px;
 	background: #fff;
 	border:1px solid red;
-	margin: 60px auto 80px auto;
+	margin: 60px auto 0px auto;
 	border-radius: 3px;
 	border:1px solid #dadada;
 	//height: 430px;
@@ -668,14 +660,26 @@
 }
 
 
-.support {
-	height: 250px;
-	background-image: url('../img/logo_faded_bg.png');
-	background-position: 50px -50px;
-	background-repeat: no-repeat;
+.support, .company {
+	height: 160px;
 }
 
 
-
-
-
+.job-class {
+	max-width: 700px;
+	margin: 50px auto 20px auto;
+	text-align: left;
+	h5 {
+		font-size: 22px;
+		margin: 30px 0;
+	}
+	.job {
+		margin-bottom: 20px;
+		h6 {
+			font-size: 14px;
+		}
+		span {
+			float: right;
+		}
+	}
+}

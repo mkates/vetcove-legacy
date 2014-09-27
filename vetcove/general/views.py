@@ -38,6 +38,7 @@ class About(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(About, self).get_context_data(**kwargs)
+		context['company'] = True
 		context['about'] = True
 		return context
 
@@ -46,6 +47,7 @@ class Careers(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(Careers, self).get_context_data(**kwargs)
+		context['company'] = True
 		context['careers'] = True
 		return context
 
@@ -54,6 +56,7 @@ class PressKit(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PressKit, self).get_context_data(**kwargs)
+		context['company'] = True
 		context['presskit'] = True
 		return context
 
@@ -62,6 +65,7 @@ class Feedback(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(Feedback, self).get_context_data(**kwargs)
+		context['company'] = True
 		context['feedback'] = True
 		return context
 
@@ -126,6 +130,8 @@ class FAQ(RedirectView):
 	def get_redirect_url(self):
 		return reverse("general:support")
 
+class Contact(CreateView):
+	pass
 
 ############################################
 ###### Explore Pages #######################
@@ -155,15 +161,39 @@ class Dashboard(TemplateView):
 		context['dashboard'] = True
 		return context
 
-class Lead(AjaxableResponseMixin,CreateView):
+############################################
+###### Lead Pages ##########################
+############################################
+
+class Lead(TemplateView):
+	'''
+	General Lead Segmentation View
+	'''
+	template_name = 'general/lead/home.html'
+
+class ClinicLead(AjaxableResponseMixin,CreateView):
+	'''
+	Clinic Lead Form
+	'''
+	form_class = ClinicLeadForm
+	template_name = 'general/lead/clinic.html'
+	ajax = True
+	success_url = '/' # Required for create View
+
+	def form_invalid(self,form):
+		from time import sleep
+		sleep(1)
+		return super(ClinicLead,self).form_invalid(form)
+
+
+class SupplierLead(AjaxableResponseMixin,CreateView):
 	'''
 	Supplier Lead Form
 	'''
 	form_class = SupplierLeadForm
-	template_name = 'general/lead.html'
+	template_name = 'general/lead/supplier.html'
 	ajax = True
 	success_url = '/' # Required for create View
-
 
 
 

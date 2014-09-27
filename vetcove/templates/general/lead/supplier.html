@@ -1,0 +1,64 @@
+{% extends "simple_base.html" %}
+
+{% block simplecontent %}
+
+
+<form id="supplierform" class="form form-validation ajaxform" action="{% url "general:supplierlead" %}" method="POST" novalidate>
+	{% csrf_token %}
+	<div class="intro">
+		<h1>Partner with the Most Advanced Veterinary Selling Platform</h1>
+		<p>Are you a supplier interested in joining Vetcove when we officially launch? Fill out the form below to get in touch with us and secure your spot on our platform.</p>
+		<p>We’ll reach out to you between now and launch day to confirm your identity and walk you through getting started. It’s completely free and there is absolutely no obligation.</p>
+	</div>
+
+	{{ form.non_field_errors }}
+
+    <div class="fieldWrapper">
+    	<div class="inlined-separate">
+    		{% include "generic/form.html" with field=form.company width='half' %}
+    		{% include "generic/form.html" with field=form.company_type width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form.html" with field=form.name width='third' %}
+    		{% include "generic/form.html" with field=form.email width='third' %}
+    		{% include "generic/form.html" with field=form.phonenumber width='third' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form.html" with field=form.position width='third' %}
+	    	{% include "generic/form.html" with field=form.company_size width='third' %}
+	    	{% include "generic/form.html" with field=form.sell_method width='third' %}
+    	</div>
+    	<div class="inlined-separate bottompadding">
+    		<label>Which of the following Vetcove features are most appealing?</label>
+    		{% include "generic/form.html" with field=form.feature_webpresence width='full' %}
+	    	{% include "generic/form.html" with field=form.feature_support width='full' %}
+	    	{% include "generic/form.html" with field=form.feature_analytics width='full' %}
+	    	{% include "generic/form.html" with field=form.feature_invoicing width='full' %}
+	    	{% include "generic/form.html" with field=form.feature_sales width='full' %}
+	    </div>
+	    <div class="inlined-separate bottompadding">
+	    	<label>Using Vetcove</label>
+	    	{% include "generic/form.html" with field=form.selldirect width='full' %}
+	    	{% include "generic/form.html" with field=form.authorized width='full' %}
+	    	{% include "generic/form.html" with field=form.managing_presence width='full' %}
+	    </div>
+	    <div class="inlined-separate">
+    		{% include "generic/form.html" with field=form.next_steps width='half' %}
+    		{% include "generic/form.html" with field=form.howdidyouhear width='half' %}
+    	</div>
+		<div class="form-group-submit">
+			<div class="text-div">
+				Would you rather talk by phone? Call us at (732) 598-6434.
+			</div>
+			<div class="submit-div">
+				<button type="submit" class="button button-rounded button-primary">Submit</button>
+			</div>
+		</div>
+    </div>
+
+    {% include 'general/lead/lead_thanks.html' %}
+
+
+<div id="response"></div>
+
+{% endblock %}

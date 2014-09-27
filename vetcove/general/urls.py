@@ -21,12 +21,15 @@ urlpatterns = patterns('',
 
     ### Support ###
     url(r'^support', views.Support.as_view(),name='support'),
-    url(r'^faq/', views.FAQ.as_view(), name='faq'),
+    url(r'^faq', views.FAQ.as_view(), name='faq'), # Redirects to support
+    url(r'^contact', views.Contact.as_view(), name='contact'),
 
    	### Explore ###
     url(r'^explore/features', views.Features.as_view(),name='features'),
     url(r'^explore/suppliers', views.Suppliers.as_view(),name='suppliers'),
     url(r'^explore/dashboard', views.Dashboard.as_view(),name='dashboard'),
-    url(r'^lead', views.Lead.as_view(),name='lead'),
+    url(r'^lead/home', views.Lead.as_view(),name='lead'),
+    url(r'^lead/supplier', views.SupplierLead.as_view(),name='supplierlead'),
+    url(r'^lead/clinic', views.ClinicLead.as_view(),name='cliniclead'),
    
 )

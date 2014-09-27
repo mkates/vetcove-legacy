@@ -3,215 +3,209 @@
 /*************************************************/
 /* Built by Mitchell Kates */
 
-// var states = ['Alaska', 'Alabama', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'Washington D.C.', 'West Virginia', 'Wisconsin', 'Wyoming'];
-
-
 // Each form elements needs the following elements :
 // data-required: is it required
-// data-type: the type of the form (text,password,email,promocode,etc.)
-// data-activated = set at the element level
+// data-type: the type of the form. The following data-types are accepted:
+// text, email, password, confirmpassword, promocode, file, number, phonenumber, checkbox, select
 
-//TODO
-// At least one checkbox
-// Radio errors
-// Clear the input field
-// A list of the incomplete fields above
-// Show/Hide Password (http://cloudfour.github.io/hideShowPassword/)
+;(function($) {
 
-$.fn.formValidator = function() {
+	$.fn.formValidator = function() {
 
-	// Set all the error messages, which are part of the input field
-	var elements = $(this).find("input, select, textarea");
-	$.each(elements,function(index,value) {
-		var error_message = $(value).attr('data-invalid');
-		$(value).closest('.form-group').find(".error-message").html(error_message);
-	});
+		// Handle for the plugin
+		var plugin = this;
 
-	// Aggregate all the potential form actions
+		// Initialization
+		var init = function() {
 
-	$(this).find("input").blur(function() {
-		validateInput($(this),'blur');
-		$(this).data('activated',true);
-	});
-	$(this).find("input").keyup(function() {
-		validateInput($(this),'keyup');
-		if ($(this).hasClass('password')) { // Recheck confirmpassword on any password change
-			validateInput($('.confirmpassword'),'keyup');
+			// Takes the data attribute data-invalid and sets the error message
+			$.each(plugin.find("input, select, textarea"),function(index,value) {
+				error_message = $(value).attr('data-invalid');
+				$(value).closest('.form-group').find(".error-message").html(error_message);
+			});
+
+			// Format phone numbers on any change
+			$("input[data-type='phonenumber']").keyup(function(e) {
+				$(this).val(formatPhoneNumber(e,$(this).val()));
+
+			});
+
+			// On all form blur events, trigger a check
+			plugin.find("input, select, textarea").blur(function() {
+				validateInput($(this),'blur');
+				$(this).data('activated',true);
+			});
+
+			// On all changes to an input and textarea
+			plugin.find("input, textarea, select").on('change keyup paste',function() {
+				validateInput($(this),'change');
+				// Also check the confirmpassword when a password is changed
+				if ($(this).hasClass('password')) {
+					validateInput($('.confirmpassword'),'keyup');
+				}
+			});
+
+			// For checkboxes, we provide a special call
+			plugin.find("input[type='checkbox']").change(function() {
+				validateInput($(this),'check');
+			});
+
+			// Deactivate the error message when we focus on a field
+			plugin.find("input, select, textarea").focus(function() {
+				deactivateMessage();
+			});
+
+			// Finally, on submit, let's do one more check if it is not an ajaxform,
+			// Ajax forms are checked in the forms file
+			if (!(plugin.hasClass('ajaxform'))) {
+				plugin.submit(function() {
+					return checkSubmit();
+				});
+			} 
 		}
-	});
-	$(this).find("select").change(function() {
-		validateInput($(this),'change');
-	});
-	$(this).find("select").blur(function() {
-		validateInput($(this),'blur');
-		$(this).data('activated',true);
-	});
-	$(this).find("textarea").blur(function() {
-		validateInput($(this),'blur');
-		$(this).data('activated',true);
-	});
-	$(this).find("textarea").on('change keyup paste', function() {
-		validateInput($(this),'keyup');
-	});
-	$(this).find("textarea").on('blur', function() {
-		validateInput($(this),'blur');
-		$(this).data('activated',true);
-	});
-	$(this).find("input[type='checkbox']").change(function() {
-		validateInput($(this),'check');
-	});
-	$(this).find("input[type='file']").change(function() {
-		validateInput($(this),'change');
-	});
-	$(this).find("input, select, textarea").focus(function() {
-		deactivateMessage();
-	});
-	// On the form submit action
-	$(this).submit(function() {
-		all_valid = checkAllInputs($(this)); // This highlights errors as well
-		if (all_valid) {
+
+		// Takes in the input handle and the action  (change, check, blur, submit, etc.)
+		// Runs it through the appropriate validator
+		var validateInput = function(input,action) {
+			data_type = input.attr("data-type");
+			required = input.attr('data-required') == 'True' ? true : false;
+			if (data_type == 'text') {
+				var valid = input.val().length >= 2;
+			} else if (data_type == 'email') {
+				var valid = checkEmail(input);
+			} else if (data_type == 'password') {
+				var valid = input.val().length > 5 ;
+			} else if (data_type == 'confirmpassword') {
+				original_password = input.closest('form').find("input.password");
+				passwords_match = ($(original_password).val() == input.val());
+				var valid = (input.val().length >= 1 && passwords_match);
+			} else if (data_type == 'promocode') {
+				var valid = checkPromoCode(input);
+			}  else if (data_type == 'file') {
+				var valid = input.val().length >= 1;
+			}  else if (data_type == 'number') {
+				var valid = parseInt(input.val()) >= 0;
+			} else if (data_type == 'phonenumber') {
+				var valid = input.val().length >= 14;
+			} else if (data_type == 'checkbox') {
+				var valid = input.is(":checked");
+			} else if (data_type == 'select') {
+				var valid = (input.val() != ''); //Selects only valid if not a null value
+			} 
+			valid ? updateCSS(input,true,required,action) : updateCSS(input,false,required,action);
+			return (valid || !(required));
+		}
+
+		// Update the CSS based on the input,if its valid, whether its required, and the action
+		// Parameters: (1) Input Handle, (2) Is the field valid, 
+		// (3) Is it required, (4) The action that triggered the validation
+		var updateCSS = function(input,valid,required,action) {
+			// Form Group Handle
+			form_group = input.closest('.form-group');
+
+			// Activated is used so only X's appear after a blur
+			// Activated is always true when going to submit
+
+			activated = action=='submit' ? true : input.data('activated')
+			if (valid) {
+				addCheck(form_group);
+			} else if (!(valid) && !(required)) { // Not valid, but not required
+				addNothing(form_group);
+			} else if (!(valid) && activated) { // Not valid, required, and activated
+				addError(form_group);
+			}
+			if (action=="check" && !(valid) && required) { // Required checkboxes: invalid
+				addError(form_group);
+			} else if (action=="check" && valid && required){ // Required checkboxes: valid
+				addCheck(form_group);
+			}
+		}
+
+		// Success Formatting
+		function addCheck(input) {
+			$(input).removeClass('has-error');
+			$(input)._addClass('has-check');
+		}
+		// Error Formatting
+		function addError(input) {
+			$(input).removeClass('has-check');
+			$(input)._addClass('has-error');
+		}
+		// Remove Success/Error Formatting
+		function addNothing(input) {
+			$(input).removeClass('has-check');
+			$(input).removeClass('has-error');
+		}
+
+
+		// Checks if an email is valid
+		var checkEmail = function(input) {
+			var email = $(input).val();
+			var validemail = (isEmail(email) && email.length >0);
+			if (!(validemail)) {
+				$(input).parent().find('.error').text("Invalid Email");
+				return false;
+			}
 			return true;
-		} else {
-			return false;
 		}
-	});
 
-	// Takes in the input handle and the action used
-	// Runs it through a series of validators
-	var validateInput = function(input,action) {
-		var data_type = $(input).attr("data-type");
-		var required = $(input).attr('data-required') == 'True' ? true : false;
-		if (data_type == 'text') {
-			var valid = $(input).val().length >= 2;
-		} else if (data_type == 'email') {
-			var valid = checkEmail($(input));
-		} else if (data_type == 'password') {
-			var valid = $(input).val().length > 5 ;
-		} else if (data_type == 'confirmpassword') {
-			var original_password = $(input).closest('form').find("input.password");
-			var passwords_match = ($(original_password).val() == $(input).val());
-			var valid = ($(input).val().length >= 1 && passwords_match);
-		} else if (data_type == 'promocode') {
-			var valid = checkPromoCode($(input));
-		}  else if (data_type == 'file') {
-			var valid = $(input).val().length >= 1;
-		}  else if (data_type == 'phonenumber') {
-			var valid = $(input).val().length >= 10;
-		} else if (data_type == 'checkbox') {
-			var valid = $(input).is(":checked");
-		} else if (data_type == 'select') {
-			var valid = ($(input).val() != ''); //Selects only valid if not a null value
-		} 
-		valid ? updateCSS(input,true,required,action) : updateCSS(input,false,required,action);
-		return (valid || !(required));
-	}
-
-	// Update the CSS based on the input,if its valid, whether its required, and the action
-	var updateCSS = function(input,valid,required,action) {
-		var form_group = $(input).closest('.form-group');
-		var activated = $(input).data('activated');
-		var only_good = (!(activated) && action =='keyup'); // Only good is used so X's do not appear as a user begins typing on every input
-		if (valid) {
-			addCheck(form_group);
-		} else if (!(valid) && !(required)) {
-			addNothing(form_group);
-		} else if (!(valid) && !(only_good)) { // Not valid and it has been activated as a field (used so x doesnt appear before a blur event)
-			addError(form_group);
+		// Regex for emails
+		function isEmail(email) {
+			var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		 	return emailReg.test(email);
 		}
-		if (action=="check" && !(valid) && required) { //Required checkboxes: invalid
-			addError(form_group);
-		} else if (action=="check" && valid && required){ //Required checkboxes: valid
-			addCheck(form_group);
-		}
-	}
-	function addCheck(input) {
-		$(input).removeClass('has-error');
-		if (!($(input).hasClass('has-check'))) {
-			$(input).addClass('has-check');
-		}
-	}
-	function addError(input) {
-		$(input).removeClass('has-check');
-		if (!($(input).hasClass('has-error'))) {
-			$(input).addClass('has-error');
-		}
-	}
-	function addNothing(input) {
-		$(input).removeClass('has-check');
-		$(input).removeClass('has-error');
-	}
 
 
-	var isEmail = function(email) {
-		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-	 	return emailReg.test(email);
-	}
-
-	var checkEmail = function(input) {
-		var email = $(input).val();
-		var validemail = (isEmail(email) && email.length >0);
-		if (!(validemail)) {
-			$(input).parent().find('.error').text("Invalid Email");
-			return false;
-		}
-		// $.ajax({
-		// 	type : "GET",
-		// 	data : {'email':email},
-		// 	url : "/checkemail",
-		// 	success : function(data) {
-		// 		if (data == 'valid') {
-		// 			updateCSS(input,true,true,'email-check')
-		// 		} else {
-		// 			$(input).parent().find('.error').text("Email already in use. Please login instead");
-		// 			updateCSS(input,false,true,'email-check')
-		// 		}
-		// 	}
-		// });
-		return true;
-	}
-
-	var checkPromoCode = function(input) {
-		var promo = $(input).val();
-		// $.ajax({
-		// 	type : "GET",
-		// 	data : {'promo':promo},
-		// 	url : "/checkpromo",
-		// 	success : function(data) {
-		// 		if (data['status'] == 201) {
-		// 			$(input).parent().find('.success').text(data['text']);
-		// 			updateCSS(input,true,false,'promo-check')
-		// 		} else {
-		// 			$(input).parent().find('.success').text("");
-		// 			updateCSS(input,false,false,'promo-check')
-		// 		}
-		// 	}
-		// });
-	}
-
-	var checkAllInputs = function(element) {
-		inputs = $(element).find("input, textarea, select")
-		all_valid = true
-		$.each(inputs,function(index,value) {
-			valid = validateInput($(value),'submit');
-			if (!(valid)) {
-				all_valid = false;
+		// Checks every input in the form
+		var checkAllInputs = function(element) {
+			// Grab all the elements
+			inputs = $(element).find("input, textarea, select")
+			// Iterate through each field
+			all_valid = true
+			$.each(inputs,function(index,value) {
+				valid = validateInput($(value),'submit');
+				if (!(valid)) {
+					all_valid = false;
+				}
+			});
+			// If an error, trigger an error message
+			if (!all_valid) {
+				activateMessage('error',"We need you to complete all of the required fields");
 			}
-		});
-		$.each($(element).find("select"),function(index,value) {
-			valid = validateInput($(value),'submit');
-			if (!(valid)) {
-				all_valid = false;
-			}
-		});
-		if (!all_valid) {
-			activateMessage('error',"We need you to complete all of the required fields"); //Show a fixed message error
+			// Return valid status
+			return all_valid;
 		}
-		return all_valid;
-	}
-} 
 
 
-$(document).ready(function() {
-	$(".validated-form").formValidator();
-});
+		// Public Method to call before submitting the form via ajax
+		this.checkSubmit = function() {
+			all_valid = checkAllInputs(plugin);
+			return all_valid ? true : false;
+		}
+
+		// Takes in a key press ID and the value of the field and reformats the text
+		var formatPhoneNumber = function(key_id, value) {
+			if (key_id.keyCode != 46 && key_id.keyCode != 8) { //Delet or backspace
+				phonenumber = value.replace(/[^0-9]/g, '');
+				//If they hit space after the last digit
+				phonenumber = (phonenumber.length == 10 && value.slice(-1) == ' ')? phonenumber+" " : phonenumber;
+				// Add an extension code x digit
+				phonenumber = phonenumber.length > 10 ? phonenumber.insert(10," x ") : phonenumber;
+				// Add parenthesis and dashes
+				phonenumber = phonenumber.insert(0,"(").insert(4,") ").insert(9,"-");
+				// Trim numbers that are too long
+				phonenumber = phonenumber.substring(0,21);
+				// Redraw phone number
+				return phonenumber
+			}
+		}
+
+		// Run the initialization
+		init();
+
+		// Return a handle of the object
+		return this 
+
+	} 
+})(jQuery);
 

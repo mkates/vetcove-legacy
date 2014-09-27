@@ -30,71 +30,78 @@ class SupplierLead(TimeStampedModel):
 	)
 	company_size = models.CharField(choices = COMPANY_SIZE_CHOICES, max_length=100)
 
-	sell_pharmaceuticals = models.BooleanField(default=False)
-	sell_equipment = models.BooleanField(default=False)
-	sell_diagnostics = models.BooleanField(default=False)
-	sell_biologics = models.BooleanField(default=False)
-	sell_food = models.BooleanField(default=False)
-	sell_pestmanagement = models.BooleanField(default=False)
-	sell_other = models.CharField(max_length=200,null=True,blank=True)
-	
+	### Vetcove Features
+	feature_sales = models.BooleanField(default=False)
+	feature_support = models.BooleanField(default=False)
+	feature_analytics = models.BooleanField(default=False)
+	feature_invoicing = models.BooleanField(default=False)
+	feature_webpresence = models.BooleanField(default=False)
+
+	### Personal Information ###
 	name = models.CharField(max_length=100)
 	position = models.CharField(max_length=100)
 	email = models.CharField(max_length=100)
 	phonenumber = models.CharField(max_length=100,null=True,blank=True)
+
+	### Selling Methods ###
+	SELL_METHOD_CHOICES = (
+		('exclusive_distribution','Exclusively through distribution'),
+		('predominant_distribution','Predominantly through distribution'),
+		('mixed','Mixed between distribution and direct to vets'),
+		('predominant_direct','Predominantly direct to vets'),
+		('exclusive_direct','Exclusively direct to vets'))
+	sell_method = models.CharField(choices=SELL_METHOD_CHOICES,max_length=30)
+
+	### Yes / No Questions ###
+	selldirect = models.BooleanField(default=False)
 	managing_presence = models.BooleanField(default=None)
 	authorized = models.BooleanField(default=None)
 
-	### For the manufacturers only ###
-	sellmethod_distributor = models.BooleanField(default=None)
-	sellmethod_phone = models.BooleanField(default=False)
-	sellmethod_website = models.BooleanField(default=False)
-	sellmethod_other = models.CharField(max_length=200,null=True,blank=True)
-
-	### Vetcove Features ###
-	feature_newcustomers = models.BooleanField(default=False)
-	feature_directship = models.BooleanField(default=False)
-
-	howdidyouhear = models.CharField(max_length=200)
-	additional = models.TextField()
-
+	NEXT_STEPS_CHOICES = (
+		('betauser',"Beta User: We'd like first access to Vetcove as a beta user"),
+		('confirmed','Confirmed: We Plan to begin using Vetcove once the site is live'),
+		('undecided','Undecided: Speak with us to learn more between now and launch day'))
+	next_steps = models.CharField(max_length=100,choices=NEXT_STEPS_CHOICES)
+	HOW_DID_YOU_HEAR_CHOICES = (
+		('conference','Conference'),
+		('personal_referral','Personal Referral'),
+		('google','Google'),
+		('emailmarketing','Email Marketing'))
+	howdidyouhear = models.CharField(max_length=200,choices=HOW_DID_YOU_HEAR_CHOICES,blank=True,null=True)
 
 
 class ClinicLead(TimeStampedModel):
 	clinic_name = models.CharField(max_length=100)
-	clinic_city = models.CharField(max_length=100)
-	clinic_state = models.CharField(max_length=100)
+	zipcode = models.CharField(max_length=5)
+	state = models.CharField(max_length=30)
 	PRACTICE_TYPE_CHOICES = (
-		('Small Animal Predominant','< 5 employees'),
-		('Large Animal Predominant','5-9 employees'),
-		('Mixed','Mixed')
-	)
-	practice_type = models.CharField(max_length=200,choices=PRACTICE_TYPE_CHOICES)
+		('small_animal_exclusive','Small Animal Exclusive'),
+		('small_animal_predominant','Small Animal Predominant'),
+		('large animal predominant','Large Animal Predominant'),
+		('large_animal_exclusive','Large Animal Exclusive'),
+		('equine_exclusive','Equine Exclusive'),
+		('equine_predominant','Equine Predominant'),
+		('other','Other'))
+	practice_type = models.CharField(max_length=50,choices=PRACTICE_TYPE_CHOICES)
 	number_of_licensed_veterinarians = models.IntegerField(max_length=3)
 	total_employees = models.IntegerField(max_length=3)
 	clinic_website = models.CharField(max_length=30,null=True,blank=True)
 	your_name = models.CharField(max_length=100)
 	your_position = models.CharField(max_length=100,null=True,blank=True)
 	your_email = models.CharField(max_length=200)
-	phone_number = models.CharField(max_length=15,null=True,blank=True)
+	phone_number = models.CharField(max_length=25,null=True,blank=True)
 	placing_orders = models.BooleanField(default=False)
-	authorized_decisions = models.BooleanField(default=False)
+	authorized = models.BooleanField(default=False)
 
-	### Features Booleans
-	feature_singlesource = models.BooleanField(default=False)
-	feature_productresearch = models.BooleanField(default=False)
-	feature_connectwithmanufacturers = models.BooleanField(default=False)
-	feature_rebatetracking = models.BooleanField(default=False)
-	feature_consolidateinvoices = models.BooleanField(default=False)
-	feature_supportandreturns = models.BooleanField(default=False)
-	feature_exclusivediscounts = models.BooleanField(default=False)
-	feature_purchaseanalytics = models.BooleanField(default=False)
-	feature_rewards = models.BooleanField(default=False)
+	### Vetcove Features
+	feature_sales = models.BooleanField(default=False)
+	feature_support = models.BooleanField(default=False)
+	feature_analytics = models.BooleanField(default=False)
+	feature_invoicing = models.BooleanField(default=False)
+	feature_webpresence = models.BooleanField(default=False)
 
-	BETA_USER_CHOICES = (
-		(1,'Yes: Please save me a spot in the beta'),
-		(0,'Undecided: Just keep me in the loop for now'))
-	beta_user = models.CharField(default=0,max_length=2,choices=BETA_USER_CHOICES)
+	### Beta User
+	beta_user = models.BooleanField(default=False)
 
 	HEAR_ABOUT_US_CHOICES = (
 		('conference','Conference'),
@@ -102,8 +109,7 @@ class ClinicLead(TimeStampedModel):
 		('website','Website'),
 		('email','Email'),
 		('other','Other'))
-	hear_about_us = models.CharField(max_length=20,choices=HEAR_ABOUT_US_CHOICES)
-	hear_about_us_other = models.CharField(max_length=200,null=True,blank=True)
+	howdidyouhear = models.CharField(max_length=20,choices=HEAR_ABOUT_US_CHOICES)
 
 
 

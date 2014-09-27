@@ -1,26 +1,3 @@
-// Helper class to add a class 
-$.fn._addClass = function(class_name) {
-	if (!($(this).hasClass(class_name))) {
-		$(this).addClass(class_name);
-	}
-}
-
-//*************************************************
-//************** Logo Effect **********************
-//*************************************************
-$(document).ready(function(){
-	$(".header-logo").hover(function(){
-		$("#main-logo-alt").stop();
-		$("#main-logo-alt").animate({
-			opacity:1
-		},500);
-	},function(){
-		$("#main-logo-alt").stop();
-		$("#main-logo-alt").animate({
-			opacity:0
-		},500)
-	});
-});
 
 //*************************************************
 //************** Dropdown Functionality ***********
@@ -178,10 +155,7 @@ function activateMessage(type,text) {
 
 // Deactivated the message bar 
 function deactivateMessage() {
-	$(".message-container").stop();
-	if ($(".message-container").is(':visible')) {
-		$(".message-container").slideToggle();
-	} 
+	$(".message-container").fadeOut();
 }
 
 // *************************************************
@@ -238,6 +212,40 @@ $(document).ready(function(){
 	$(".dashboard-item-overlay .exit").click(function(){
 		$(this).closest('.dashboard-item-overlay').fadeOut('fast');
 	});
+
+	// For static usage
+	$(".dashboard-item").hover(function(){
+		$(this).find('.dashboard-item-overlay').fadeIn('fast');
+	}, function() {
+		$(this).find('.dashboard-item-overlay').stop();
+		$(this).find('.dashboard-item-overlay').fadeOut('fast');
+
+	});
 });
 
-dashboard-question
+// *************************************************
+// ********** Support Center ***********************
+// *************************************************
+// Functionality for the support center question filtering
+$(document).ready(function(){
+	$('.support-sidebar a').click(function(){
+		//Activate the css for the sidebar
+		$('.support-sidebar a').removeClass('active');
+		$(this).addClass('active');
+		// Set the title to the main of the sidebar span element
+		$('.help-title').html($(this).find('span').html());
+		// Get the sidebar's tag name
+		tag_name = $(this).attr('data-tag');
+		// Only show questions with that tag
+		$.each($(".question"),function(idx,value){
+			has_tag = $(value).attr('data-tag-'+tag_name);
+			if (has_tag) {
+				$(value).css('display','block');
+			} else {
+				$(value).css('display','none');
+			}
+		});
+
+	});
+
+});

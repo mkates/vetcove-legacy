@@ -312,7 +312,7 @@
                 .mouseleave(mouseleaveRow)
                 .click(clickRow);
 
-        //Mitch: Changed to window becuase event stopped firing after a click
+        // Mitch: Changed to window becuase event stopped firing after a click
         $(window).mousemove(mousemoveDocument);
 
     };

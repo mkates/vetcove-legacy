@@ -3,11 +3,11 @@
 {% load staticfiles %}
 {% block content %}
 <div class="index-hero">
-	<h1>Veterinary Supply Starts Here.</h1>
+	<h1>Veterinary Supply Starts Here</h1>
 	<h2>One smart platform brings together manufacturers, distributors, and compounders to make supplying your clinic a breeze.</h2>
 	<div class="buttons">
 {# 		<a href='#' class="button button-large button-rounded button-flat button-flat-action">Explore Vetcove</a> #}
-		<a href='#' class="button button-large button-rounded button-shaded">Get Started For Free</a>
+		<a href='{% url "general:lead" %}' class="button button-large button-rounded button-shaded">Get Started For Free</a>
 	</div>
 	<div class="dog">
 		<img src='{% static "img/test/dogpaw.png" %}'>
@@ -36,7 +36,7 @@
 			<div class="index-supplier">
 				<div class="supplier-types supplier-compounders"></div>
 				<h6>Compounders</h6>
-				<p>Compounders offer a full suite of products to help your business replace backordered and specialty ordrs.</p>
+				<p>Compounders offer a full suite of products to help your business replace backordered and specialty orders.</p>
 			</div>
 		</div>
 		<div class="col-3 col-xs-12">
@@ -63,42 +63,42 @@
 	</div>
 	<div class="row index-categories ">
 		<div class="col-4 col-xs-12">
-			<a href='#' class="index-category category-pharmaceuticals">
+			<a class="index-category category-pharmaceuticals">
 				<div class="fader"></div>
 				<h6>Pharmaceuticals</h6>
 				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
 			</a>
 		</div>
 		<div class="col-4 col-xs-12">
-			<a href='#'class="index-category category-equipment">
+			<a class="index-category category-equipment">
 				<div class="fader"></div>
 				<h6>Equipment</h6>
 				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
 			</a>
 		</div>
 		<div class="col-4 col-xs-12">
-			<a href='#' class="index-category category-diagnostics">
+			<a class="index-category category-diagnostics">
 				<div class="fader"></div>
 				<h6>Diagnostics</h6>
 				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
 			</a>
 		</div>
 		<div class="col-4 col-xs-12">
-			<a href='#' class="index-category category-biologics">
+			<a class="index-category category-biologics">
 				<div class="fader"></div>
 				<h6>Biologics</h6>
 				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
 			</a>
 		</div>
 		<div class="col-4 col-xs-12">
-			<a href='#' class="index-category category-food">
+			<a class="index-category category-food">
 				<div class="fader"></div>
 				<h6>Food</h6>
 				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
 			</a>
 		</div>
 		<div class="col-4 col-xs-12">
-			<a href='#' class="index-category category-insect">
+			<a class="index-category category-insect">
 				<div class="fader"></div>
 				<h6>Parasite/Insect</h6>
 				<p>Alex doens't want any text ehre alex doesnt want text ehre</p>
@@ -162,7 +162,7 @@
 			<div class="collage-box-container collage-box-short collage-box-fat">
 				<div class="collage-box primary">
 					<div class="text">
-						<p>Vetcove is simply remarkable. We went from spending hours ordering to minutes.</p>
+						<p>We deal with over a dozen suppliers. This will make it so easy to manage all our different orders.</p>
 						<p class="author">Eric Kates, Owner Colts Neck Equine</p>
 					</div>
 				</div>
@@ -170,8 +170,8 @@
 			<div class="collage-box-container collage-box-short collage-box-fat">
 				<div class="collage-box action">
 					<div class="text">
-						<p>I love that you can see reviews and questions on so many products.</p>
-						<p class="author">Jaime Nagle, Offic Manager Colts Neck Equine</p>
+						<p>There is nowhere else on the web where we will be able to review and ask questions on products.</p>
+						<p class="author">Jaime Nagle, Office Manager Colts Neck Equine</p>
 					</div>
 				</div>
 			</div>
@@ -194,8 +194,8 @@
 	<div class="row call-to-action">
 		<div class="col-12">
 			<h4>Join the Vetcove community</h4>
-			<p>Signing up takes less than 60 seconds, and we will have your account quickly approved. What do you have to lose? It's 100% free to use!</p>
-			<a href='#' class="button button-rounded button-primary">Get Started</a>
+			<p>We are eagerly seeking beta clinics to be the first ones to use Vetcove. Signing up as beta user takes less a minute!</p>
+			<a href='{% url "general:lead" %}' class="button button-rounded button-primary">Get Started</a>
 		</div>
 	</div>
 </div>

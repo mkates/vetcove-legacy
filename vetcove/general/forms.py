@@ -3,81 +3,70 @@ from __future__ import absolute_import
 
 # Django Apps
 from django import forms
+from localflavor.us.forms import USStateSelect
 
 # In App Imports
 from core.form_fields import *
-from .models import SupplierLead
+from .models import SupplierLead, ClinicLead
 
 
-
-# TODO: Work in progress
 class SupplierLeadForm(forms.ModelForm):
     ''' 
     Form for a supplier lead
-     '''
+    '''
     class Meta:
         model = SupplierLead
+        fields = "__all__"
+        labels = {
+            'feature_sales' : "Boosting sales with online promotions",
+            'feature_support' : "Providing online support and responding to clinic questions and reviews",
+            'feature_analytics' : "Accessing seller analytics (from both selling direct and through distribution)",
+            'feature_invoicing' : "Automating order processing, clinic verification, and invoicing (when selling direct)",
+            'feature_webpresence' : "Building a larger and richer web presence for your products",
+            'sell_method':'Current selling channel',
+            'managing_presence' : "Will you personally be managing your company's presence on Vetcove?",
+            'authorized' : 'Are you authorized to make decisions on behalf of your company about joining VetCove?',
+            'phonenumber': 'Phone Number',
+            'howdidyouhear':'How did you hear about us?',
+            'next_steps': 'Your Next Steps',
+            'selldirect':'Does your company plan to accept orders on Vetcove and ship directly to customers?'
+        }
         widgets = {
-            'company': TextInput(),
-            'sell_pharmaceuticals': CheckboxInput(),
-            'sell_equipment': CheckboxInput(),
-            'sell_diagnostics': CheckboxInput(),
-            'sell_biologics': CheckboxInput(),
-            'sell_food': CheckboxInput(),
-            'sell_pestmanagement': CheckboxInput(),
-            'sell_other':TextInput(),
-            # 'sell_equipment': Checkbox(attrs={}),
-            # 'sell_equipment': Checkbox(attrs={}),
-            # 'sell_equipment': Checkbox(attrs={}),
-            # 'sell_equipment': Checkbox(attrs={}),
-            # 'sell_equipment': Checkbox(attrs={}),
+            'company': forms.TextInput(attrs={'placeholder':'Company Name'}),
+            'name': forms.TextInput(attrs={'placeholder':'Your Full Name'}),
+            'position' : forms.TextInput(attrs={'placeholder':'Your Position'}),
+            'email' : CoreEmailInput(),
+            'phonenumber' : CorePhoneNumberInput(),
+        }
+
+
+class ClinicLeadForm(forms.ModelForm):
+    ''' 
+    Form for a clinic lead
+    '''
+    class Meta:
+        model = ClinicLead
+        fields = "__all__"
+        labels = {
+            'number_of_licensed_veterinarians':'Licensed Veterinarians',
+            'placing_orders':'Will you be the one placing orders on Vetcove?',
+            'authorized' : 'Are you authorized to make purchase decisions on behalf of your clinic?',
+            'phonenumber': 'Phone Number',
+            'howdidyouhear':'How did you hear about us?',
+            'beta_user': 'I would like to be part of the beta launch and be among the first clinics to use Vetcove'
+        }
+        widgets = {
+            'clinic_name': forms.TextInput(attrs={'placeholder':'Clinic Name'}),
+            'zipcode': forms.TextInput(attrs={'placeholder':'xxxxx'}),
+            'state': USStateSelect(attrs={'class':'form-control','type':'select','data-type':'select'}),
+            'your_name': forms.TextInput(attrs={'placeholder':'Dr. John Doe'}),
+            'your_position': forms.TextInput(attrs={'placeholder':'Vet / Practice Owner'}),
+            'your_email': CoreEmailInput(),
+            'phone_number': CorePhoneNumberInput(attrs={'data-required':'False'}),
+            'clinic_website':forms.TextInput(attrs={'placeholder':'www.example.com'}),
+            'number_of_licensed_veterinarians':CoreIntegerInput(attrs={'placeholder':0}),
+            'total_employees':CoreIntegerInput(attrs={'placeholder':0}),
         }
 
 
 
-    # company = models.CharField(max_length=100)
-    # COMPANY_TYPE_CHOICES = (
-    #     ('manufacturer','Manufacturer'),
-    #     ('distributor','Distributor'),
-    #     ('compounding pharmacy','Compounding Pharmacy'),
-    #     ('reseller','Reseller')
-    # )
-    # company_type = models.CharField(choices=COMPANY_TYPE_CHOICES,max_length=25)
-    # COMPANY_SIZE_CHOICES = (
-    #     ('< 5','< 5 employees'),
-    #     ('5-10','5-9 employees'),
-    #     ('10-20','10-20 employees'),
-    #     ('21-50','21-50 employees'),
-    #     ('51-100','51-100 employees'),
-    #     ('101-500','101-500 employees'),
-    #     ('500+','500+ employees'),
-    # )
-    # company_size = models.CharField(choices = COMPANY_SIZE_CHOICES, max_length=100)
-
-    # sell_pharmaceuticals = models.BooleanField(default=False)
-    # sell_equipment = models.BooleanField(default=False)
-    # sell_diagnostics = models.BooleanField(default=False)
-    # sell_biologics = models.BooleanField(default=False)
-    # sell_food = models.BooleanField(default=False)
-    # sell_pestmanagement = models.BooleanField(default=False)
-    # sell_other = models.CharField(max_length=200,null=True,blank=True)
-    
-    # name = models.CharField(max_length=100)
-    # position = models.CharField(max_length=100)
-    # email = models.CharField(max_length=100)
-    # phonenumber = models.CharField(max_length=100,null=True,blank=True)
-    # managing_presence = models.BooleanField(default=None)
-    # authorized = models.BooleanField(default=None)
-
-    # ### For the manufacturers only ###
-    # sellmethod_distributor = models.BooleanField(default=None)
-    # sellmethod_phone = models.BooleanField(default=False)
-    # sellmethod_website = models.BooleanField(default=False)
-    # sellmethod_other = models.CharField(max_length=200,null=True,blank=True)
-
-    # ### Vetcove Features ###
-    # feature_newcustomers = models.BooleanField(default=False)
-    # feature_directship = models.BooleanField(default=False)
-
-    # howdidyouhear = models.CharField(max_length=200)
-    # additional = models.TextField()

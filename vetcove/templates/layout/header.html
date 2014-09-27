@@ -4,12 +4,12 @@
 		<div class="header-left">
 			<!-- Logo -->
 			<a class="logo" href='/'>
-				<img id="main-logo" src="{{STATIC_URL}}img/logo_hex_gray.png" alt="VetCove"/>
+				<img id="main-logo" src="{{STATIC_URL}}img/logo_full_gray.png" alt="VetCove"/>
 			</a>
 			<!--Navigation Items-->
 			<div class="menu">
 				<ul>
-					<li><a class="item standard-link features-link {% if features %}active{% endif %}" href='{% url "general:features" %}'>Veterinarians</a></li><!--
+					<li><a class="item standard-link features-link {% if features %}active{% endif %}" href='{% url "general:features" %}'>Clinics</a></li><!--
 					--><li><a class="item standard-link suppliers-link {% if suppliers %}active{% endif %}" href='{% url "general:suppliers" %}'>Suppliers</a></li><!--
 					--><li><a class="item standard-link dashboard-link {% if dashboard %}active{% endif %}" href='{% url "general:dashboard" %}#'>Explore Vetcove</a></li><!--
 					--><li><a class="item standard-link support-link {% if support %}active{% endif %}" href='{% url "general:support" %}#'>Support</a></li>
@@ -59,14 +59,15 @@
 						</div>
 					</li>-->
 					{# <li><a class="item standard-link" href='#'>Log In</a></li> #}
-					<li><a class="item standard-link" href='#'>Log In</a></li>
+					<li><a class="item standard-link" href='{% url "accounts:signin" %}'>Sign In</a></li>
 					<li><a class="item signup-link
 						{% if index %}index-color {% endif %}
 						{% if features %}features-color {% endif %}
 						{% if suppliers %}suppliers-color {% endif %}
 						{% if dashboard %}dashboard-color {% endif %}
 						{% if support %}support-color {% endif %}
-						" href='{% url "accounts:signin" %}'>Sign Up</a></li>
+						{% if company %}company-color {% endif %}
+						" href='{% url "general:lead" %}'>Sign Up</a></li>
 				</ul>
 			</div>
 		</div>

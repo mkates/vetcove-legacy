@@ -31,7 +31,7 @@
 		{% endblock %}
 	</div>
 	<div class="account-footer centered">
-		<p>Don't have a Vetcove account? <a href='#'>Sign Up Here</a></p>
+		<p>Don't have a Vetcove account? <a href='{% url "general:lead" %}'>Sign Up Here</a></p>
 		<a href='/'><img src="{% static 'img/logo_hex_gray_small.png' %}" alt="Vetcove"></a>
 	</div>
 {% endblock %}

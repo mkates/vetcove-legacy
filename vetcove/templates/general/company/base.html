@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="hero-small">
-	{% block hero %} Company {% endblock %}
+<div class="hero-container company">
+	<div class="hero centered noimage">
+		<div class="row">
+			<div class="text col-12 col-xs-12">
+				<h1>Company</h1>
+				<h2>{% block hero %}Company{% endblock %}</h2>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="menu-horizontal menu-horizontal-static">
@@ -12,8 +19,8 @@
 		<li><a {% if presskit %}class="active"{% endif %} href='{% url "general:presskit" %}'>Press Kit</a></li>
 		<li><a {% if feedback %}class="active"{% endif %} href='{% url "general:feedback" %}'>Feedback</a></li>
 		<div class="pull-right">
-			<li><a href='mailto:team@vetcove.com'>team@vetcove.com</a></li>
-			<li><a class="bordered" href='http://blog.vetcove.com'>Blog</a></li>
+			<li><a class="bordered" href='mailto:team@vetcove.com'>team@vetcove.com</a></li>
+			{# <li><a class="bordered" href='http://blog.vetcove.com'>Blog</a></li> #}
 		</div>
 	</ul>
 </div>

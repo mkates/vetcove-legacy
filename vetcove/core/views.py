@@ -95,6 +95,6 @@ class AjaxableResponseMixin(object):
             data = {
                 'pk': self.object.pk,
             }
-            return JsonResponse(data,status=201)
+            return JsonResponse(data,status=200)
         else:
             return response

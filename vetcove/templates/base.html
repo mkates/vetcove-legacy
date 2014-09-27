@@ -13,11 +13,9 @@
 
 {# Page Header Requirements #}
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-{% if responsive %}
-	<meta name="viewport" content="width=device-width, initial-scale=1"> {# Responsive design enabled #}
-{% else %}
-	<meta name="viewport" content="width=1000, initial-scale=1"> {# Responsive design enabled #}
-{% endif %}
+
+{# <meta name="viewport" content="width=device-width, initial-scale=1"> #} {# Responsive design enabled #}
+<meta name="viewport" content="width=1000, initial-scale=1"> {# Responsive design enabled #}
 <meta http-equiv="X-UA-Compatible" content="IE=edge"> {# For Internet Explorer #}
 
 {# Meta Information #}
@@ -36,8 +34,13 @@
 
 {% block stylesheets %}
 	{# Less Files #}
-	{% if debug %} {# Use the less compiler #}
+	{% if STATIC_DEBUG %} {# Use the less compiler #}
 		<link href="{{STATIC_URL}}less/main.less" rel="stylesheet/less" type="text/css" />
+		<script>
+		  less = {
+		    strictMath: true
+		  };
+		</script>
 		<script src="{{STATIC_URL}}js/local/less.js"></script>
 	{% else %} {# Use one large minified file, built from Grunt #}
 		<link href="{{STATIC_URL}}compiled/main.min.css" rel="stylesheet" type="text/css" />
@@ -47,7 +50,7 @@
 </head>
 
 
-<body class="responsive"> {# Can toggle responsive on and off here #}
+<body class=""> {# Can toggle responsive on and off here by adding class responsive#}
 
 {# Include Overlay #}
 {% include "layout/overlay.html" %}
@@ -94,18 +97,18 @@
 {# Javascript #}
 <script language="javascript">var STATIC_URL = "{{ STATIC_URL|escapejs }}";</script> {# Static URL #}
 
-{% if debug %}
+{% if STATIC_DEBUG %}
 	{# Everything starts with Jquery #}
 	<script src="{{STATIC_URL}}js/required/jquery-2.1.1.min.js" type="text/javascript" ></script>
 
 	{# Add the bootstrap JS manually that we are going to use below#}
-	<script src="{{STATIC_URL}}js/bootstrap/tooltip.js" type="text/javascript" ></script>
+	<script src="{{STATIC_URL}}js/bootstrap/bootstrap.js" type="text/javascript" ></script>
 	{# End of bootstrap plugins #}
 
 	{# Third Party Plugins #}
 	<script src="{{STATIC_URL}}js/plugins/jquery.menu-aim.js" type="text/javascript" ></script>
 	<script src="{{STATIC_URL}}js/plugins/hoverIntent.js" type="text/javascript" ></script>
-	<script src="{{STATIC_URL}}js/plugins/autosuggest.js" type="text/javascript" ></script>
+	{# <script src="{{STATIC_URL}}js/plugins/autosuggest.js" type="text/javascript" ></script> #}
 	<script src="{{STATIC_URL}}js/plugins/sonic.js" type="text/javascript" ></script>
 	<script src="{{STATIC_URL}}js/plugins/jquery.knob.js" type="text/javascript" ></script>
 	<script src="{{STATIC_URL}}js/plugins/ajaxform.js" type="text/javascript" ></script>
@@ -118,6 +121,7 @@
 
 
 	{# Custom Javascript #}
+	<script src="{{STATIC_URL}}js/custom/modules.js" type="text/javascript" ></script> {# Modules and helper functions #}
 	<script src="{{STATIC_URL}}js/custom/form.js" type="text/javascript" ></script> {# Form Validation #}
 	<script src="{{STATIC_URL}}js/custom/forms.js" type="text/javascript" ></script> {# Handles all AJAX forms #}
 	<script src="{{STATIC_URL}}js/custom/loader.js" type="text/javascript" ></script> {# Constructs hexagonal loader #}

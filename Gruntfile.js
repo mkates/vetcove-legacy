@@ -9,8 +9,7 @@ module.exports = function(grunt) {
       build: {
         src: ['vetcove/static/js/required/*js',
         'vetcove/static/js/bootstrap/*js',
-        'vetcove/static/js/plugins/*js',
-        'vetcove/static/js/local/*js', //Don't include in production
+        'vetcove/static/js/plugins/**/*js',
         'vetcove/static/js/custom/*js'],
         dest: 'vetcove/static/compiled/main.min.js'
       }

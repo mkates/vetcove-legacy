@@ -1,32 +1,69 @@
-// *********  Supplier Lead Form ************ //
+/**************************************************/
+/****** Ajax Submitting of Forms  *****************/
+/**************************************************/
+/* Built by Mitchell Kates */
 
+// IMPORTANT: A form that is submitted via ajax needs the class: ajaxform
+
+
+// ****** The standard form submitting via ajax *******
 $(document).ready(function() { 
 
-    // bind to the form's submit event 
-    $('#LeadSupplierForm').submit(function() { 
-        $(this).ajaxSubmit({
-            target:        '#response',   // target element(s) to be updated with server response 
-            beforeSubmit:  showRequest,  // pre-submit callback 
-            error:         showResponse,
-            success:       showResponse  // post-submit callback 
-        }); 
-        return false; //DO NOT CHANGE!
-    }); 
-}); 
- 
-// pre-submit callback 
-function showRequest(formData, jqForm, options) { 
-    var queryString = $.param(formData); 
-    
-    // Validate here, return false if invalid form!
+    // Add validation to all the forms with class form-validation
+    $('.form-validation').formValidator();
 
-    return true;  //Form is valid, so submit
-} 
- 
-// post-submit callback 
-function showResponse(responseText, statusText, xhr, $form)  { 
-    console.log(xhr);
-    console.log("here")
-    alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-        '\n\nThe output div should have already been updated with the responseText.'); 
-} 
+    // All ajax forms get the class ajaxform
+    $('.ajaxform').submit(function() { 
+        $(this).ajaxSubmit({
+            dataType:      'json', // Required! or success callback will fail
+            async :         false,
+            beforeSubmit:  preSubmit,  // Pre submit callback, for final client side validation
+            success:       showSuccess, // On success actions
+            error:         showError, // On error actions
+        }); 
+        return false; // DO NOT CHANGE THIS!
+    }); 
+
+    // Pre-Submit Checks
+    function preSubmit(formData, jqForm, options) {
+        buttonStartSubmitting(jqForm);
+        // Validated forms get checked before submitting
+        if (jqForm.hasClass('form-validation')) { 
+            form = jqForm.formValidator();
+            all_valid = form.checkSubmit();
+            if (!all_valid) {
+                buttonFinishSubmitting(jqForm);
+                return false
+            }
+        }
+        return true // No validation, so just submit it
+    } 
+
+    // Post-Submit Error Callbacks
+    function showError(responseText, statusText, xhr, $form)  { 
+        buttonFinishSubmitting($form);
+         
+    } 
+    // Post-Submit Success Callback
+    function showSuccess(responseText, statusText, xhr, $form)  { 
+        // Return button to normal
+        buttonFinishSubmitting($form);
+        $("#clinicform").fadeOut();
+        // Clear the form
+        $form[0].reset();
+        // Bring in the thank you message
+        $(".lead-thanks").fadeIn();
+    } 
+}); 
+
+
+function buttonStartSubmitting(jqForm) {
+    handle = jqForm.find('.submit')
+    handle.html("<i class='fa fa-15x fa-inline fa-spin fa-spinner'></i>");
+    handle.attr('disabled','disabled');
+}
+function buttonFinishSubmitting(jqForm) {
+    handle = jqForm.find('.submit')
+    handle.html("Submit");
+    handle.attr('disabled',false);
+}
