@@ -10,9 +10,12 @@ django-appconf==0.6
 django-extensions==1.4.0
 django-floppyforms==1.1
 django-imagekit==3.2.2
+django-localflavor==1.0
 django-model-utils==2.2
 django-pipeline==1.3.25
+django-select-multiple-field==0.3.0
 django-toolbelt==0.0.1
+django-widget-tweaks==1.3
 docutils==0.12
 factory-boy==2.4.1
 futures==2.1.6
