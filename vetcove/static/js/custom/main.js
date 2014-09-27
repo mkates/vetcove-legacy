@@ -214,7 +214,7 @@ $(document).ready(function(){
 	});
 
 	// For static usage
-	$(".dashboard-item").hover(function(){
+	$(".dashboard-item-container").hover(function(){
 		$(this).find('.dashboard-item-overlay').fadeIn('fast');
 	}, function() {
 		$(this).find('.dashboard-item-overlay').stop();
