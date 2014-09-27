@@ -27,6 +27,7 @@ $(document).ready(function() {
     // Pre-Submit Checks
     function preSubmit(formData, jqForm, options) {
         buttonStartSubmitting(jqForm);
+        return true
         // Validated forms get checked before submitting
         if (jqForm.hasClass('form-validation')) { 
             form = jqForm.formValidator();
@@ -42,7 +43,15 @@ $(document).ready(function() {
     // Post-Submit Error Callbacks
     function showError(responseText, statusText, xhr, $form)  { 
         buttonFinishSubmitting($form);
-         
+        // Display an error message
+        errors_div = $form.find(".non-field-errors").html("We encountered an error. Please fix the fields highlighted in red");
+        // Update individual fields
+        error_dict = JSON.parse(responseText.responseText);
+        for (var key in error_dict) {
+            element = $form.find("[name="+key+"]").closest(".form-group");
+            element._addClass('has-error');
+            element.find('.error-message').html(error_dict[key]);
+        }     
     } 
     // Post-Submit Success Callback
     function showSuccess(responseText, statusText, xhr, $form)  { 
