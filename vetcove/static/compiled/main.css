@@ -4503,6 +4503,7 @@ tr {
 .tablecell-col {
   display: table-cell;
   height: 100%;
+  position: relative;
 }
 .tablecell-6 {
   width: 50%;
@@ -7838,7 +7839,6 @@ button.button:disabled {
   background-image: linear-gradient(to top, #2a9f8c 0%, #5bd4c0 100%);
 }
 .hero {
-  overflow: auto;
   max-width: 900px;
   margin: 0 auto;
   text-align: left;
@@ -7868,8 +7868,8 @@ button.button:disabled {
   text-align: right;
 }
 .hero .image img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 99%;
+  max-height: 99%;
 }
 .hero.centered {
   text-align: center;
