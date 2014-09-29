@@ -10,14 +10,20 @@ body {
 .body-container {
 	max-width: @pageWidth;
 	min-width: @pageWidth;
+	padding: 0 10px;
 	margin: 0 auto;
+}
+.responsive .body-container {
+	min-width: 400px;
 }
 .content { 
 	overflow: hidden; // Hide any overflowed content
 	min-height: 300px;
 	background: #f1f1f1;
 }
-
+.simple-outer {
+	background: #fafafa;
+}
 // Background on highlighting
 ::selection {
   background: #e6e6e6; /* WebKit/Blink Browsers */

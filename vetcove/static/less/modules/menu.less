@@ -5,6 +5,8 @@
 //Horizontal Menu, used by the account pages
 
 .menu-horizontal {
+	//max-width: 900px;
+	margin: 0 auto;
 	margin: 10px 10px 0 10px;
 	.horizontal-nav;
 	li {
@@ -21,6 +23,9 @@
 				border-radius: 2px;
 				padding-right: 8px;
 				padding-left: 8px;
+				@media(max-width:500px) { //Hide email on mobile
+					display:none
+				}
 			}
 			&.active {
 				border-bottom: 2px solid @colorTeal;
@@ -39,13 +44,16 @@
 			margin-right: 0px;
 		}
 	}
+	@media(max-width:500px) {
+
+	}
 }
 
 // Menu static, used by all the static pages
 .menu-horizontal-static{
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0 @sideGutter;
+	padding: 0 10px;
 	border-bottom:1px solid #ddd;
 	padding-bottom: 10px;
 	.pull-right {

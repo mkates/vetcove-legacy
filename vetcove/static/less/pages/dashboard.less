@@ -1,7 +1,7 @@
 //**** Styling for dashboard elements ******//
 
 .dashboard-container {
-	margin: 20px 30px 50px 30px;
+	margin: 20px 20px 50px 20px;
 }
 .dial-container {
 	text-align: center;
@@ -13,15 +13,24 @@
 		height: 150px;
 	}
 }
+.dashboard-column {
+	padding: 5px;
+}
 .dashboard-item-container {
 	position: relative;
+	border:1px solid #dadada;
+	background: #fff;
+	.bottom-element {
+		right: 5px;
+		position:absolute;
+		bottom: 5px;
+	}
 }
 .dashboard-item-overlay {
 	display:none;
 	width: 100%;
 	height: 100%;
 	position:absolute;
-	border-radius: 3px;
 	z-index: 1;
 	background: rgba(0,0,0,.85);
 	text-align: center;
@@ -79,9 +88,15 @@
 
 }
 .dashboard-item {
+	height: 400px;
+	&.long {
+		height: 600px;
+	}
+	overflow: hidden;
 	.title {
 		.topRoundedCorners;
 		padding: 5px 20px;
+		margin-bottom: 10px;
 		.gradient(#eee,#ddd,#fff);
 		overflow: auto;
 		border-bottom:1px solid #dadada;
@@ -116,6 +131,7 @@
 	display:table;
 	width: 100%;
 	margin: 0 10px;
+	padding: 4px 0;
 	.counter {
 		display:table-cell;
 		vertical-align: top;
@@ -159,7 +175,7 @@
 		font-size: 11px;
 		margin-bottom: 0px;
 	}
-	padding: 0px 10px;
+	padding: 4px 10px;
 	border-bottom:1px solid #eee;
 	.progress {
 		width: 200px;
@@ -173,7 +189,7 @@
 }
 
 .news {
-	padding: 10px 20px 0 20px;
+	padding: 4px 20px 4px 20px;
 	.news-item {
 		p {
 			font-size: 11px;
@@ -190,8 +206,7 @@
 	}
 }
 .question {
-	padding: 0 5px 5px 0;
-	//border:1px solid red;
+	padding: 0 10px;
 	.question-text {
 		line-height: 1.4;
 		margin-bottom: 0;

@@ -32,12 +32,21 @@ input[type="radio"], input[type="checkbox"] {
 	}
 	&.half { // Half the full width
 		width: 50%;
+		@media(max-width:670px) {
+			width: 100%;
+		}
 	}
 	&.third { // 25% of the full width
 		width: 33.33%;
+		@media(max-width:670px) {
+			width: 100%;
+		}
 	}
 	&.quarter { // 25% of the full width
 		width: 25%;
+		@media(max-width:670px) {
+			width: 100%;
+		}
 	}
 	.help-block { // The help block
 		font-size: 11px;

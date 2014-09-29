@@ -10,8 +10,8 @@
 	<div class="hero centered noimage">
 		<div class="row">
 			<div class="text col-12 col-xs-12">
-				<h1>Explore VetCove</h1>
-				<h2>View A Live Dashboard</h2>
+				<h1>Explore A Demo Dashboard</h1>
+				<h2>Your Portal to Everything Supply</h2>
 				<a href='{% url "general:lead" %}' class="button button-rounded button-shaded">Activate Your Dashboard</a>
 			</div>
 		</div>
@@ -19,541 +19,563 @@
 </div>
 
 <div class="dashboard-container">
-	<div class="tablecell"> {# Beginning tablecell box #}
-		<div class="tablecell-col tablecell-4 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-gift"></i>
-	  			<h5>Vetcove Rewards</h5>
-	  			<p>Earn exclusive rewards for you and your clinic just by using Vetcove. It’s fun and easy!</p>
-				<p>Ordering items and participating in the Vetcove community earns you progress toward goal fulfillment.  When you’ve taken the required number of actions and achieve a goal, you’ll earn Vetcove credits that can be redeemed for gift cards, special savings, contest entries, philanthropic donations, and other great rewards. Each goal only lasts for a limited time, so act fast!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
+	<div class="row">
+
+		{# Rewards Column #}
+		<div class="dashboard-column col-4 col-sm-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-gift"></i>
+		  			<h5>Vetcove Rewards</h5>
+		  			<p>Earn exclusive rewards for you and your clinic just by using Vetcove. It’s fun and easy!</p>
+					<p>Ordering items and participating in the Vetcove community earns you progress toward goal fulfillment.  When you’ve taken the required number of actions and achieve a goal, you’ll earn Vetcove credits that can be redeemed for gift cards, special savings, contest entries, philanthropic donations, and other great rewards. Each goal only lasts for a limited time, so act fast!</p>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+			  			<i class="fa fa-question"></i>
+			  		</div>
+			  	<div class="tablecell-content dashboard-item rewards">
+					<div class="title">
+						<h3>Your VetCove Rewards</h3>
+						<p>You have <strong>14 days</strong> left to reach these goals.</p>
+					</div>
+					<div class="tablecell-body">
+						<div class="row">
+							<div class="col-6">
+								<div class="dial-container">
+									<input class="dial" value="2" data-max="3" data-type="ratio">
+									<p class="goal">Write 3 Product Reviews</p>
+									<p class="reward">Earn 250 Credits</p>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="dial-container">
+									<input class="dial" value="38" data-max="100" data-type="dollar">
+									<p class="goal">Spend $5,000 Total</p>
+									<p class="reward">Earn 300 Credits</p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<div class="dial-container">
+									<input class="dial" value="8" data-max="10" data-type="ratio">
+									<p class="goal">Buy 10 Equizone Units</p>
+									<p class="reward">Earn 200 Credits</p>
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="dial-container">
+									<input class="dial" value="1" data-max="2" data-type="ratio">
+									<p class="goal">Answer 2 Questions</p>
+									<p class="reward">Earn 100 Credits</p>
+								</div>
+							</div>
+						</div>
+					</div>
+			  	</div>
+			  	<a class="bottom-element" href="/rewards">View All Rewards<span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
+		</div>
+		{# End Rewards #}
+
+		{# Column Order History #}
+		<div class="dashboard-column col-4 col-sm-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+					<span class="exit glyphicon glyphicon-remove"></span>
+					<i class="fa fa-5x fa-cubes"></i>
+					<h5>Order History</h5>
+					<p>The Vetcove Dashboard provides you quick and easy access to the up-to-date status of your recent orders.</p>
+					<p>Instantly view key order information, as well as real-time location tracking for your packages—whether the package was shipped with UPS, FedEx, DHL, or USPS. Never be left wondering when a package is going to be delivered again!</p>
+					<a class="exit button button-standard button-rounded">Return to dashboard</a>
+				</div>
+		  		<div class="dashboard-question">
 		  			<i class="fa fa-question"></i>
 		  		</div>
-		  	<div class="tablecell-content dashboard-item rewards">
-				<div class="title">
-					<h3>Your VetCove Rewards</h3>
-					<p>You have <strong>14 days</strong> left to reach these goals.</p>
-				</div>
-				<div class="tablecell-body">
-					<div class="row">
-						<div class="col-6">
-							<div class="dial-container">
-								<input class="dial" value="2" data-max="8" data-type="ratio">
-								<p class="goal">Write 8 Reviews</p>
-								<p class="reward">250 Credits</p>
+			  	<div class="tablecell-content dashboard-item">
+					<div class="title">
+						<h3>Your Order History</h3>
+						<p>Track your recent purchases</p>
+					</div>
+					<div class="tablecell-body">
+						<a href='#' class="order row">
+							<p class="price">Order Placed Today (#252-A4D)<span>$117.24</span></p>
+							<p class="status"><strong>Not Yet Shipped:</strong> Order Confirmed</p>
+							<div class="progress">
+								<img class="progress" src='{% static "img/test/ordermanagement_1.png" %}'>
+							</div>
+						</a>
+						<a href='#' class="order row">
+							<p class="price">Order Placed Yesterday (#265-BG5)<span>$1,247.89</span></p>
+							<p class="status"><strong>Shipped:</strong> est. arrival <strong>Tomorrow 9am-12pm</strong></p>
+							<div class="progress">
+								<img class="progress" src='{% static "img/test/ordermanagement_2.png" %}'>
+							</div>
+						</a>
+						<a href='#' class="order row">
+							<p class="price">Order Placed Mar 6rd (#252-F2A)<span>$76.43</span></p>
+							<p class="status"><strong>Shipped:</strong> out for delivery <strong>Today 12pm-3pm</strong></p>
+							<div class="progress">
+								<img class="progress" src='{% static "img/test/ordermanagement_3.png" %}'>
+							</div>
+						</a>
+						<a href='#' class="order row">
+							<p class="price">Order Placed Mar 3rd (#312-F5R)<span>$327.12</span></p>
+							<p class="status"><strong>Delivered:</strong> arrived 9:38AM yesterday</p>
+							<div class="progress">
+								<img class="progress" src='{% static "img/test/ordermanagement_4.png" %}'>
+							</div>
+						</a>
+					</div>
+			  	</div>
+			  	<a class="bottom-element" href="/rewards">View Full Order History <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
+		</div>
+		{# End Order History #}
+
+
+		{# Column Promotions #}
+		<div class="dashboard-column col-4 col-sm-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-tags"></i>
+		  			<h5>Promotions & Discounts</h5>
+		  			<p>Access hot and exclusive product promotions effortlessly from your Vetcove Dashboard!</p>
+		  			<p>View all running supplier specials, as well as exclusive Vetcove promotions tailored to your clinic. Vetcove sorts and organizes promotions to give you easy access to discounts you’re most likely to make use of.</p>
+		  			<p>For the first time, you’ll have easy access to an abundant number of ways to save money for your clinic with each and every order!</p>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+		  			<i class="fa fa-question"></i>
+		  		</div>
+			  	<div class="tablecell-content dashboard-item">
+					<div class="title">
+						<h3>Your Top Promotions</h3>
+						<p>View the top promotions tailored to you</p>
+					</div>
+					<div class="tablecell-body">
+						<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="flameicon flameicon_hot"></div>
+							</div>
+							<div class="text">
+								<h4>Save $5 on Equizone in various sizes</h4>
+								<p>9 Days Remaining | Viewed 52 Times</p>
 							</div>
 						</div>
-						<div class="col-6">
-							<div class="dial-container">
-								<input class="dial" value="76" data-max="100" data-type="dollar">
-								<p class="goal">Spend $400 on Vetcove</p>
-								<p class="reward">400 Credits</p>
+						<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="flameicon flameicon_hot"></div>
+							</div>
+							<div class="text">
+								<h4>Free items with Avaguard Surgical Hand Antiseptic</h4>
+								<p>14 Days Remaining | Viewed 42 Times</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="flameicon flameicon_medium"></div>
+							</div>
+							<div class="text">
+								<h4>Sale on Bimeda Viceton (various sizes)</h4>
+								<p>9 Days Remaining | Viewed 36 Times</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="flameicon flameicon_medium"></div>
+							</div>
+							<div class="text">
+								<h4>$10 off purchase of 100 pipettes</h4>
+								<p>14 Days Remaining | Viewed 31 Times</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="flameicon"></div>
+							</div>
+							<div class="text">
+								<h4>$500 back on Sound-Eklin ultrasounds</h4>
+								<p>14 Days Remaining | Viewed 12 Times</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="flameicon"></div>
+							</div>
+							<div class="text">
+								<h4>Free Heartgard with each pack of ten</h4>
+								<p>14 Days Remaining | Viewed 6 Times</p>
 							</div>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-6">
-							<div class="dial-container">
-								<input class="dial" value="5" data-max="10" data-type="ratio">
-								<p class="goal">Buy 10 Equizone Products</p>
-								<p class="reward">250 Credits</p>
+			  	</div>
+			  	<a class="bottom-element" href="/rewards">View All Promotions <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
+		</div>
+		{# End Promotions #}
+
+		{# Column Man. Rebates #}
+		<div class="dashboard-column col-4 col-sm-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-tasks"></i>
+		  			<h5>Manufacturer Rebates</h5>
+		  			<p>Keeping tabs on the multitude of supplier incentives in a cinch with Vetcove!</p>
+		  			<p>View the most popular and soon-to-end incentives right from the Dashboard. With a single click, you’ll gain access to the entire list of active incentive and rebate promotions from all suppliers, ensuring you never miss out.</p>
+		  			<p>For manufacturers using Vetcove to ship products directly, you’ll be able to see your clinic’s progress toward rebate achievement automatically!</p>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+		  			<i class="fa fa-question"></i>
+		  		</div>
+			  	<div class="tablecell-content dashboard-item">
+					<div class="title">
+						<h3>Top Manufacturer Rebates</h3>
+						<p class="subtext">Track Manufacturer Rebate Programs </p>
+					</div>
+					<div class="tablecell-body">
+						<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="piecounter piecounter1"></div>
+							</div>
+							<div class="text">
+								<h4>Merck AAEP Fall Equine Promotion</h4>
+								<p>6 Days Remaining</p>
 							</div>
 						</div>
-						<div class="col-6">
-							<div class="dial-container">
-								<input class="dial" value="1" data-max="2" data-type="ratio">
-								<p class="goal">Refer New Clinics</p>
-								<p class="reward">400 Credits</p>
+						<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="piecounter piecounter1"></div>
+							</div>
+							<div class="text">
+								<h4>Lloyd Thyro Tabs Promotion</h4>
+								<p>9 Days Remaining</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="piecounter piecounter2"></div>
+							</div>
+							<div class="text">
+								<h4>Oxytocin Free Goods Offer</h4>
+								<p>14 Days Remaining</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="piecounter piecounter3"></div>
+							</div>
+							<div class="text">
+								<h4>Vibrac Parasiticide Promotion</h4>
+								<p>23 Days Remaining</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="piecounter piecounter4"></div>
+							</div>
+							<div class="text">
+								<h4>Elanco CA Cheristin Promotion</h4>
+								<p>31 Days Remaining</p>
+							</div>
+						</div>
+						<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
+							<div class="counter">
+								<div class="piecounter piecounter5"></div>
+							</div>
+							<div class="text">
+								<h4>Fall Prevention Pays Program</h4>
+								<p>42 Days Remaining</p>
 							</div>
 						</div>
 					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="/rewards">View All Vetcove Rewards <span class='glyphicon glyphicon-chevron-right'></span></a>
+			  	</div>
+			  	<a class="bottom-element" href="/rewards">View All Manufacturer Rebate Programs <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
 		</div>
+		{# End Man Rebates #}
 
-		<div class="tablecell-col tablecell-4 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-cubes"></i>
-	  			<h5>Order History</h5>
-	  			<p>The Vetcove Dashboard provides you quick and easy access to the up-to-date status of your recent orders.</p>
-				<p>Instantly view key order information, as well as real-time location tracking for your packages—whether the package was shipped with UPS, FedEx, DHL, or USPS. Never be left wondering when a package is going to be delivered again!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item">
-				<div class="title">
-					<h3>Your Order History</h3>
-					<p>Track your recent purchases</p>
-				</div>
-				<div class="tablecell-body">
-					<a href='#' class="order row">
-						<p class="price">Order #252-A4D (Today)<span>$211.01</span></p>
-						<p class="status">Status: <strong>Newark, NJ</strong></p>
-						<p class="status">Expected Arrival: Tomorrow 9-12AM</p>
-						<div class="progress">
-							<img class="progress" src='{% static "img/test/ordermanagement_1.png" %}'>
+
+		{# Column News #}
+		<div class="dashboard-column col-4 col-sm-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-newspaper-o"></i>
+		  			<h5>News</h5>
+		  			<p>Get important real-time news updates tailored to your clinic so that you’re always in the loop!</p>
+		  			<ul>
+		  				<li>Backorders on commonly purchased products</li>
+		  				<li>Substantial price changes on products you order frequently</li>
+		  				<li>Announcements from suppliers you frequently order from</li>
+		  				<li>New products from manufacturers you follow</li>
+		  				<li>New exclusive discounts and promotions just for your clinic</li>
+		  			</ul>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+		  			<i class="fa fa-question"></i>
+		  		</div>
+			  	<div class="tablecell-content dashboard-item">
+					<div class="title">
+						<h3>Your News Feed</h3>
+						<p>The latest industry trends and news</p>
+					</div>
+					<div class="tablecell-body">
+						<div class="news">
+							<div class="news-item">
+								Wedryl by Xencore has been placed on indefinite backorder.
+								<p><span class="label label-violet">Backorder</span> Posted 1 day ago</p>
+							</div>
+							<div class="news-item">
+								A/B Science has introduced a new product, Kinavet, for canine mast cell tumors
+								<p><span class="label label-teal">New Product</span> Posted 2 days ago</p>
+							</div>
+							<div class="news-item">
+								Glycoflex is now on sale. Buy 10 and receive 2 bottles free, through July 2015
+								<p><span class="label label-lime">New Promotion</span> Posted 3 days ago</p>
+							</div>
+							<div class="news-item">
+								Phoenix Pharmacy now has phenylbutazone powder available in an oral paste
+								<p><span class="label label-teal">New Product</span> Posted 5 days ago</p>
+							</div>
 						</div>
-					</a>
-					<a href='#' class="order row">
-						<p class="price">Order #256-B3S (Yesterday)<span>$1,247.89</span></p>
-						<p class="status">Status: <strong>Springfield, MA</strong></p>
-						<p class="status">Expected Arrival: Today 3-5PM</p>
-						<div class="progress">
-							<img class="progress" src='{% static "img/test/ordermanagement_2.png" %}'>
-						</div>
-					</a>
-					<a href='#' class="order row">
-						<p class="price">Order #312-F5R (Tuesday, Mar 12)<span>$82.43</span></p>
-						<p class="status">Status: <strong>Order Complete</strong></p>
-						<div class="progress">
-							<img class="progress" src='{% static "img/test/ordermanagement_4.png" %}'>
-						</div>
-					</a>
-					<!-- <a href='#' class="order row">
-						<p class="price">Order #931-R4W (Monday, Mar 11)<span>$734.21</span></p>
-						<p class="status">Status: <strong>Order Complete</strong></p>
-						<div class="progress">
-							<img class="progress" src='{% static "img/test/ordermanagement_4.png" %}'>
-						</div>
-					</a> -->
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="/rewards">View Full Order History <span class='glyphicon glyphicon-chevron-right'></span></a>
+					</div>
+			  	</div>
+			  	<a class="bottom-element" href="/rewards">View All News <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
 		</div>
+		{# End News #}
 
-		<div class="tablecell-col tablecell-4 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-tags"></i>
-	  			<h5>Promotions & Discounts</h5>
-	  			<p>Access hot and exclusive product promotions effortlessly from your Vetcove Dashboard!</p>
-	  			<p>View all running supplier specials, as well as exclusive Vetcove promotions tailored to your clinic. Vetcove sorts and organizes promotions to give you easy access to discounts you’re most likely to make use of.</p>
-	  			<p>For the first time, you’ll have easy access to an abundant number of ways to save money for your clinic with each and every order!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item">
-				<div class="title">
-					<h3>Your Top Promotions</h3>
-					<p>View the top promotions tailored to you</p>
-				</div>
-				<div class="tablecell-body">
-					<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="flameicon flameicon_hot"></div>
+		{# Column Open Questions #}
+		<div class="dashboard-column col-4 col-sm-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-comments-o"></i>
+		  			<h5>Trending & Open Questions</h5>
+		  			<p>Get instant updates on community activity right from the Dashboard!</p>
+					<p>View trending questions to gain new insights, or browse top open questions that you may be able to answer. It’s all accessible in a single click!</p>
+					<p>You’ll earn Vetcove Credits for community participation, so be sure to stay on top of helping your veterinary peers to qualify your clinic for great rewards!</p>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+		  			<i class="fa fa-question"></i>
+		  		</div>
+			  	<div class="tablecell-content dashboard-item rewards">
+					<div class="title">
+						<h3>Open Questions</h3>
+						<p>Answer <strong> 3 more questions</strong> and earn 250 credits!</p>
+					</div>
+					<div class="tablecell-body">
+						<div class="rebate">
+							<div class="counter">
+								<img src="{% static "img/products/equizone.gif" %}">
+							</div>
+							<div class="text question">
+								<p class="question-text">I have noticed that if Equizone is left out in the sun and heat it turns a light tan color. Does this affect its efficacy?</p>
+								<p class="product">for <a href='#'>Equizone Phenylbutazone Powder</a></p>
+								<a href='#'>Answer this Question</a>
+							</div>
 						</div>
-						<div class="text">
-							<h4>Elanco CA Cheristin Promotion</h4>
-							<p>9 Days Remaining | Viewed 52 Times</p>
+						<div class="rebate">
+							<div class="counter">
+								<img src="{% static "img/products/zonare.jpg" %}">
+							</div>
+							<div class="text question">
+								<p class="question-text">I'm trying to decide between buying a Fuji and this Zonare unit. In terms of resolution on the portable models, does the difference.</p>
+								<p class="product">for <a href='#'>Zonare ZST Portable</a></p>
+								<a href='#'>Answer this Question</a>
+							</div>
+						</div>
+						<div class="rebate">
+							<div class="counter">
+								<img src="{% static "img/products/glycoflex.jpg" %}">
+							</div>
+							<div class="text question">
+								<p class="question-text">When determining dosage for this product for a pregnant female feline, should the dosage be adjusted?</p>
+								<p class="product">for <a href='#'>Glycoflex Anti-inflamatory 100mg</a></p>
+								<a href='#'>Answer this Question</a>
+							</div>
 						</div>
 					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="flameicon flameicon_hot"></div>
-						</div>
-						<div class="text">
-							<h4>Fall Prevention Pays Promotion Program</h4>
-							<p>14 Days Remaining | Viewed 42 Times</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="flameicon flameicon_medium"></div>
-						</div>
-						<div class="text">
-							<h4>Elanco CA Cheristin Promotion</h4>
-							<p>9 Days Remaining | Viewed 36 Times</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="flameicon flameicon_medium"></div>
-						</div>
-						<div class="text">
-							<h4>Fall Prevention Pays Promotion Program</h4>
-							<p>14 Days Remaining | Viewed 31 Times</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="flameicon"></div>
-						</div>
-						<div class="text">
-							<h4>Fall Prevention Pays Promotion Program</h4>
-							<p>14 Days Remaining | Viewed 12 Times</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="left" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="flameicon"></div>
-						</div>
-						<div class="text">
-							<h4>Fall Prevention Pays Promotion Program</h4>
-							<p>14 Days Remaining | Viewed 6 Times</p>
-						</div>
-					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="/rewards">View All Promotions <span class='glyphicon glyphicon-chevron-right'></span></a>
+			  	</div>
+			  	<a class="bottom-element" href="#">View All Open Questions <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
 		</div>
-	</div> {# end of table cell box #}
+		{# End Questions #}
 
-	<div class="tablecell"> {# Beginning tablecell box #}
-
-		<div class="tablecell-col tablecell-4 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-tags"></i>
-	  			<h5>Manufacturer Rebates</h5>
-	  			<p>Keeping tabs on the multitude of supplier incentives in a cinch with Vetcove!</p>
-	  			<p>View the most popular and soon-to-end incentives right from the Dashboard. With a single click, you’ll gain access to the entire list of active incentive and rebate promotions from all suppliers, ensuring you never miss out.</p>
-	  			<p>For manufacturers using Vetcove to ship products directly, you’ll be able to see your clinic’s progress toward rebate achievement automatically!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item">
-				<div class="title">
-					<h3>Top Manufacturer Rebates</h3>
-					<p class="subtext">Track Manufacturer Rebate Programs </p>
-				</div>
-				<div class="tablecell-body">
-					<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="piecounter piecounter1"></div>
-						</div>
-						<div class="text">
-							<h4>Dechra Phycox Promotion Offer</h4>
-							<p>6 Days Remaining</p>
+		{# Column Review Products #}
+		<div class="dashboard-column col-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-star-half-o"></i>
+		  			<h5>Review Recently Ordered Products</h5>
+		  			<p>The Dashboard gives you quick and easy access to products you’ve recently ordered.</p>
+					<p>Easily check for price changes, place another order, or get quick access to write reviews on your experience with the product. With a single click, see the full list of products you’ve ordered through Vetcove.</p>
+					<p>Writing reviews earns you credits toward great Vetcove rewards, so be sure to review products often!</p>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+		  			<i class="fa fa-question"></i>
+		  		</div>
+			  	<div class="tablecell-content dashboard-item long reviews">
+			  		<div class="title">
+						<h3>Review Purchased Products</h3>
+						<p>You need <strong> 6 more reviews</strong> to get an additional 250 credit bonus!</p>
+					</div>
+					<div class="tablecell-body">
+						<div class="row">
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/cortaflx.gif" %}'></div>
+									<div class="details">
+										<p class="name">CortaFLX Solution</p>
+										<div class="rating">
+											<div class="star star30"></div><span class="quantity">(3)</span>
+										</div>
+								 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
+									</div>
+								</a>
+							</div>
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/dinecomplex.gif" %}'></div>
+									<div class="details">
+										<p class="name">1.0 Dine Complex Bolus</p>
+										<div class="rating">
+											<div class="star star50"></div><span class="quantity">(4)</span>
+										</div>
+								 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
+									</div>
+								</a>
+							</div>
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/oralpaste.jpg" %}'></div>
+									<div class="details">
+										<p class="name">Phenylbutazone Oral Paste</p>
+										<div class="rating">
+											<div class="star star45"></div><span class="quantity">(8)</span>
+										</div>
+								 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
+									</div>
+								</a>
+							</div> 
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/ivomec.gif" %}'></div>
+									<div class="details">
+										<p class="name">Ivomec Drench</p>
+										<div class="rating">
+											<div class="star star25"></div><span class="quantity">(2)</span>
+										</div>
+								 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
+									</div>
+								</a>
+							</div>
 						</div>
 					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="piecounter piecounter1"></div>
-						</div>
-						<div class="text">
-							<h4>Elanco CA Cheristin Promotion</h4>
-							<p>9 Days Remaining</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="piecounter piecounter2"></div>
-						</div>
-						<div class="text">
-							<h4>Fall Prevention Pays Promotion Program</h4>
-							<p>14 Days Remaining</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="piecounter piecounter3"></div>
-						</div>
-						<div class="text">
-							<h4>Fly Control Merchandise Offer</h4>
-							<p>23 Days Remaining</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="piecounter piecounter4"></div>
-						</div>
-						<div class="text">
-							<h4>Hepapet 3+1 Fall Special Offer</h4>
-							<p>31 Days Remaining</p>
-						</div>
-					</div>
-					<div class="rebate" data-toggle="tooltip" data-placement="right" title="Buy any (6) eligible products and get (1) free bottle of MiconaHex+Triz Shampoo 8oz">
-						<div class="counter">
-							<div class="piecounter piecounter5"></div>
-						</div>
-						<div class="text">
-							<h4>Lloyd Thyro Tabs Promotion Offer</h4>
-							<p>42 Days Remaining</p>
-						</div>
-					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="/rewards">View All Manufacturer Rebate Programs <span class='glyphicon glyphicon-chevron-right'></span></a>
+			  	</div>
+			  	<a class="bottom-element" href="#">Review Other Recently Purchased Products <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
 		</div>
+		{# End Product Reviews #}
 
-		<div class="tablecell-col tablecell-4 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-newspaper-o"></i>
-	  			<h5>News</h5>
-	  			<p>Get important real-time news updates tailored to your clinic so that you’re always in the loop!</p>
-	  			<ul>
-	  				<li>Backorders on commonly purchased products</li>
-	  				<li>Substantial price changes on products you order frequently</li>
-	  				<li>Announcements from suppliers you frequently order from</li>
-	  				<li>New products from manufacturers you follow</li>
-	  				<li>New exclusive discounts and promotions just for your clinic</li>
-	  			</ul>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item">
-				<div class="title">
-					<h3>Your News Feed</h3>
-					<p>The latest industry trends and news</p>
-				</div>
-				<div class="tablecell-body">
-					<div class="news">
-						<div class="news-item">
-							Wedryl by Xencore has been placed on indefinite backorder.
-							<p><span class="label label-violet">Backorder</span> Posted 1 day ago</p>
-						</div>
-						<div class="news-item">
-							A/B Science has introduced a new product, Kinavet, for canine mast cell tumors
-							<p><span class="label label-teal">New Product</span> Posted 2 days ago</p>
-						</div>
-						<div class="news-item">
-							Glycoflex is now on sale. Buy 10 and receive 2 bottles free, through July 1, 2014
-							<p><span class="label label-lime">New Promotion</span> Posted 3 days ago</p>
-						</div>
-						<div class="news-item">
-							Phoenix Pharmacy now has phenylbutazone powder available in an oral paste
-							<p><span class="label label-teal">New Product</span> Posted 5 days ago</p>
-						</div>
-						<div class="news-item">
-							Xaytrilox is now on backorder through July 2015
-							<p><span class="label label-violet">Backorder</span> Posted 6 days ago</p>
+		{# Column Recommended Products #}
+		<div class="dashboard-column col-6 col-xs-12">
+			<div class="dashboard-item-container">
+				<div class="dashboard-item-overlay">
+		  			<span class="exit glyphicon glyphicon-remove"></span>
+		  			<i class="fa fa-5x fa-crosshairs"></i>
+		  			<h5>Recommended Products</h5>
+		  			<p>Vetcove helps you discover new and useful products.</p>
+					<p>Our platform uses community insights to introduce products your clinic is likely to be interested in. It even analyzes your clinic’s specific ordering patterns to advise you on products that will save your clinic money.</p>
+					<p>Vetcove takes the guesswork out of trying new products and ensures you’re always in the loop!</p>
+		  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
+		  		</div>
+		  		<div class="dashboard-question">
+		  			<i class="fa fa-question"></i>
+		  		</div>
+			  	<div class="tablecell-content dashboard-item long reviews">
+			  		<div class="title">
+						<h3>Your Recommended Products</h3>
+						<p>These products were purchased by practices with similar purchase habits</p>
+					</div>
+					<div class="tablecell-body">
+						<div class="row">
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/rimadyl.jpg" %}'></div>
+									<div class="details">
+										<p class="name">Rimadyl Chewable Tablets</p>
+										<div class="rating">
+											<div class="star star45"></div><span class="quantity">(4)</span>
+										</div>
+								 		<p class="price"><span class="listprice">$19.20<span class="msrp">$21.13</span></p>
+									</div>
+								</a>
+							</div>
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/vetoneaspirin.jpg" %}'></div>
+									<div class="details">
+										<p class="name">Apple Flavored Aspirin Powder</p>
+										<div class="rating">
+											<div class="star star20"></div><span class="quantity">(5)</span>
+										</div>
+								 		<p class="price"><span class="listprice">$7.33<span class="msrp">$14.43</span></p>
+									</div>
+								</a>
+							</div>
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{% static "img/products/xenodine.gif" %}'></div>
+									<div class="details">
+										<p class="name">Xenodine Spray</p>
+										<div class="rating">
+											<div class="star star40"></div><span class="quantity">(8)</span>
+										</div>
+								 		<p class="price"><span class="listprice">$23.40<span class="msrp">$26.70</span></p>
+									</div>
+								</a>
+							</div> 
+							<div class="col-6 product-col">
+								<a href='#' class="product-box">
+									<div class="ribbon"></div>
+									<div class="image" style='background-image:url("{{STATIC_URL}}img/products/flunixin.jpg")'></div>
+									<div class="details">
+										<p class="name">Flunixin Injectable</p>
+										<div class="rating">
+											<div class="star star30"></div><span class="quantity">(3)</span>
+										</div>
+								 		<p class="price"><span class="listprice">$9.98<span class="msrp">$11.42</span></p>
+									</div>
+								</a>
+							</div>
 						</div>
 					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="/rewards">View All News <span class='glyphicon glyphicon-chevron-right'></span></a>
+			  	</div>
+			  	<a class="bottom-element" href="#">View All Recommended Products <span class='glyphicon glyphicon-chevron-right'></span></a>
+			</div>
 		</div>
-
-		<div class="tablecell-col tablecell-4 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-comments-o"></i>
-	  			<h5>Trending & Open Questions</h5>
-	  			<p>Get instant updates on community activity right from the Dashboard!</p>
-				<p>View trending questions to gain new insights, or browse top open questions that you may be able to answer. It’s all accessible in a single click!</p>
-				<p>You’ll earn Vetcove Credits for community participation, so be sure to stay on top of helping your veterinary peers to qualify your clinic for great rewards!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item rewards">
-				<div class="title">
-					<h3>Open Questions</h3>
-					<p>Answer <strong> 3 more questions</strong> and earn 250 credits!</p>
-				</div>
-				<div class="tablecell-body">
-					<div class="rebate">
-						<div class="counter">
-							<img src="{{STATIC_URL}}img/18.gif">
-						</div>
-						<div class="text question">
-							<p class="question-text">I have noticed that if Equizone is left out in the sun and heat it turns a light tan color. Does this affect its efficacy?</p>
-							<p class="product">for <a href='#'>Equizone Phenylbutazone Powder</a></p>
-							<a href='#'>Answer this Question</a>
-						</div>
-					</div>
-					<div class="rebate">
-						<div class="counter">
-							<img src="{{STATIC_URL}}img/18.gif">
-						</div>
-						<div class="text question">
-							<p class="question-text">I have noticed that if Equizone is left out in the sun and heat it turns a light tan color. Does this affect its efficacy?</p>
-							<p class="product">for <a href='#'>Equizone Phenylbutazone Powder</a></p>
-							<a href='#'>Answer this Question</a>
-						</div>
-					</div>
-					<div class="rebate">
-						<div class="counter">
-							<img src="{{STATIC_URL}}img/18.gif">
-						</div>
-						<div class="text question">
-							<p class="question-text">I have noticed that if Equizone is left out in the sun and heat it turns a light tan color. Does this affect its efficacy?</p>
-							<p class="product">for <a href='#'>Equizone Phenylbutazone Powder</a></p>
-							<a href='#'>Answer this Question</a>
-						</div>
-					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="#">View All Open Questions <span class='glyphicon glyphicon-chevron-right'></span></a>
-		</div>
+		{# End Recommended Reviews #}
 
 
+	</div>
+</div>
 
-	</div> {# end of table cell box #}
-
-
-	<div class="tablecell"> {# Beginning tablecell box #}
-		<div class="tablecell-col tablecell-6 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-star-half-o"></i>
-	  			<h5>Review Recently Ordered Products</h5>
-	  			<p>The Dashboard gives you quick and easy access to products you’ve recently ordered.</p>
-				<p>Easily check for price changes, place another order, or get quick access to write reviews on your experience with the product. With a single click, see the full list of products you’ve ordered through Vetcove.</p>
-				<p>Writing reviews earns you credits toward great Vetcove rewards, so be sure to review products often!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item reviews">
-		  		<div class="title">
-					<h3>Review Purchased Products</h3>
-					<p>You need <strong> 6 more reviews</strong> to get an additional 250 credit bonus!</p>
-				</div>
-				<div class="tablecell-body">
-					<div class="row">
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
-								</div>
-							</a>
-						</div>
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
-								</div>
-							</a>
-						</div>
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
-								</div>
-							</a>
-						</div> 
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<button class="button-review button button-tiny button-rounded button-flat">Review This Product</button>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="#">Review Other Recently Purchased Products <span class='glyphicon glyphicon-chevron-right'></span></a>
-		</div>
-
-		<div class="tablecell-col tablecell-6 box dashboard-item-container">
-			<div class="dashboard-item-overlay">
-	  			<span class="exit glyphicon glyphicon-remove"></span>
-	  			<i class="fa fa-5x fa-crosshairs"></i>
-	  			<h5>Recommended Products</h5>
-	  			<p>Vetcove helps you discover new and useful products.</p>
-				<p>Our platform uses community insights to introduce products your clinic is likely to be interested in. It even analyzes your clinic’s specific ordering patterns to advise you on products that will save your clinic money.</p>
-				<p>Vetcove takes the guesswork out of trying new products and ensures you’re always in the loop!</p>
-	  			<a class="exit button button-standard button-rounded">Return to dashboard</a>
-	  		</div>
-	  		<div class="dashboard-question">
-	  			<i class="fa fa-question"></i>
-	  		</div>
-		  	<div class="tablecell-content dashboard-item reviews">
-		  		<div class="title">
-					<h3>Your Recommended Products</h3>
-					<p>These products were purchased by practices with similar purchase habits</p>
-				</div>
-				<div class="tablecell-body">
-					<div class="row">
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
-								</div>
-							</a>
-						</div>
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
-								</div>
-							</a>
-						</div>
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
-								</div>
-							</a>
-						</div> 
-						<div class="col-6 product-col">
-							<a href='#' class="product-box">
-								<div class="ribbon"></div>
-								<div class="image" style='background-image:url("{{STATIC_URL}}img/18.gif")'></div>
-								<div class="details">
-									<p class="name">Phenylbutazone Powder</p>
-									<div class="rating">
-										<div class="star star30"></div><span class="quantity">(3)</span>
-									</div>
-							 		<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-		  	</div>
-		  	<a class="bottom-element" href="#">View All Recommended Products <span class='glyphicon glyphicon-chevron-right'></span></a>
-		</div>
-	</div> {# end of table cell box #}
-
-</div>{# End of dashboard container #}
 {% endblock %}

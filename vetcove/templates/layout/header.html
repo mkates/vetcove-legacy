@@ -4,15 +4,41 @@
 		<div class="header-left">
 			<!-- Logo -->
 			<a class="logo" href='/'>
+				{# Used with wide views #}
 				<img id="main-logo" src="{{STATIC_URL}}img/logo_full_gray.png" alt="VetCove"/>
+				{# Used with skinny views #}
+				<img id="hex-logo" src="{{STATIC_URL}}img/logo_hex_gray.png" alt="VetCove"/>
 			</a>
 			<!--Navigation Items-->
 			<div class="menu">
 				<ul>
-					<li><a class="item standard-link features-link {% if features %}active{% endif %}" href='{% url "general:features" %}'>Clinics</a></li><!--
-					--><li><a class="item standard-link suppliers-link {% if suppliers %}active{% endif %}" href='{% url "general:suppliers" %}'>Suppliers</a></li><!--
-					--><li><a class="item standard-link dashboard-link {% if dashboard %}active{% endif %}" href='{% url "general:dashboard" %}#'>Explore Vetcove</a></li><!--
-					--><li><a class="item standard-link support-link {% if support %}active{% endif %}" href='{% url "general:support" %}#'>Support</a></li>
+					<li>
+						<a class="item standard-link features-link {% if features %}active{% endif %}" href='{% url "general:features" %}'>Clinics</a>
+					</li>
+					<li>
+						<a class="item standard-link suppliers-link {% if suppliers %}active{% endif %}" href='{% url "general:suppliers" %}'>Suppliers</a>
+					</li>
+					<li>
+						<a class="item standard-link dashboard-link {% if dashboard %}active{% endif %}" href='{% url "general:dashboard" %}#'>Explore Vetcove</a>
+					</li>
+					{% comment %}
+						<li>
+							<a class="item standard-link" href='{% url "general:features" %}'>Dashboard</a>
+						</li>
+						<li>
+							<a class="item standard-link" href='{% url "general:suppliers" %}'>Shop</a>
+						</li>
+						<li>
+							<a class="item standard-link" href='{% url "general:dashboard" %}#'>Deals</a>
+						</li>
+						<li>
+							<a class="item standard-link" href='{% url "general:features" %}'>Help</a>
+						</li>
+						<li>
+							<a class="item standard-link" href='{% url "general:suppliers" %}'>News</a>
+						</li>
+					{% endcomment %}
+					
 				</ul>
 			</div>
 		</div>
@@ -20,18 +46,22 @@
 		<div class="header-right">
 			<div class="menu">
 				<ul>
-
-					<!--<li>
-						<div class="dropdown-container">
-							<a title="Notifications" class="item notification-link dropdown-trigger" href='#' data-dropdown="notification-dropdown"><span>2</span></a>
-							<div id="notification-dropdown" class="dropdown-box dropdown-right">
-								cool
-							</div>
-						</div>
-					</li>
+					<!-- For users not logged in -->
+					<li><a class="item standard-link" href='{% url "accounts:signin" %}'>Log In</a></li>
+					<li><a class="item signup-link
+						{% if index %}index-color {% endif %}
+						{% if features %}features-color {% endif %}
+						{% if suppliers %}suppliers-color {% endif %}
+						{% if dashboard %}dashboard-color {% endif %}
+						{% if support %}support-color {% endif %}
+						{% if company %}company-color {% endif %}
+						" href='{% url "general:lead" %}'>Sign Up</a></li>
 					<li>
+
+					<!-- The shopping cart dropdown -->
+					{% comment %}
 						<div class="dropdown-container">
-							<a title="Cart" class="item cart-link dropdown-trigger" href='#' data-dropdown="cart-dropdown"><span>7</span></a>
+							<a class="item cart-link dropdown-trigger" href='#' data-dropdown="cart-dropdown"><i class="fa fa-2x fa-shopping-cart"></i> <span>15</span></a>
 							<div id="cart-dropdown" class="dropdown-box cart-dropdown dropdown-right">
 								<a href='/cart' class="cart-item">
 									<div class="cart-item-image cart-item-div">
@@ -55,19 +85,22 @@
 									<a href="/cart" class="button button-rounded">View Cart ></a>
 								</div>
 							</div>
-							
 						</div>
-					</li>-->
-					{# <li><a class="item standard-link" href='#'>Log In</a></li> #}
-					<li><a class="item standard-link" href='{% url "accounts:signin" %}'>Sign In</a></li>
-					<li><a class="item signup-link
-						{% if index %}index-color {% endif %}
-						{% if features %}features-color {% endif %}
-						{% if suppliers %}suppliers-color {% endif %}
-						{% if dashboard %}dashboard-color {% endif %}
-						{% if support %}support-color {% endif %}
-						{% if company %}company-color {% endif %}
-						" href='{% url "general:lead" %}'>Sign Up</a></li>
+					{% endcomment %}
+
+					<!-- Shopping Cart Buttons -->
+					{% comment %}
+					<div class="checkout">
+						<div class="cart2">
+							<i class="fa fa-shopping-cart"></i> {# <span>15</span> #}
+						</div>
+						<div class="checkout2">
+							Checkout >
+						</div>
+					</div>
+					{% endcomment %}
+					
+
 				</ul>
 			</div>
 		</div>
@@ -75,10 +108,10 @@
 	</div>
 
 	<!-- Second Header Bar (Search Bar) -->
+	
 	<div class="header-second">
-		<div class="element fixed dropdown-container">
+		<div class="element fixed dropdown-container categories-element">
 			<a class="element-link dropdown-trigger categories" data-dropdown="categories-dropdown">
-				<p>Browse by</p>
 				<p>Categories <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="categories-dropdown" class="category-box dropdown-box">
@@ -163,8 +196,19 @@
 			</div>
 		</div>
 		<div class="element fixed dropdown-container">
-			<a class="element-link list double-row dropdown-trigger" data-dropdown='lists-dropdown'>
-				<p>Your</p>
+			<a class="element-link list dropdown-trigger" data-dropdown='notifications-dropdown'>
+				<p><i class="fa-2x fa fa-globe"></i> <span class="count">2</span> </p>
+			</a>
+			<div id="notifications-dropdown" class="dropdown-box dropdown-left">
+				<a class="" href="/rewards">Recently Purchased</a>
+				<a class="" href="/rewards">Food List</a>
+				<a class="" href="/rewards">Weekly Supplies</a>
+				<a class="" href="/rewards/store">Vaccines List</a>
+				<p class="highlight"><strong>Mange Lists</strong></p>
+			</div>
+		</div>
+		<div class="element fixed dropdown-container">
+			<a class="element-link list dropdown-trigger" data-dropdown='lists-dropdown'>
 				<p>Lists <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="lists-dropdown" class="dropdown-box dropdown-left">
@@ -176,9 +220,8 @@
 			</div>
 		</div>
 		<div class="element fixed dropdown-container">
-			<a class="element-link double-row dropdown-trigger" data-dropdown='credit-dropdown'>
-				<p>Earn</p>
-				<p>Rewards <span class="glyphicon glyphicon-chevron-down"></span></p>
+			<a class="element-link dropdown-trigger" data-dropdown='credit-dropdown'>
+				<p>Rewards <span class="label label-standard">590</span> <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="credit-dropdown" class="dropdown-box goal-dropdown dropdown-left">
 				<a><strong>Credit Balance: 320 credits</strong></a>
@@ -189,7 +232,6 @@
 		</div>
 		<div class="element fixed account-element dropdown-container">
 			<a class="element-link double-row account dropdown-trigger" data-dropdown="account-dropdown">
-				<p class="companyname">{% if basicuser %}{% if clinic %}Colts Neck Equine{% else %}Stokes Pharmacy{% endif %}{% else %}Hello. Log In{% endif %}</p>
 				<p>Your Account <span class="glyphicon glyphicon-chevron-down"></span></p>
 			</a>
 			<div id="account-dropdown" class="dropdown-box account-dropdown dropdown-left">
@@ -224,6 +266,42 @@
 			</div>
 		</div>
 	</div><!-- End of Second Header -->
+	
+
+
+	<div class="header-mobile"> <!-- Start Mobile Header-->
+		<div class="logo">
+			<a href="{% url "general:index" %}">
+				<img src="{{STATIC_URL}}img/logo_full_gray.png" alt="VetCove"/>
+			</a>
+		</div>
+		<div class="right-menu">
+			<a class="header-button" href='{% url "general:lead" %}'>Sign Up</a>
+		</div>
+		<div class="left-menu">
+			<a class="header-icon" id="sidr-menu" href="#sidr"><i class="fa fa-align-justify"></i></a>
+			{# <a class="header-icon" href='#'><i class="fa fa-search"></i></a> #}
+		</div>
+
+	</div> <!-- End of Mobile Header-->
+
+
+	<div id="sidr" class="sidr"> <!-- Sidr menu -->
+		<ul>
+			<li class="sidr-section">Getting Started</li>
+			<li><a href="{% url "general:lead" %}">Sign Up</a></li>
+			<li><a href="{% url "accounts:signin" %}">Sign In</a></li>
+			<li class="sidr-section">Learn About VetCove</li>
+			<li><a href="{% url "general:features" %}">Clinics</a></li>
+			<li><a href="{% url "general:suppliers" %}">Suppliers</a></li>
+			<li><a href="{% url "general:dashboard" %}">Explore Vetcove</a></li>
+			<li class="sidr-section">Company</li>
+			<li><a href="{% url "general:about" %}">About</a></li>
+			<li><a href="{% url "general:support" %}">FAQ</a></li>
+			<li><a href="{% url "general:careers" %}">Careers</a></li>
+			<li><a href="{% url "general:feedback" %}">Contact</a></li>
+		</ul>
+	</div><!-- End of Sidr Mobile Menu-->
 </header>
 
 

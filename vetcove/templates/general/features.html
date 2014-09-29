@@ -6,16 +6,16 @@
 
 {% block content %}
 
-<div class="hero-container features">
+<div class="hero-container features nobottompadding">
 	<div class="hero">
 		<div class="row">
-			<div class="text col-6 col-xs-12">
+			<div class="text centered col-12">
 				<h1>Clinic Features</h1>
-				<h2>Ordering and managing supplies just got a whole lot easier</h2>
+				<h2 class="thin">Ordering and managing supplies just got a whole lot easier</h2>
 				<a href='{% url "general:lead" %}' class="button button-rounded button-shaded">Get Started</a>
 			</div>
-			<div class="image col-6 col-xs-12">
-				<img src='{% static "img/test/macbook.png" %}'>
+			<div class="image col-12">
+				<img src='{% static "img/computer_clinic.png" %}'>
 			</div>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 
 <div class="section feature white">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-6 col-xs-12">
 			<div class="text">
 				<h3 class="purple">A Community of Trust</h3>
 				<p>Be the smartest purchaser and gain competitive edge with community insights.</p>
@@ -34,7 +34,7 @@
 				<p>View community-answered questions about products, or ask one yourself and hear directly from the product's manufacturer.</p>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-6 col-xs-12">
 			<div class="image">
 				<img src='{% static "img/reviews.png" %}'>
 			</div>
@@ -50,19 +50,19 @@
 				<p class="thin">Stop relying on reps and flyers to uncover discounts. Vetcove does the work for you.</p>
 			</div>
 		</div>
-		<div class="col-4">
+		<div class="col-4 col-xs-12">
 			<div class="text">
 				<h4>Many Suppliers, One Invoice</h4>
 				<p>All your orders to all suppliers are organized into consolidated Vetcove invoices.</p>
 			</div>
 		</div>
-		<div class="col-4">
+		<div class="col-4 col-xs-12">
 			<div class="text">
 				<h4>Real-time Package Tracking</h4>
 				<p>Always know where your shipments are and when they're getting delivered.</p>
 			</div>
 		</div>
-		<div class="col-4">
+		<div class="col-4 col-xs-12">
 			<div class="text">
 				<h4>Easy Returns and Customer Service</h4>
 				<p>Get in touch with suppliers and request returns with one click.</p>
@@ -154,7 +154,7 @@
 
 <div class="section feature white">
 	<div class="row">
-		<div class="col-6 col-push-6">
+		<div class="col-6 col-push-6 col-xs-push-0 col-xs-12">
 			<div class="text">
 				<h3 class="purple">Discover Great Deals</h3>
 				<p>Stop relying on reps and flyers to uncover discounts. Vetcove does the work for you.</p>
@@ -166,7 +166,7 @@
 				<p>Get introduced to newly released and trending products that fit your clinic's operating space.</p>
 			</div>
 		</div>
-		<div class="col-6 col-pull-6">
+		<div class="col-6 col-pull-6 col-xs-pull-0 col-xs-12">
 			<div class="image">
 				<img src='{% static "img/deals2.png" %}'>
 			</div>
@@ -176,7 +176,7 @@
 
 <div class="feature">
 	<div class="row">
-		<div class="col-6">
+		<div class="col-6 col-xs-12">
 			<div class="text">
 				<h3 class="purple">Rewards Made Simple</h3>
 				<p>Tracking incentive programs from all your suppliers used to be a chore. Not anymore.</p>
@@ -186,7 +186,7 @@
 				<p>When you participate in the Vetcove community, you'll earn great rewards for you and your clinic.</p>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-6 col-xs-12">
 			<div class="image">
 				<img src='{% static "img/rewards.png" %}'>
 			</div>
@@ -197,7 +197,7 @@
 
 <div class="feature white">
 	<div class="row">
-		<div class="col-12">
+		<div class="col-12 col-xs-12">
 			<div class="text centered">
 				<h3 class="purple">Insights Into Your Clinic</h3>
 				<p class="thin">Easily visualize your clinic's ordering habits, and track key financial metrics over time. Vetcove puts you in control of your own data to help you manage your margins more effectively. Go ahead, play with the demo below!</p>

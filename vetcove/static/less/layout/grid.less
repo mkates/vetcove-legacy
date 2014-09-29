@@ -9,7 +9,7 @@ body:not(.responsive) {
 // General Layout 
 .generate-columns(12);
 
-.generate-columns(@n, @i: 1) when (@i =< @n) {
+.generate-columns(@n, @i: 0) when (@i =< @n) {
   .col-@{i} {
 		float:left; 
     position:relative;
@@ -31,11 +31,39 @@ body:not(.responsive) {
 
 .generate-columns(12);
 
+
+// Generate sm columns
+.generate-sm-columns(@n, @i: 0) when (@i =< @n) {
+  @media(max-width: 960px) {
+    .responsive {
+      .col-sm-@{i} {
+        float:left; 
+      }
+      .col-sm-@{i} {
+        width: (@i * 100% / @n);
+      }
+      .col-sm-pull-@{i} {
+        right: (@i * 100% / @n);
+      }
+      .col-sm-push-@{i} {
+        left: (@i * 100% / @n);
+      }
+      .col-sm-offset-@{i} {
+        margin-left: (@i * 100% / @n);
+      }
+    }
+  }
+  .generate-sm-columns(@n, (@i + 1));
+}
+
+.generate-sm-columns(12);
+
+
 // Small Layout 
 .generate-xs-columns(12);
 
-.generate-xs-columns(@n, @i: 1) when (@i =< @n) {
-  @media(max-width: 768px) {
+.generate-xs-columns(@n, @i: 0) when (@i =< @n) {
+  @media(max-width: 600px) {
     .responsive {
       .col-xs-@{i} {
         float:left; 
@@ -59,32 +87,6 @@ body:not(.responsive) {
 
 .generate-xs-columns(12);
 
-
-// Generate sm columns
-.generate-sm-columns(@n, @i: 1) when (@i =< @n) {
-  @media(min-width: 930px) {
-    .responsive {
-      .col-sm-@{i} {
-        float:left; 
-      }
-      .col-sm-@{i} {
-        width: (@i * 100% / @n);
-      }
-      .col-sm-pull-@{i} {
-        right: (@i * 100% / @n);
-      }
-      .col-sm-push-@{i} {
-        left: (@i * 100% / @n);
-      }
-      .col-sm-offset-@{i} {
-        margin-left: (@i * 100% / @n);
-      }
-    }
-  }
-  .generate-sm-columns(@n, (@i + 1));
-}
-
-.generate-sm-columns(12);
 
 
 // Some extras to add (1/5,1/7,1/8,and 1/10)

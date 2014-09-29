@@ -61,6 +61,16 @@
 	background-image: linear-gradient(to top, @start 0%, @middle1 49%, @middle2 51%, @stop 100%);
  }
 
+ .gradientWithImage(@imagesrc,@color:#EEE,@start:#FFF,@stop:#EEE) {
+  background-color: @color;
+  background-image: url(@imagesrc);
+  background-image: url(@imagesrc), -ms-linear-gradient(top, @start 0%, @stop 100%);
+  background-image: url(@imagesrc), -moz-linear-gradient(top, @start 0%, @stop 100%);
+  background-image: url(@imagesrc), -o-linear-gradient(top, @start 0%, @stop 100%);
+  background-image: url(@imagesrc), -webkit-linear-gradient(top, @start 0%, @stop 100%);
+  background-image: url(@imagesrc), linear-gradient(to bottom, @start 0%, @stop 100%);
+ }
+
 //****************************************//
 //****** Borders *************************//
 //****************************************//

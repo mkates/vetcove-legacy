@@ -247,5 +247,32 @@ $(document).ready(function(){
 		});
 
 	});
+});
+
+// *************************************************
+// ********** Activate the side menu ***************
+// *************************************************
+$(document).ready(function() {
+	$('#sidr-menu').sidr();
+	//If menu is open and resized to larger, close the side menu
+	$(window).resize(function() {
+		if ($(window).width() > 568) {
+			$.sidr('close', 'sidr');
+		}
+	});
+	$(document).click(function(event){
+		 if(!$(event.target).closest('.sidr').length) {
+		 	$.sidr('close', 'sidr');
+		 };
+	});
 
 });
+
+$(document).ready(function() {
+	$(document).click(function(event){
+		 console.log($(window).width());
+	});
+
+});
+
+

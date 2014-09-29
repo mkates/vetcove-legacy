@@ -24,6 +24,7 @@
 		transition: background .2s, color .2s;
 		&:hover {
 			text-decoration:none;
+			cursor:pointer;
 		}
 		//A standard link on the bar
 		&.standard-link {
@@ -37,16 +38,11 @@
 			&.active.dashboard-link {  color: @colorBlue    }
 			&.active.support-link   {  color: @colorLime    }
 		}
-		//A special link, such as a special or promotion link
-		&.special-link {
-			padding: 17px 15px;
-			color: #f088ff;
-		}
 		//Sign-up button
 		&.signup-link {
 			margin: 7px 0 7px 15px;
 			padding: 8px 13px;
-			border:2px solid #ddd;
+			border:1px solid #bbb;
 			color: #ddd;
 			&:hover {
 				background: #2a2a2a;
@@ -60,10 +56,16 @@
 		}
 		// Checkout button
 		&.checkout-link {
-			margin: 7px 0 7px 15px;
-			padding: 8px 13px;
-			border:2px solid #5ecadf;
-			color: #5ecadf;
+			.gradient(#333,#2a2a2a,#3a3a3a);
+			margin: 0px 0 7px 0px;
+			padding: 13px 13px 15px 13px;
+			border:1px solid #bbb;
+			border-top: none;
+			border-bottom-left-radius: 0px;
+			border-top-left-radius: 0px;
+			border-left:none;
+			height: 45px;
+			color: #ddd;
 			&:hover {
 				//border-color: #69b863;
 				background: #2a2a2a;
@@ -72,19 +74,38 @@
 		}
 		// Cart button
 		&.cart-link {
-			background-image: url("../img/cart-icon.png");
-			background-position: center bottom;
-			background-size: 25px 25px;
-			background-repeat: no-repeat;
-			padding: 4px 13px 12px 17px;
-			margin: 7px 0 11px 0;
-			color: #5ecadf;
-			span {
-				font-size: 15px;
-				font-weight: 500;
+			.gradient(#333,#2a2a2a,#3a3a3a);
+			border:1px solid #bbb;
+			background: #ddd;
+			border-top: none;
+			border-right:none;
+			border-bottom-right-radius: 0px;
+			border-top-right-radius: 0px;
+			margin: 0px 0 7px 0px;
+			height: 45px;
+			padding: 13px 13px 15px 13px;
+			font-size: 14px;
+			font-weight: 500;
+			color:#ddd;
+			i {
+				font-size: 20px;
 			}
-			&:hover {
-				color: #87d3e3;
+			span {
+				.gradient(@colorPurple,darken(@colorPurple,10%),darken(@colorPurple,0%));
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7), 0 0 2px #000;
+				display:inline-block;
+				font-size: 14px;
+				text-align: center;
+				margin-top: 2px;
+				vertical-align: top;
+				padding: 0 2px;
+				border-radius: 2px;
+				&:empty {
+					display:none;
+				}
+			}
+			&:hover, &.active {
+				background: #2a2a2a;
 			}
 		}
 		// Notification button 
@@ -105,6 +126,70 @@
 			}
 		}
 	}
+	// This needs to be cleaned up badly
+	.checkout {
+		width: auto;
+		padding: 3px 4px 0 4px;
+		background: #222;
+		box-shadow: 0 0 2px #111 inset;
+		border:1px solid #000;
+		border-top-width: 0px;
+		border-radius: 2px;
+		height: 43px;
+		margin-top: 3px;
+		float: right;
+		border-bottom-right-radius: 2px;
+		border-bottom-left-radius: 2px;
+		color: #ddd;
+		line-height: 23px;
+		text-align: center;
+		.cart2 {
+			display:inline-block;
+			border:1px solid #555;
+			width: 60px;
+			padding: 3px 5px;
+			margin: 3px 0 3px 3px;
+			background: #444;
+			border-radius: 2px;
+			i {
+				font-size: 23px;
+				display:inline-block;
+				margin-top: 0px;
+				vertical-align: middle;
+			}
+			span {
+				.gradient(@colorGreen,darken(@colorGreen,10%),darken(@colorGreen,0%));
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7), 0 0 2px #000;
+				color: #eee;
+				display:inline-block;
+				font-size: 14px;
+				text-align: center;
+				margin-top: 2px;
+				vertical-align: top;
+				padding: 0 2px;
+				border-radius: 2px;
+				line-height: 18px;
+				font-weight: 500;
+				margin-left: 4px;
+				margin-top: 3px;
+
+			}
+		}
+		.checkout2 {
+			border:1px solid #555;
+			display:inline-block;
+			background: #444;
+			width: 95px;
+			color: #fff;
+			padding: 3px 5px;
+			margin: 3px;
+			border-radius: 2px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 11px;
+			text-transform: uppercase;
+		}
+	}
 
 	// General left header formatting
 	.header-left {
@@ -112,11 +197,14 @@
 		//Format the logo
 		.logo {
 			padding: 8px 0;
-			margin-right: 20px;
+			margin-right: 10px;
 			display:inline-block;
 			img {
 				max-height: 34px;
 			}
+		}
+		#hex-logo {
+			display:none;
 		}
 	}
 	// General right header formatting
@@ -130,20 +218,25 @@
 // Browse Categories, Search, Lists, Rewards, and Account
 
 .header-second {
-	.topRoundedCorners(@borderRadius);
-	width: 100%;
-	padding: 4px @sideGutter 0 @sideGutter; // Pad the bar
-	.gradient(#555,#555,#666);
 	display:table;
 	display:none;
+	width: 100%;
+	padding: 0px @sideGutter 0 @sideGutter; // Pad the bar
+	border-bottom:7px solid #353535;
+	//.customRoundedCorners(2px,0px,0px,2px);
+	//display:table;
+	.gradient(#333,#464646,#4f4f4f);
+	//display:none;
 	a:hover { // Not elements underline in this bar
 		text-decoration:none;
 	}
 	.element.fixed { //A fixed width element (not search)
 		width: auto;
+		border-right:5px solid #353535;
 	}
 	.element.variable { //A variable length element (search)
 		width: 100%;
+		border-right: 5px solid #353535;
 	}
 	.element { 
 		display:table-cell;
@@ -158,18 +251,18 @@
 		.element-link { // All element links should be the same height (total 50)
 			display:block;
 			height: 40px;
-			padding: 5px 15px 5px 15px;
-			color: #ccc;
+			padding: 7px 15px 0px 15px;
+			color: #ddd;
 			transition: color .15s;
 			p {
 				.light-on-dark-smoothing;
-				letter-spacing: .2px;
-				font-size: 12px;
-				line-height: 1.1;
+				letter-spacing: .7px;
+				font-size: 11px;
+				text-transform: uppercase;
+				line-height: 24px;
 			}
-			p:first-child { // The top text is smaller
-				font-size: 9px;
-				padding-top: 2px;
+			.fa {
+				vertical-align: middle;
 			}
 			&:hover {
 				color: #eee;
@@ -177,30 +270,44 @@
 			}
 			&.active { // Active added when the dropdown is visible
 				color: #eee;
+				background: #5a5a5a;
 			}
-			.companyname{ // The company name has a max width 
-				.ellipsis;
-				max-width: 110px;
+			.count {
+				vertical-align: top;
+				line-height: 16px;
+				margin-top: -2px;
+				margin-left: -10px;
+				margin-right: 2px;
+				font-size: 14px;
+				background: @colorRed;
+				background-image: linear-gradient(#f5545b, #da353d);
+				text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4), 0 0 1px #000;
+				font-weight: 500;
+				color: #eee;
+				padding: 0 2px;
+				border-radius: 2px;
+				text-align: center;
+				display:inline-block;
 			}
-		}
-		.categories { // The categories element, which has some custom formatting
-			padding: 5px 8px 5px 8px; // Add padding to create a button
-			margin: 0 5px 5px 0px;
-			height: 35px;
-			border:1px solid rgba(0,0,0,.1);
-			border-bottom: 1px solid rgba(0,0,0,.3);
-			.gradient(#666, #444, #555);
-			border-radius: 2px;
+			.label {
+				background: rgba(255,255,255,.2);
+				display:inline-block;
+				font-size: 100%;
+				margin-top: -1px;
+				color: #eee;
+				vertical-align: middle;
+			}
 		}
 		.search .search-table { // The search form 
 			width: 100%; // Take up all the space available
 			.search-bar {
 				font-weight: 300;
-				.gradient(#FFF,#EEE,#FFF);
-				border:1px solid #aaa;
-				background: #f6f6f6;
+				.gradient(#FFF,#E6e6e6,#F6F6F6);
+				border:1px solid #999;
+				border-radius: 0px;
+				height: 40px;
 				&:focus {
-					border:1px solid @colorBlue;
+					border:1px solid #999;
 					box-shadow: none; //Overrides bootstrap shadow
 					background: #fff;
 				}
@@ -208,16 +315,21 @@
 			.search-button-td { // Container for the search button 'Go'
 				width: 40px;
 				.button {
-					height: 34px;
+					height: 40px;
+					line-height: 40px;
 					width: 40px;
-					color: #777;
-					background: #e6e6e6;
+					color: #777 !important;
+					background: #ddd;
 					border:1px solid #aaa;
-					margin-left: -5px;
-					border-radius: 3px;
+					border-left: none;
+					margin-left: 0px;
+					font-weight: 400;
+					border-radius: 0px;
 					text-align: center;
 					padding-left: 0px;
 					padding-right: 0px;
+					border-bottom-left-radius: 0px;
+					border-top-left-radius: 0px;
 				}
 			}
 			#search-exit { // X Button on the search bar
@@ -238,6 +350,15 @@
 }
 
 
+.header-second .element.account-element {
+	border-right: none;
+	.account-dropdown {
+		//right: -11px !important;
+	}
+	.account {
+		//padding-right: 5px;
+	}
+}
 // TODO: Implement this when buttons are implemented!
 .dropdown-box.account-dropdown {
 	.portal-enter {
@@ -273,11 +394,11 @@
 .dropdown-box.category-box {
 	width: 620px; //Fixed with for category box
 	&:before { // Reposition the carets
-		left:74px
+		left:71px
 		right: auto;
 	}
 	&:after { // Reposition the carets
-		left: 75px;
+		left: 72px;
 		right: auto;
 	}
 	.category-menu {
@@ -494,4 +615,83 @@
 	// }
 }
 
+.header-mobile {
+	display:none;
+	width: 100%;
+	min-height: 50px;
+	//background: red;
+	position:relative;
+	.logo {
+		position:absolute;
+		width: 200px;
+		z-index: 99;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+		top: 8px;
+		a {
+			display:block;
+		}
+		img {
+			max-width: 150px;
+			max-height: 38px;
+		}
+	}
+	.header-button {
+		font-weight: 500;
+		margin-top: 8px;
+		padding: 3px 7px;
+		display:inline-block;
+		font-size: 14px;
+		border-radius: 2px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		border:1px solid #aaa;
+		color: #aaa;
+		&:hover {
+			text-decoration: none;
+			background: #222;
+		}
+	}
+	.header-icon {
+		color: #aaa;
+		display:inline-block;
+		font-size: 30px;
+		margin-top:10px;
+		margin-right: 10px;
+		line-height: 1;
+	}
+	.right-menu {
+		float: right;
+	}
+	.left-menu {
+		float: left;
+	}
+}
 
+
+//*** Toggle the responsive and the regular menu ***
+@media(max-width: 738px) {
+	.responsive {
+		.header-first {
+			#main-logo {
+				display:none;
+			}
+			#hex-logo {
+				display: inline-block;
+			}
+		}
+	}
+}
+@media(max-width: 568px) {
+	.responsive {
+		.header-first {
+			display: none;
+		}
+		.header-mobile {
+			display: block;
+		}
+	}
+}
