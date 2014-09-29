@@ -27,7 +27,6 @@ $(document).ready(function() {
     // Pre-Submit Checks
     function preSubmit(formData, jqForm, options) {
         buttonStartSubmitting(jqForm);
-        return true
         // Validated forms get checked before submitting
         if (jqForm.hasClass('form-validation')) { 
             form = jqForm.formValidator();
