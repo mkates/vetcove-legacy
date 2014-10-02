@@ -1,0 +1,64 @@
+{% extends 'accounts/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Sign Up{% endblock %}
+
+
+{% block simplecontent %}
+
+<div class="signup-box">
+	<div class="title">
+		<h2>Let's Get Started</h2>
+		<p>Signing up for Vetcove is fast and free - no commitments or contracts</p>
+	</div>
+	<div class="perks row">
+		<div class="col-4 col-xs-12">
+			<div class="perk perk-one">
+				<p class="perk-name">
+					<i class="fa fa-check"></i> Quick and Easy
+				</p>
+				<p class="description"> Tell us about your business and we'll provide same day verification</p>
+			</div>
+		</div>
+		<div class="col-4 col-xs-12">
+			<div class="perk perk-two">
+				<p class="perk-name">
+					<i class="fa fa-check"></i> New Business Bonus
+				</p>
+				<p class="description"> We start every business off with a 200 credit bonus</p>
+			</div>
+		</div>
+		<div class="col-4 col-xs-12">
+			<div class="perk perk-three">
+				<p class="perk-name">
+					<i class="fa fa-check"></i> Free to Use
+				</p>
+				<p class="description"> We never charge to be part of the Vetcove community</p>
+			</div>
+		</div>
+	</div>
+	<div class="form-container">
+
+		<form class="form form-validation" action="{% url "accounts:signup" %}" method="POST">
+
+			{% include "generic/form/form_top.html" %}
+			
+			<div class="inlined-separate">
+	    		{% include "generic/form/form_element.html" with field=form.email width='half' %}
+	    		{% include "generic/form/form_element.html" with field=form.group_type width='half' %}
+	    	</div>
+	    	<div class="inlined-separate">
+	    		{% include "generic/form/form_element.html" with field=form.password width='half' %}
+	    		{% include "generic/form/form_element.html" with field=form.confirm_password width='half' %}
+	    	</div>
+	    
+	    	{% include "generic/form/form_bottom.html" with submit_text="Sign Up" %}
+
+	    </form>
+
+	</div>
+</div>
+
+
+{% endblock %}

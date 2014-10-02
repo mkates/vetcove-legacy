@@ -12,11 +12,12 @@ def dollars(value):
 	return convertIntegerDollarsToFloatDollars(value)
 
 @register.filter
-def widgetType(value):
+def widgetType(field):
 	'''
-	This tag returns the class of the widget (i.e.:TextInput or Select)
+	This tag returns the data-type attribute of the widget
 	'''
-	return value.field.widget.__class__.__name__
+	attrs = field.field.widget.attrs
+	return attrs['data-type'] if 'data-type' in attrs else 'text'
 
 @register.filter
 def equals(value,arg):

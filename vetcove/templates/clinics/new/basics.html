@@ -1,0 +1,38 @@
+{% extends 'clinics/new/base.html' %}
+
+{% block title %}Clinic Sign Up | Basics{% endblock %}
+
+{% block form_title %}Clinic Details{% endblock %}
+{% block form_title_subtext %}Let's get some details about your clinic{% endblock %}
+
+{% block new_group_form %}
+	<form class="form form-validation" action="{% url "clinics:new_clinic_basics" %}" method="POST">
+		
+		{% include "generic/form/form_top.html" %}
+		
+		<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.name width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.website width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.address_one width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.address_two width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.city width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.state width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.postal_code width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.phone_number width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.number_vets width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.practice_type width='half' %}
+    	</div>
+    	
+    	{% include "generic/form/form_bottom.html" with submit_text="Sign Up" %}
+
+	</form>
+
+{% endblock %}

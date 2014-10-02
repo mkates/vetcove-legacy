@@ -1,0 +1,102 @@
+{# An element within a form #}
+
+{% load core_tags %}
+{% load widget_tweaks %}
+
+{# The width element is a display formatting class #}
+{# Error message must immedaitely follow the input field for CSS styling #}
+{% with field|widgetType as type %}
+{# Widget types are the data-type attribute of an element #}
+
+	{% if type == 'select' %}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">
+				{{field.label}}{% if field.field.required %}*{% endif %}
+			</label>
+			{% render_field field class="form-control" data-required=field.field.required %}
+			<div class="error-message">Required</div>
+			<div class="help-block">{{field.help_text}}</div>
+		</div>
+
+	{% elif type == 'checkbox' %}
+
+		<div class="form-group {{width}}">
+			<div class="checkbox">
+	    		<label for="{{field.id_for_label}}">
+	      			{% render_field field data-required=field.field.required %} {{field.label}}
+	    		</label>
+	  		</div>
+	  	</div>
+
+	{% elif type == 'number' %}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">
+				{{field.label}}{% if field.field.required %}*{% endif %}
+			</label>
+			{% render_field field data-type=type class="form-control" data-required=field.field.required %}
+			<div class="error-message">Required</div>
+			<div class="help-block">{{field.help_text}}</div>
+		</div>
+
+	{% elif type == 'file' %}
+
+		<div class="form-group {{width}} {{visible}} {{field.id_for_label}}">
+			<label for="{{field.id_for_label}}">
+				{{field.label}}{% if field.field.required %}*{% endif %}
+			</label>
+	    	<div class="upload-container">
+	    		<div class="upload-box">
+	    			{% render_field field data-type=type class="file-input" accept="image/*" data-required=field.field.required %}
+		    		<a class="upload-button button button-standard button-small button-rounded">Select File From Computer</a>
+		    	</div>
+		    	<div class="upload-preview">
+	    			<img class="upload-preview-image" style="width: 130px; height: 130px;" />
+	    			<p class="upload-clear"><span class="glyphicon glyphicon-remove"></span>Choose a Different Image</p>
+	    		</div>
+	    	</div>
+	    </div>
+
+	{% elif type == 'password' %}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">
+				{{field.label}}{% if field.field.required %}*{% endif %}
+			</label>
+			{% render_field field data-type=type class="form-control" data-required=field.field.required %}
+			<div class="error-message">Required</div>
+			<div class="password-meter">
+				<div class="password-block password-block-one"></div>
+				<div class="password-block password-block-two"></div>
+				<div class="password-block password-block-three"></div>
+				<div class="password-block password-block-four"></div>
+				<div class="password-text password-block-text"></div>
+			</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+
+	{% else %}
+
+		{# This is the default display of an element #}
+
+		<div class="form-group {{width}}">
+			<label for="{{field.id_for_label}}">
+				{{field.label}}{% if field.field.required %}*{% endif %}
+			</label>
+			{% render_field field data-type=type class="form-control" data-required=field.field.required %}
+			<div class="error-message">Required</div>
+			<div class="help-block">{{field.help_text}}</div>
+			<div class="status">
+				<span class="glyphicon glyphicon-ok icon-check form-control-feedback"></span>
+				<span class="glyphicon glyphicon-remove icon-x form-control-feedback"></span>
+			</div>
+		</div>
+
+	{% endif %}
+
+
+{% endwith %}

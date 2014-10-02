@@ -1,0 +1,57 @@
+
+<form id="easyDropdown" action="/accounts/test/" class="dropzone" method="POST" multiple>
+	
+	{% csrf_token %}
+	<div class="upload-error"></div> {# The error messages when uploading #}
+	<div class="dropdown-content">
+		<div class="loader"></div>
+		<i class="fa fa-cloud-upload"></i>
+		<h3>Drag & Drop a File To Upload</h3>
+{# 		<p>or select from below (Maximum size is 25MB, we accept png, jpg, and gif files)</p> #}
+		<a class="button button-rounded button-purple fileinput-button">Upload an Image</a>
+		<a class="button button-rounded button-primary fileinput-button">Upload a PDF</a>
+	</div>
+	{# The fallback design #}
+	<div class="fallback">
+		<p>Select an image below (Maximum size is 25MB, we accept png, jpg, and gif files)
+		<input type="hidden" name="fallback" value="true"> {# Send this, so server send back a template, not AJAX #}
+ 		<input name="file" type="file"/>
+ 		<button class="submit button button-rounded button-primary">Upload an Image</button>
+		<a class="button button-rounded button-primary">Upload a PDF</a>
+	</div>
+
+
+</form>
+<div id="uploads">
+	<div id="dz-template-container">
+		<div id="dz-template">
+			<div class="dz-preview dz-file-preview">
+			  <div class="dz-details">
+			    {# <div class="dz-filename"><span data-dz-name></span></div> #}
+			    {# <div class="dz-size" data-dz-size></div> #}
+			    <img data-dz-thumbnail />
+			  </div>
+			  <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+			  <div class="dz-success-mark"><span></span></div>
+			  <div class="dz-error-mark"><span></span></div>
+			  <div class="dz-error-message"><span data-dz-errormessage></span></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="uploaded-image-container">
+		<div class="uploaded-image main">
+			<div class="delete">
+				Are you sure you want to delete this image?
+				<button class="button button-red button-tiny">Delete</button>
+				<button class="button button-standard button-tiny">Cancel</button>
+			</div>
+			<div class="remove">
+				<span class="glyphicon glyphicon-remove"></span>
+			</div>
+			<div class="image" style="background-image:url('{% static 'img/18.gif' %}')"></div>
+			<a class="default button button-rounded button-success button-tiny">The Main Image</a>
+		</div>
+	</div>
+
+</div>

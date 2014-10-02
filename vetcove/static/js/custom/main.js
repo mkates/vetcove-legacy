@@ -268,11 +268,140 @@ $(document).ready(function() {
 
 });
 
+
+// *************************************************
+// ********** Image Upload Preview *****************
+// *************************************************
+
 $(document).ready(function() {
-	$(document).click(function(event){
-		 console.log($(window).width());
+
+	// Need to manually register the jquery dataTransfer event
+	$.event.props.push('dataTransfer');
+
+	var dropZone = $('.upload-container');
+  	dropZone.on('dragover', function(event){
+  		event.stopPropagation();
+	    event.preventDefault();
+	    event.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  	});
+  	dropZone.on('drop', function(event){
+  		event.stopPropagation();
+	    event.preventDefault();
+
+	    var files = event.dataTransfer.files; // FileList object.
+	    console.log(files);
+  	});
+
+
+
+
+	// Check if there already is an image file selected
+	// If so, display the preview box instead
+	$.each($('.file-input'),function(index,value) {
+		value = $(value);
+		if (value.val() != "") {
+			PreviewImage(value);
+			upload_container = value.closest(".upload-container");
+			upload_container.find('.upload-preview').css('display','block');
+			upload_container.find('.upload-box').css('display','none');
+		}
+	});
+
+
+
+	$('.upload-button').click(function(){
+		// Trigger an input click on an upload button click
+		 $(this).closest(".upload-container").find('input[type=file]').trigger('click');
+	});
+	$('.file-input').change(function(){
+		// Get the container's handle
+		upload_container = $(this).closest(".upload-container");
+		// Generate an image preview
+		PreviewImage(upload_container.find('input[type=file]'));
+		// Show the upload preview and hide the upload box
+		upload_container.find('.upload-box').fadeOut('fast',function(){
+			upload_container.find('.upload-preview').fadeIn('fast');
+		})
+	});
+	$('.upload-clear').click(function(){
+		// Get the container's handle
+		upload_container = $(this).closest(".upload-container");
+		// Clear the file input
+		upload_container.find('input[type=file]').val("");
+		// Show the upload box and hide the preview
+		upload_container.find('.upload-preview').fadeOut('fast',function(){
+			upload_container.find('.upload-box').fadeIn('fast');
+		})
 	});
 
 });
+
+function PreviewImage(handle) {
+	// Create an instance of file reader
+    var oFReader = new FileReader();
+    // Get an instance of the file
+    oFReader.readAsDataURL(handle.prop("files")[0]);
+    // Get the handle for the image preview img
+    image_preview = handle.closest('.upload-container').find('.upload-preview-image');
+    // Populate the image's src with the filereader result
+    oFReader.onload = function (oFREvent) {
+        image_preview.attr('src',oFREvent.target.result);
+    };
+};
+
+
+
+
+// ******* The Dropzone for use in uploading images and pdfs for products ******* //
+Dropzone.options.easyDropdown = {
+  paramName: "file", // The name that will be used to transfer the file
+  //forceFallback: true, //Used to test the fallback
+  clickable: false, // Make the drop zone not clickable
+  previewTemplate: $("#dz-template").html(),
+  acceptedFiles: "image/jpeg,image/png,image/gif,application/pdf",
+  previewsContainer: "#uploads", // Define the container to display the previews
+  clickable: ".fileinput-button", // Define the element that should be used as click trigger
+  accept: function(file, done) {
+  	MAX_FILE_SIZE = 5 //MB
+  	ACCEPTED_FILES = ['image/png','image/jpeg','image/gif','application/pdf']
+    if (file.size > MAX_FILE_SIZE *1024*1024) {
+      filesize = Math.floor(parseFloat(file.size/1048576.0) * 100 ) /100
+      done("Maximum file size accepted is "+MAX_FILE_SIZE +"MB. Your file was "+filesize+"MB");
+    }
+    else if (ACCEPTED_FILES.indexOf(file.type) == -1) {
+      done("We only accept PNG, JPEG, GIF and PDF files");
+    }
+    else {
+    	dropzoneRemoveError($("#easyDropdown"));
+    	done();
+    }
+  },
+  init: function() {
+  	this.on("addedfile", function(file) { 
+  		$("#easyDropdown .loader").fadeIn('fast');
+  	});
+  	this.on("error", function(file,errorMessage) { 
+  		$("#easyDropdown .loader").stop();
+  		$("#easyDropdown .loader").fadeOut('fast');
+  		dropzoneAddError($("#easyDropdown"),errorMessage['message'])
+  	});
+  	this.on("success", function(file,response) { 
+  		$("#easyDropdown .loader").fadeOut('fast');
+  	});
+  	// Hide the dropdone content if falling back to the standard uploader
+  	if ($("#easyDropdown .fallback").length > 0) {
+		$("#easyDropdown .dropdown-content").css('display','none');
+	}
+  }
+};
+
+function dropzoneAddError(dropzone,message) {
+	dropzone.find('.upload-error').html(String(message));
+}
+
+function dropzoneRemoveError(dropzone) {
+	dropzone.find('.upload-error').html("");
+}
+
 
 

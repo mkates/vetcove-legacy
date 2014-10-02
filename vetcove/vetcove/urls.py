@@ -1,4 +1,6 @@
 from django.conf.urls import patterns, include, url
+from django.conf.urls.static import static
+from django.conf import settings
 from django.contrib import admin
 
 urlpatterns = patterns('',
@@ -30,4 +32,12 @@ urlpatterns = patterns('',
     url(r'^shop/', include('shop.urls',namespace='shop')),
     url(r'^staff/', include('staff.urls',namespace='staff')),
     url(r'^suppliers/', include('suppliers.urls',namespace='suppliers'))
-)
+
+
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+'''
+The last line static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+is used to serve user uploaded media files in development, as specified in the
+official django docs
+'''

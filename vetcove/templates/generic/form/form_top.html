@@ -1,0 +1,12 @@
+{# The top of a form #}
+
+{# Can't be any spaces in div if it is empty for CSS styling purposes #}
+{% csrf_token %}
+
+<div class="non-field-errors">{% if form.non_field_errors %}
+      <div class="non-field-errors">
+        {% for err in form.non_field_errors %}
+          <p class="form-error">{{ err }}</p>
+        {% endfor %}
+      </div>
+{% endif %}</div>

@@ -2,25 +2,25 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import django.utils.timezone
 import model_utils.fields
+import django.utils.timezone
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0002_auto_20140912_1520'),
+        ('accounts', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Notification',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
-                ('created', model_utils.fields.AutoCreatedField(editable=False, verbose_name='created', default=django.utils.timezone.now)),
-                ('modified', model_utils.fields.AutoLastModifiedField(editable=False, verbose_name='modified', default=django.utils.timezone.now)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('created', model_utils.fields.AutoCreatedField(verbose_name='created', default=django.utils.timezone.now, editable=False)),
+                ('modified', model_utils.fields.AutoLastModifiedField(verbose_name='modified', default=django.utils.timezone.now, editable=False)),
                 ('viewed', models.BooleanField(default=False)),
-                ('type', models.CharField(choices=[('referral', 'referral')], max_length=20)),
+                ('type', models.CharField(max_length=20, choices=[('referral', 'referral')])),
                 ('text', models.TextField()),
                 ('group', models.ForeignKey(to='accounts.Group')),
             ],

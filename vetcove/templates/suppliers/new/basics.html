@@ -1,0 +1,32 @@
+{% extends 'suppliers/new/base.html' %}
+
+{% block title %}Supplier Sign Up | Basics{% endblock %}
+
+{% block form_title %}Supplier Details{% endblock %}
+{% block form_title_subtext %}Let's get some details about your company{% endblock %}
+
+{% block new_group_form %}
+	<form class="form form-validation" action="{% url "suppliers:new_supplier_basics" %}" method="POST">
+		
+		{% include "generic/form/form_top.html" %}
+		
+		<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.company_name width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.category width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.contact_name width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.contact_position width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.contact_email width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.phone_number width='half' %}
+    	</div>
+
+    	{% include "generic/form/form_element.html" with field=form.sell_rx width='full' %}
+    	
+    	{% include "generic/form/form_bottom.html" with submit_text="Sign Up" %}
+
+	</form>
+
+{% endblock %}

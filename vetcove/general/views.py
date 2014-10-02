@@ -29,6 +29,7 @@ class Index(TemplateView):
 		context['index'] = True
 		return context
 
+
 ############################################
 ###### Company Pages #######################
 ############################################

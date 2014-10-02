@@ -1,0 +1,39 @@
+{% extends 'clinics/new/base.html' %}
+
+{% block title %}Clinic Sign Up | Verification{% endblock %}
+
+{% block form_title %}Clinic Verification{% endblock %}
+{% block form_title_subtext %}Let's verify you are a licensed veterinary clinic{% endblock %}
+
+{% block new_group_form %}
+	<form class="form form-validation" action="{% url "clinics:new_clinic_verify" %}" method="POST">
+		
+		{% include "generic/form/form_top.html" %}
+		
+		<div class="inlined-together">
+    		{% include "generic/form/form_element.html" with field=form.first_name width='forty' %}
+    		{% include "generic/form/form_element.html" with field=form.middle_initial width='twenty' %}
+    		{% include "generic/form/form_element.html" with field=form.last_name width='forty' %}
+    	</div>
+         <div class="inlined-separate">
+            {% include "generic/form/form_element.html" with field=form.purchaser width='half' %}
+            {% include "generic/form/form_element.html" with field=form.position width='half' %}
+        </div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.license_state width='half' %}
+            {% include "generic/form/form_element.html" with field=form.license_no width='half' %}
+    	</div>
+    	<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.license_expiration_month width='sixth' %}
+    		{% include "generic/form/form_element.html" with field=form.license_expiration_day width='sixth' %}
+    		{% include "generic/form/form_element.html" with field=form.license_expiration_year width='sixth' %}
+            {% include "generic/form/form_element.html" with field=form.license_submit width='half' %}
+    	</div>
+    	
+    	{% include "generic/form/form_element.html" with field=form.license_image width='half' visible="hidden" %}
+    	
+    	{% include "generic/form/form_bottom.html" with submit_text="Sign Up" %}
+
+	</form>
+
+{% endblock %}

@@ -16,14 +16,6 @@ from django.http import JsonResponse
 
 # In-App Imports
 
-
-class Test(TemplateView):
-    template_name = 'test.html'
-
-def test(request):
-    return render_to_response('test.html',{'page_dashboard':True},context_instance=RequestContext(request))
-
-
 ###########################################
 ###### Permissions Mixins #################
 ###########################################

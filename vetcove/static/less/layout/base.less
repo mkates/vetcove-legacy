@@ -14,7 +14,7 @@ body {
 	margin: 0 auto;
 }
 .responsive .body-container {
-	min-width: 400px;
+	min-width: 1px;
 }
 .content { 
 	overflow: hidden; // Hide any overflowed content
@@ -30,4 +30,8 @@ body {
 }
 ::-moz-selection {
   background: #e6e6e6; /* Gecko Browsers */
+}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
 }

@@ -1,0 +1,143 @@
+
+
+
+
+#uploads {
+	width: 100%;
+	background: #eee;
+	border:1px solid #ccc;
+	margin: 50px auto;
+	&:after {
+		display:table;
+		clear:both;
+		content:" ";
+	}
+}
+.dropzone {
+	position: relative;
+	border-radius: 3px;
+	background: #fff;
+	border:1px solid #ccc;
+	width: 100%;
+	padding: 30px;
+	text-align: center;
+	.gradient(#eee,#eee,#fff);
+	.dropdown-content {
+		i {
+			margin-top: 5px;
+			font-size: 50px;
+			line-height: 50px;
+		}
+		h3 {
+			font-weight: 300;
+			margin: 10px 0;
+		}
+	}
+	.fallback {
+		input {
+			margin: 20px auto;
+		}
+	}
+	.loader {
+		display:none;
+		position:absolute;
+		background: rgba(0,0,0,.8);
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		padding-top: 60px;
+	}
+	.upload-error {
+		display:none;
+		color: #fff;
+		padding: 10px;
+		margin: 0 10px 10px 10px;
+		background: @colorRed;
+		display:inline-block;
+		font-weight: 500;
+		border-radius: 3px;
+		&:after {
+			display: table;
+			clear: both;
+			content:" ";
+		}
+		&:empty {
+			display:none;
+		}
+	}
+}
+
+//When hovering with an image
+.dropzone.dz-drag-hover {
+  border:1px solid #aaa;
+  .gradient(#eaeaea,#eaeaea,#f6f6f6);
+}
+// Hide this stupid default image
+.dropzone .dz-message {
+  display: none;
+}
+
+
+#uploads {
+	padding: 10px;
+}
+
+.uploaded-image-container {
+	width: 25%;
+	float: left;
+	padding: 10px 5px;
+	text-align: center;
+	.uploaded-image {
+		position:relative;
+		padding: 10px;
+		background: white;
+		border:1px solid #dadada;
+		.image {
+			width: 100%;
+			height: 150px;
+			margin-bottom: 10px;
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		&.main {
+			border:1px solid @colorGreen;
+			box-shadow: 0 0 10px lighten(@colorGreen,30%) inset;
+		}
+	}	
+	.default {
+		font-size: 10px;
+		margin-bottom: 10px;
+	}
+	.remove {
+		position:absolute;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background: rgba(0,0,0,.3);
+		color: #fff;
+		right: 0px;
+		top: 0px;
+		&:hover {
+			background: rgba(0,0,0,.6);
+			cursor:pointer;
+		}
+	}
+	.delete {
+		display:none;
+		position:absolute;
+		padding: 30px 15px 15px 15px;
+		color: #fff;
+		height: 100%;
+		width: 100%;
+		top: 0px;
+		z-index: 1;
+		left: 0px;
+		background: rgba(0,0,0,.85);
+		.button {
+			margin-top: 20px;
+		}
+	}
+}

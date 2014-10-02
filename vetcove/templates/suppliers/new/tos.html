@@ -1,0 +1,21 @@
+{% extends 'suppliers/new/base.html' %}
+
+{% block title %}Supplier Sign Up | Agreement{% endblock %}
+
+{% block form_title %}Supplier Agreement{% endblock %}
+{% block form_title_subtext %}We require that you agree to the Vetcove terms before proceeding{% endblock %}
+{% block new_group_form %}
+	<form class="form form-validation" action="{% url "suppliers:new_supplier_tos" %}" method="POST">
+		
+		{% include "generic/form/form_top.html" %}
+		
+		{% include "generic/form/form_element.html" with field=form.term_one width='full' %}
+        {% include "generic/form/form_element.html" with field=form.term_two width='full' %}
+        {% include "generic/form/form_element.html" with field=form.term_three width='full' %}
+        {% include "generic/form/form_element.html" with field=form.term_four width='full' %}
+    	
+    	{% include "generic/form/form_bottom.html" with submit_text="Sign Up" %}
+
+	</form>
+
+{% endblock %}

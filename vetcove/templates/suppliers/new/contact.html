@@ -1,0 +1,27 @@
+{% extends 'suppliers/new/base.html' %}
+
+{% block title %}Supplier Sign Up | Address{% endblock %}
+
+{% block form_title %}Supplier Address{% endblock %}
+{% block form_title_subtext %}We need to verify your company's address{% endblock %}
+{% block new_group_form %}
+	<form class="form form-validation" action="{% url "suppliers:new_supplier_contact" %}" method="POST">
+		
+		{% include "generic/form/form_top.html" %}
+		
+		<div class="inlined-separate">
+    		{% include "generic/form/form_element.html" with field=form.address_one width='half' %}
+    		{% include "generic/form/form_element.html" with field=form.address_two width='half' %}
+    	</div>
+         <div class="inlined-separate">
+            {% include "generic/form/form_element.html" with field=form.city width='third' %}
+            {% include "generic/form/form_element.html" with field=form.state width='third' %}
+            {% include "generic/form/form_element.html" with field=form.postalcode width='third' %}
+        </div>
+    	
+    	
+    	{% include "generic/form/form_bottom.html" with submit_text="Sign Up" %}
+
+	</form>
+
+{% endblock %}

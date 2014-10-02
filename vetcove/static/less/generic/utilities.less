@@ -53,3 +53,18 @@
 
 .generateMarginsAndPadding(40);
 
+
+//Attach to divs with float elements
+.floatfix {
+	&:after {
+		display:table;
+		content:" ";
+		clear:both;
+	}
+}
+// Do not display empty elements
+.emptyfix {
+	&:empty {
+		display:none;
+	}
+}

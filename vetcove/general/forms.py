@@ -3,7 +3,6 @@ from __future__ import absolute_import
 
 # Django Apps
 from django import forms
-from localflavor.us.forms import USStateSelect
 
 # In App Imports
 from core.form_fields import *
@@ -58,14 +57,14 @@ class ClinicLeadForm(forms.ModelForm):
         widgets = {
             'clinic_name': forms.TextInput(attrs={'placeholder':'Clinic Name'}),
             'zipcode': forms.TextInput(attrs={'placeholder':'xxxxx'}),
-            'state': USStateSelect(attrs={'class':'form-control','type':'select','data-type':'select'}),
+            'state': CoreStateSelect(),
             'your_name': forms.TextInput(attrs={'placeholder':'Dr. John Doe'}),
             'your_position': forms.TextInput(attrs={'placeholder':'Vet / Practice Owner'}),
             'your_email': CoreEmailInput(),
             'phone_number': CorePhoneNumberInput(attrs={'data-required':'False'}),
             'clinic_website':forms.TextInput(attrs={'placeholder':'www.example.com'}),
-            'number_of_licensed_veterinarians':CoreIntegerInput(attrs={'placeholder':0}),
-            'total_employees':CoreIntegerInput(attrs={'placeholder':0}),
+            'number_of_licensed_veterinarians':CorePositiveIntegerInput(attrs={'placeholder':0}),
+            'total_employees':CorePositiveIntegerInput(attrs={'placeholder':0}),
         }
 
 

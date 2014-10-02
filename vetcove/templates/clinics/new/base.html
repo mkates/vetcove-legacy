@@ -1,0 +1,89 @@
+{% extends 'accounts/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Clinic Sign Up{% endblock %}
+
+
+{% block simplecontent %}
+
+<div class="signup-box">
+	<div class="title">
+		{% block form_title %}Clinic Sign Up{% endblock %}
+		{% block form_title_subtext %}{% endblock %}
+		<div class="steps-container">
+			{# step-progress-5 means there are 5 steps #}
+			<div class="step-progress step-progress-4">
+				<div class="step-progress-bar
+					{% if page_newclinicbasics %}
+						step-progress-bar-1
+					{% elif page_newclinicverify %}
+						step-progress-bar-2
+					{% elif page_newclinictos %}
+						step-progress-bar-3
+					{% elif page_newclinicomplete %}
+						step-progress-bar-4
+					{% endif %}
+				"></div>{# mark your step # #}
+			</div>
+			<div class="step-container step25 complete"> {# each step is 100/number of steps #}
+				<div class="step-bubble">
+					<i class="fa fa-user"></i>
+				</div>
+				<p class="step-text">Create Account</p>
+			</div>
+			<div class="step-container step25
+					{% if page_newclinicbasics %}
+						active
+					{% elif page_newclinicverify %}
+						complete
+					{% elif page_newclinictos %}
+						complete
+					{% elif page_newclinicomplete %}
+						complete
+					{% endif %}
+			">
+				<div class="step-bubble">
+					<i class="fa fa-pencil"></i>
+				</div>
+				<p class="step-text">Clinic Details</p>
+			</div>
+			<div class="step-container step25
+					{% if page_newclinicverify %}
+						active
+					{% elif page_newclinictos %}
+						complete
+					{% elif page_newclinicomplete %}
+						complete
+					{% endif %}
+			">
+				<div class="step-bubble">
+					<i class="fa fa-check-square-o"></i>
+				</div>
+				<p class="step-text">Verify Credentials</p>
+			</div>
+			<div class="step-container step25
+					{% if page_newclinictos %}
+						active
+					{% elif page_newclinicomplete %}
+						complete
+					{% endif %}
+			">
+				<div class="step-bubble">
+					<i class="fa fa-list"></i>
+				</div>
+				<p class="step-text">Agreement</p>
+			</div>
+
+		</div>
+	</div>
+	<div class="form-container">
+		{% block new_group_form %}
+
+
+		{% endblock %}
+	</div>
+</div>
+
+
+{% endblock %}

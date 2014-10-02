@@ -1,0 +1,89 @@
+{% extends 'accounts/base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Supplier Sign Up{% endblock %}
+
+
+{% block simplecontent %}
+
+<div class="signup-box">
+	<div class="title">
+		<h2>{% block form_title %}Supplier Sign Up{% endblock %}</h2>
+		<p>{% block form_title_subtext %}Let's get some details about your company{% endblock %}</p>
+		<div class="steps-container">
+			{# step-progress-5 means there are 5 steps #}
+			<div class="step-progress step-progress-4">
+				<div class="step-progress-bar
+					{% if page_newsupplierbasics %}
+						step-progress-bar-1
+					{% elif page_newsuppliercontact %}
+						step-progress-bar-2
+					{% elif page_newsuppliertos %}
+						step-progress-bar-3
+					{% elif page_newsupplieromplete %}
+						step-progress-bar-4
+					{% endif %}
+				"></div>{# mark your step # #}
+			</div>
+			<div class="step-container step25 complete"> {# each step is 100/number of steps #}
+				<div class="step-bubble">
+					<i class="fa fa-user"></i>
+				</div>
+				<p class="step-text">Create Account</p>
+			</div>
+			<div class="step-container step25
+					{% if page_newsupplierbasics %}
+						active
+					{% elif page_newsuppliercontact %}
+						complete
+					{% elif page_newsuppliertos %}
+						complete
+					{% elif page_newsupplieromplete %}
+						complete
+					{% endif %}
+			">
+				<div class="step-bubble">
+					<i class="fa fa-pencil"></i>
+				</div>
+				<p class="step-text">Company Details</p>
+			</div>
+			<div class="step-container step25
+					{% if page_newsuppliercontact %}
+						active
+					{% elif page_newsuppliertos %}
+						complete
+					{% elif page_newsupplieromplete %}
+						complete
+					{% endif %}
+			">
+				<div class="step-bubble">
+					<i class="fa fa-road"></i>
+				</div>
+				<p class="step-text">Address</p>
+			</div>
+			<div class="step-container step25
+					{% if page_newsuppliertos %}
+						active
+					{% elif page_newsupplieromplete %}
+						complete
+					{% endif %}
+			">
+				<div class="step-bubble">
+					<i class="fa fa-list"></i>
+				</div>
+				<p class="step-text">Agreement</p>
+			</div>
+
+		</div>
+	</div>
+	<div class="form-container">
+		{% block new_group_form %}
+
+
+		{% endblock %}
+	</div>
+</div>
+
+
+{% endblock %}

@@ -3,6 +3,7 @@
 
 .form { // Set the standard form width and properties
 	margin: 10px auto;
+	// Standard form introductory text
 	.intro {
 		margin-bottom: 30px;
 		padding-bottom: 30px;
@@ -19,60 +20,98 @@
 			line-height: 1.4;
 		}
 	}
+	//Sometimes we use labels outside of form-groups
+	label {
+		margin-left: 2px;
+		color: #666;
+		font-weight: 400;
+		line-height: 18px;
+		font-size: 13px;
+		// Help text on a label 
+		span {
+			font-weight: 300;
+			color: #666;
+		}
+	}
 }
-
+// Properly aling checkboxes and radios
 input[type="radio"], input[type="checkbox"] {
 	margin-top: 2px;
 }
-.form-group { // Different types of form groups
+
+
+// Utility to degrade a form element nicely
+.formbreak {
+	@media(max-width:670px) {
+		width: 100%;
+	}
+}
+
+// Form groups
+.form-group {
 	position:relative;
-	clear:both; //Standard forms clear both
+	clear:both; //Standard form element clear both
 	&.full {
 		width: 100%;
 	}
 	&.half { // Half the full width
 		width: 50%;
-		@media(max-width:670px) {
-			width: 100%;
-		}
+		.formbreak;
 	}
 	&.third { // 25% of the full width
 		width: 33.33%;
-		@media(max-width:670px) {
-			width: 100%;
-		}
+		.formbreak;
 	}
 	&.quarter { // 25% of the full width
 		width: 25%;
-		@media(max-width:670px) {
-			width: 100%;
-		}
+		.formbreak;
+	}
+	&.sixth { // 25% of the full width
+		width: 16.66%;
+		.formbreak;
+	}
+	&.forty { // 25% of the full width
+		width: 40%;
+		.formbreak;
+	}
+	&.twenty { // 25% of the full width
+		width: 20%;
+		.formbreak;
 	}
 	.help-block { // The help block
-		font-size: 11px;
-		height: 6px;
+		font-size: 10px;
+		height: 10px;
 		margin: 0;
+		.emptyfix;
 	}
-	label {
-		margin-left: 2px;
-	}
-	label span { // Span text
-		font-weight: 300;
-		color: #666;
+	.checkbox {
+		margin: 3px 0;
 	}
 	textarea { // The text area
 		resize:vertical;
 		height: 100px;
 		min-height: 50px;
 	}
-	.checkbox {
-		margin: 3px 0;
+	input:not([type="checkbox"]), select {
+		height: 40px;
+		font-size: 14px;
+		line-height: 20px;
+		padding: 9px;
+	}
+	input:not([type="checkbox"]),select,textarea {
+		border:1px solid #ccc;
+		border-radius: 2px;
+		&:focus {
+			border:1px solid @colorBlue;
+			box-shadow: none;
+		}
 	}
 }
 
-.radio-container, .checkbox-container { //Radio and checkbox container
+// Radio and checkbox container
+.radio-container, .checkbox-container { 
 	clear:both;
-	label { //Each choice should have normal thickness
+	label { // Each choice should have normal thickness
 		font-weight: normal;
 	}
 	.radio-half, .checkbox-half {
@@ -92,11 +131,11 @@ input[type="radio"], input[type="checkbox"] {
 		border-radius: 0px;
 	}
 	&:first-child input, &:first-child select {
-		.customRoundedCorners(0,0,3px,3px);
+		.customRoundedCorners(0,0,2px,2px);
 	}
 	&:last-child input,&:last-child select {
 		border-left:none;
-		.customRoundedCorners(3px,3px,0,0);
+		.customRoundedCorners(2px,2px,0,0);
 	}
 
 }
@@ -107,24 +146,17 @@ input[type="radio"], input[type="checkbox"] {
 	.error-message {
 		right: 5px;
 	}
-	&:not(:last-child) {
-		padding-right: 5px;
+	&:not(:first-child) {
+		padding-left: 5px;
 		.form-control-feedback {
-			right: 5px;
 		}
 	}
 }
 
 .inlined-separate, .inlined-together { //To clear the floats
-	&:after {
-		display:table;
-		content: " ";
-		clear:both;
-	}
-	&.bottompadding {
-		padding-bottom: 15px;
-	}
+	.floatfix;
 }
+
 .status { // Status Icon Formatting 
 	.form-control-feedback {
 		display:none;
@@ -137,13 +169,16 @@ input[type="radio"], input[type="checkbox"] {
 
 .has-error { // Status Icon Toggling 
 	label {
-		color: #f25454;
+		color: @colorRed;
 	}
 	.icon-x {
 		display:block;
 	}
 	.icon-check {
 		display:none;
+	}
+	input, select, textarea {
+		border:1px solid @colorRed;
 	}
 	input:focus + .error-message, select:focus + .error-message, textarea:focus + .error-message { 
 		.error-message-fade-in;
@@ -154,6 +189,10 @@ input[type="radio"], input[type="checkbox"] {
 
 	input:not([type="file"]),select,textarea { //No background on files
 		background: #fff2f2;
+	}
+	.upload-container {
+		background: #fff2f2;
+		border:1px solid @colorRed;
 	}
 }
 .has-check { // Has check
@@ -229,7 +268,7 @@ input[type="radio"], input[type="checkbox"] {
 
 
 // Field errors 
-form .non-field-errors {
+.form .non-field-errors {
 	color: white;
 	font-weight: 500;
 	background: @colorRed;
@@ -237,7 +276,75 @@ form .non-field-errors {
 	padding: 5px;
 	margin-bottom: 10px;
 	text-align: center;
-	&:empty {
+	.emptyfix;
+}
+
+// Password meter
+.form .password-meter {
+	height: 13px;
+	width: 100%;
+	.password-block {
+		margin-top: 5px;
+		height: 6px;
+		box-shadow: 0 0 2px rgba(0,0,0,.2) inset;
+		width: 14%;
+		float: left;
+		margin-right: 1%;
+		background: #dadada;
+	}
+	.password-text {
+		margin-top: 3px;
+		font-weight: 500;
+		width: 40%;
+		float: left;
+		font-size: 10px;
+		line-height: 10px;
+	}
+	.floatfix;
+}
+
+// File Upload Box
+.upload-container {
+	margin: 3px 0 20px 0;
+	position:relative;
+	width: 100%;
+	padding: 20px;
+	border-radius: 3px;
+	background: #fff;
+	border:1px solid #ccc;
+	text-align: center;
+	i {
+		font-size: 50px;
+		line-height: 50px;
+	}
+	h3 {
+		font-weight: 300;
+		margin: 10px 0;
+	}
+	.upload-box {
+		input[type="file"] {
+			position:absolute;
+			border:1px solid red;
+			left: -1000px;
+		}
+	}
+	.upload-preview {
 		display:none;
+		img {
+			border:2px solid #eee;
+			height: 150px;
+			width: 150px;
+		}
+		.upload-clear {
+			margin: 10px 5px 5px 5px;
+			color: #777;
+			span {
+				margin-right: 5px;
+			}
+			&:hover {
+				cursor:pointer;
+				color: @colorRed;
+			}
+		}
 	}
 }

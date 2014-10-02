@@ -7,13 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('general', '0001_initial'),
+        ('accounts', '0001_initial'),
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='cliniclead',
-            name='state',
-            field=models.CharField(max_length=30),
+        migrations.AddField(
+            model_name='group',
+            name='slug',
+            field=models.SlugField(default=1),
+            preserve_default=False,
         ),
     ]

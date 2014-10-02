@@ -98,13 +98,320 @@
 
 
 
+// Signing up
+.signup-box {
+	max-width: 700px;
+	margin: 0 auto;
+	.title {
+		text-align: center;
+		margin-bottom: 30px;
+		padding-bottom: 20px;
+		border-bottom:1px solid #dadada;
+		h2 {
+			font-weight: 200;
+		}
+	}
+	.perks {
+		border-bottom:1px solid #dadada;
+		margin-bottom: 30px;
+		padding-bottom: 30px;
+		position:relative;
+		.perk {
+			margin: 10px 10px;
+			opacity: 0;
+			position:relative;
+		    &.perk-one {
+		    	.animation(riseandenter,.6s,0s);
+		    }
+		    &.perk-two {
+		    	.animation(riseandenter,.6s,.6s);
+		    }
+		    &.perk-three {
+		    	.animation(riseandenter,.6s,1.2s);
+		    }
+			
+		}
+		.perk-name {
+			font-size: 15px;
+			font-weight: 500;
+			margin-bottom: 5px;
+			i {
+				font-size: 18px;
+				color: @colorGreen;
+			}
+		}
+		.description {
+			padding-left: 20px;
+		}
+	}
+	.form-container {
+		//max-width: 500px;
+		margin: 0 auto;
+	}
+
+}
+
+
+// Mixin for steps progress bar 
+.stepsProgressGradient (@break: 50%,@breakdecimal:.5) {
+	background: lighten(@colorGreen,15%);
+	background-image: -ms-linear-gradient(left, lighten(@colorGreen,15%) 0%, lighten(@colorGreen,15%) @break, @colorMain 100%);
+	background-image: -moz-linear-gradient(left, lighten(@colorGreen,15%) 0%, lighten(@colorGreen,15%) @break, @colorMain 100%);
+	background-image: -o-linear-gradient(left, lighten(@colorGreen,15%) 0%, lighten(@colorGreen,15%) @break, @colorMain 100%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, lighten(@colorGreen,15%)), color-stop(@breakdecimal, lighten(@colorGreen,15%)), color-stop(1, @colorMain));
+	background-image: -webkit-linear-gradient(left, lighten(@colorGreen,15%) 0%, lighten(@colorGreen,15%) @break, @colorMain 100%);
+	background-image: linear-gradient(to right, lighten(@colorGreen,15%) 0%, lighten(@colorGreen,15%) @break, @colorMain 100%);
+}
+
+// The steps container widget
+.steps-container {
+	margin: 30px auto 0 auto;
+	position:relative; //Needed because progress is position absolute
+	.step-container {
+		text-align: center;
+		float: left;
+		// Different widths for different size steps
+		&.step33 {   width: 33.3% }
+		&.step25 {   width: 25%   }
+		&.step20 {   width: 20%   }
+		// Step Bubble General Formatting
+		.step-bubble {
+			margin: 0 auto;
+			width: 30px;
+			height: 30px;
+			border-radius: 15px;
+			background: #ddd;
+			i {
+				font-size:20px;
+				color: #fff;
+				//text-shadow: 0 -1px 0 #000;
+				line-height: 30px;
+				opacity: .7;
+			}
+		}
+		// Step text
+		.step-text {
+			margin-top: 3px;
+			font-size: 13px;
+		}
+		// A completed step bubble
+		&.complete .step-bubble {
+			background: lighten(@colorGreen,15%);
+		}
+		// An active step bubble
+		&.active .step-bubble {
+			background: @colorMain;
+		}
+		&.active .step-text {
+			//color: @colorMain;
+			font-weight: 500;
+		}
+	}
+	// Clears the floating elements
+	&:after { 
+		display: table;
+		content:" ";
+		clear: both;
+	}
+	// The background progress bar
+	.step-progress {
+		top: 13px;
+		z-index: -1;
+		height: 4px;
+		background: #ddd;
+		position:absolute;
+		// All step progress bars have this color
+		.step-progress-bar {
+			height: 100%;
+			width: 0%;
+			position:absolute;
+		}
+		// Comment gradients
+		.step-progress-bar-1 { .stepsProgressGradient(50%,.5)}
+		.step-progress-bar-2 { .stepsProgressGradient(66.3%,.66)}
+		.step-progress-bar-3 { .stepsProgressGradient(75%,.75)}
+		.step-progress-bar-4 { .stepsProgressGradient(80%,.80)}
+
+		// Step specifi gradients
+		&.step-progress-3 {   
+			width: 66.66%;  
+			left: 16.66%;
+			.step-progress-bar-1 { width: 50%  }
+			.step-progress-bar-2 { width: 100% }
+			.step-progress-bar-3 { width: 100%; .stepsProgressGradient(100%,1)}
+		}
+		&.step-progress-4 {   
+			width: 75%;  
+			left: 12.5%;
+			.step-progress-bar-1 { width: 33.3%; }
+			.step-progress-bar-2 { width: 66.6%; }
+			.step-progress-bar-3 { width: 100%;  }
+			.step-progress-bar-4 { width: 100%; .stepsProgressGradient(100%,1)}
+		}
+		&.step-progress-5 {   
+			width: 80%;  
+			left: 10%;
+			.step-progress-bar-1 { width: 25% }
+			.step-progress-bar-2 { width: 50% }
+			.step-progress-bar-3 { width: 75% }
+			.step-progress-bar-4 { width: 100% }
+			.step-progress-bar-5 { width: 100%; .stepsProgressGradient(100%,1)}
+		}
+
+	}
+
+}
 
 
 
+@keyframes riseandenter {
+	0% {
+		opacity: 0;
+		top: 20px;
+	}
+	100% {
+		opacity: 1;
+		top: 0px;
+	}
+}
 
 
+#uploads {
+	width: 100%;
+	background: #eee;
+	border:1px solid #ccc;
+	margin: 50px auto;
+	&:after {
+		display:table;
+		clear:both;
+		content:" ";
+	}
+}
+.dropzone {
+	position: relative;
+	border-radius: 3px;
+	background: #fff;
+	border:1px solid #ccc;
+	width: 100%;
+	padding: 30px;
+	text-align: center;
+	.gradient(#eee,#eee,#fff);
+	.dropdown-content {
+		i {
+			margin-top: 5px;
+			font-size: 50px;
+			line-height: 50px;
+		}
+		h3 {
+			font-weight: 300;
+			margin: 10px 0;
+		}
+	}
+	.fallback {
+		input {
+			margin: 20px auto;
+		}
+	}
+	.loader {
+		display:none;
+		position:absolute;
+		background: rgba(0,0,0,.8);
+		height: 100%;
+		width: 100%;
+		left: 0;
+		top: 0;
+		padding-top: 60px;
+	}
+	.upload-error {
+		display:none;
+		color: #fff;
+		padding: 10px;
+		margin: 0 10px 10px 10px;
+		background: @colorRed;
+		display:inline-block;
+		font-weight: 500;
+		border-radius: 3px;
+		&:after {
+			display: table;
+			clear: both;
+			content:" ";
+		}
+		&:empty {
+			display:none;
+		}
+	}
+}
+
+//When hovering with an image
+.dropzone.dz-drag-hover {
+  border:1px solid #aaa;
+  .gradient(#eaeaea,#eaeaea,#f6f6f6);
+}
+// Hide this stupid default image
+.dropzone .dz-message {
+  display: none;
+}
 
 
+#uploads {
+	padding: 10px;
+}
 
-
-
+.uploaded-image-container {
+	width: 25%;
+	float: left;
+	padding: 10px 5px;
+	text-align: center;
+	.uploaded-image {
+		position:relative;
+		padding: 10px;
+		background: white;
+		border:1px solid #dadada;
+		.image {
+			width: 100%;
+			height: 150px;
+			margin-bottom: 10px;
+			background-size:contain;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+		&.main {
+			border:1px solid @colorGreen;
+			box-shadow: 0 0 10px lighten(@colorGreen,30%) inset;
+		}
+	}	
+	.default {
+		font-size: 10px;
+		margin-bottom: 10px;
+	}
+	.remove {
+		position:absolute;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background: rgba(0,0,0,.3);
+		color: #fff;
+		right: 0px;
+		top: 0px;
+		&:hover {
+			background: rgba(0,0,0,.6);
+			cursor:pointer;
+		}
+	}
+	.delete {
+		display:none;
+		position:absolute;
+		padding: 30px 15px 15px 15px;
+		color: #fff;
+		height: 100%;
+		width: 100%;
+		top: 0px;
+		z-index: 1;
+		left: 0px;
+		background: rgba(0,0,0,.85);
+		.button {
+			margin-top: 20px;
+		}
+	}
+}
