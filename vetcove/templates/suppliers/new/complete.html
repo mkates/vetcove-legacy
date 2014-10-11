@@ -1,1 +1,12 @@
-completed signup
+{% extends "simple_base.html" %}
+
+{% block simplecontent %}
+
+
+<div class="lead-thanks">
+	<i class="fa-check-circle-o fa fa-5x"></i>
+	<h4>Thank you for your interest. We have received your information and we will be in touch with you shortly! In the meantime, you can continue to explore Vetcove, or you can reach out to us directly at team@vetcove.com.</h4>
+	<a href='{% url "general:index" %}' class="button button-rounded button-primary">Return Home</a>
+</div>
+
+{% endblock %}

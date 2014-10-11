@@ -1,0 +1,93 @@
+
+
+// Community combines functionality used by
+// both reviews and questions
+
+//*** Community Page Top Bar For Question/Review Detail Page
+//******************************
+.community-page-top-bar {
+	background: #fff;
+	display:table;
+	width: 100%;
+	padding: 35px 0 20px 0;
+	border-bottom:1px solid #dadada;
+	.image {
+		width: 100px;
+		text-align: center;
+		img {
+			margin: 0 20px 10px 20px;
+			max-width: 80px;
+			max-height: 100px;
+		}
+		display:table-cell;
+		vertical-align: top;
+	}
+	.title {
+		display:table-cell;
+		vertical-align: top;
+		h3 {
+			margin: 0 0 5px 0;
+		}
+		.ratings .star {
+			display:inline-block;
+			vertical-align: top;
+			margin: 1px 5px 0 0;
+		}
+	}
+	.actions {
+		display:table-cell;
+		vertical-align: top;
+		width: 250px;
+		padding: 0 20px 20px 20px;
+		text-align: right;
+		.button {
+			margin-bottom: 15px;
+		}
+	}
+}
+
+// Container for a detailed view of questions and reviews
+.community-page-element-container {
+	background: #fafafa;
+	padding: 20px 20px 20px 120px;
+}
+
+
+// Writing a question or review
+.community-page-write-container {
+	display:table;
+	width: 100%;
+	background: #fff;
+	.community-page-write {
+		display:table-cell;
+		vertical-align: top;
+		height: 300px;
+		padding: 40px 40px 20px 20px;
+		position: relative;
+		.community-page-product-name {
+			font-size: 23px;
+			margin-bottom: 0px;
+			margin-right: 120px;
+		}
+		.community-page-product-image {
+			position:absolute;
+			right: 40px;
+			top: 40px;
+			max-width: 120px;
+			max-height: 140px;
+		}
+	}
+	.community-page-write-help {
+		display:table-cell;
+		padding: 40px 35px;
+		height: 100%;
+		width: 250px;
+		vertical-align: top;
+		background: #fafafa;
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2) inset;
+		ul li {
+			line-height: 1.4;
+			margin: 5px 0 10px 0;
+		}
+	}
+}

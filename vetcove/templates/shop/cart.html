@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="shop-cart-container">
+	<div class="shop-cart-header">
+		<h3> You have <strong>6</strong> items in your cart</h3>
+		<a href="#" class="button button-rounded">Continue Shopping</a>
+	</div>
+	<div class="shop-cart-body box">
+		<div class="shop-cart-row-container shop-cart-legend">
+			<div class="shop-cart-row">
+				<div class="image">
+				</div>
+				<div class="text">
+					Product
+				</div>
+				<div class="unit">
+					Unit Price
+				</div>
+				<div class="quantity">
+					Quantity
+				</div>
+				<div class="price">
+					Total
+				</div>
+			</div>
+		</div>
+
+		<div class="shop-cart-row-container shop-cart-item">
+			<div class="shop-cart-row">
+				<div class="image">
+					<img src="{% static 'img/products/flunixin.jpg' %}">
+				</div>
+				<div class="text">
+					<a href='#' class="shop-cart-item-name">Equizone Phenylbutazone Powder, 1.1lb</a>
+					<p class="manufacturer">A&G Pharmaceuticals | #2932SFDS-2A</p>
+					<div class="actions">
+						<a>Remove</a>
+						<a>Add to List</a>
+						<a>Add Seller Instructions</a>
+					</div>
+				</div>
+				<div class="unit">
+					$379.95
+				</div>
+				<div class="quantity">
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+				</div>
+				<div class="price">
+					$379.95
+				</div>
+			</div>
+		</div>
+		<div class="shop-cart-row-container shop-cart-item">
+			<div class="shop-cart-row">
+				<div class="image">
+					<img src="{% static 'img/products/flunixin.jpg' %}">
+				</div>
+				<div class="text">
+					<a href='#' class="shop-cart-item-name">Equizone Phenylbutazone Powder, 1.1lb with the special sauce everyone likes</a>
+					<p class="manufacturer">A&G Pharmaceuticals | #2932SFDS-2A</p>
+					<div class="actions">
+						<a>Remove</a>
+						<a>Move to List</a>
+						<a>Special Seller Instructions</a>
+					</div>
+				</div>
+				<div class="unit">
+					$379.95
+				</div>
+				<div class="quantity">
+					<select>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+				</div>
+				<div class="price">
+					$379.95
+				</div>
+			</div>
+		</div>
+
+		<div class="shop-cart-row-container shop-cart-summary">
+			<div class="shop-cart-row">
+				<div class="promotion">
+					<p class="promotion-message error">Sweet! That's 10% off your purchase
+					</p>
+					<p>Enter a promotional code:</p>
+					<table>
+						<tr>
+							<td>
+								<input class="form-control" placeholder="Promotion Code">
+							</td>
+							<td>
+								<button class="button button-rounded button-tiny">Apply</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="shop-cart-totals">
+					<p> Cart Subtotal: <span>$243.43</span></p>
+					<p> Shipping: <span>$0.00</span></p>
+					<p> Sales Tax: <span>$15.32</span></p>
+					<p> Promotion (5% off): <span class="green">-$15.00</span></p>
+					<p> Vetcove Credit: <span class="green">-$10.00</span></p>
+					<p class="total"> Total: <span>$243.43</span></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="shop-cart-checkout">
+			<a href='{% url "shop:checkout-shipping" %}' class="button button-rounded button-success">Check Out Now</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="shipping-box">
+	<div class="radio">
+		<label>
+			<input type="radio" name="shipping">Next Day Air (+$5.95) <span> Get it Tomorrow, Oct 15</span>
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="shipping">2 Day Shipping (Free) <span> Get it Wed, Oct 16</span>
+		</label>
+	</div>
+	<div class="radio">
+		<label>
+			<input type="radio" name="shipping">Standard Ground (Free, and 20 Vetcove Credits)<span> Get it Oct 19-21</span>
+		</label>
+	</div>
+	<div class="update">
+		<button class="button button-tiny button-rounded">Cancel</button>
+		<button class="update-button button button-tiny button-rounded button-primary">Update Shipping</button>
+	</div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

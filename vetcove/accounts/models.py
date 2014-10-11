@@ -15,24 +15,29 @@ from model_utils.models import TimeStampedModel
 
 from core.models import SlugModel
 
-####### Paths for Logos  ##################
-def create_logo_path(instance, filename):
-    ext = filename.split('.')[-1]
-    filename = '{}.{}'.format(uuid4().hex, ext)
-    return os.path.join('logo', filename)
 
 ############################################
 ####### The Basic User Object ##############
 ############################################
 class BasicUser(AbstractUser,TimeStampedModel):
+    '''
+    The User Model. On creation, the username (which is forced to be an email)
+    is also set as the User's email address 
+    '''
     group = models.ForeignKey('Group',blank=True,null=True)
-    
+
     def __str__(self):
         return self.username
 
 ############################################
 ####### The Group Object ###################
 ############################################
+def create_logo_path(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = '{}.{}'.format(uuid4().hex, ext)
+    return os.path.join('logo', filename)
+
+
 class Group(TimeStampedModel,SlugModel):
     '''
     Groups are the main unit on VetCove. Each user belongs to a group, which can be a supplier,
@@ -41,24 +46,18 @@ class Group(TimeStampedModel,SlugModel):
     ##### General Information #######
 
     # Company / Clinic Name
-    name = models.CharField(max_length=60,blank=True,null=True)
+    name = models.CharField(max_length=100,blank=True,verbose_name="Company Name")
     # Points back to a user of this group
     administrator = models.ForeignKey(settings.AUTH_USER_MODEL,related_name='group_administrator')
     # Contact Name is the name of the contact (suppliers) or purchaser (clinics)
-    contact_name = models.CharField(max_length=100)
+    contact_name = models.CharField(max_length=100,verbose_name="Primary Contact Name")
     # The position of the point of contact / purchaser
-    contact_position = models.CharField(max_length=100)
-    # Company contact information
-    email = models.CharField(max_length=150,null=True,blank=True)
-    phone_number = models.BigIntegerField(max_length=15,null=True,blank=True)
-    address = models.ForeignKey('Address',related_name="main_address",null=True,blank=True)
-    website = models.CharField(max_length=60,blank=True,null=True)
-    logo = ProcessedImageField(upload_to=create_logo_path,
-                                processors=[ResizeToFit(200, 200)],
-                                format='JPG',
-                                options={'quality': 60},
-                                null=True, blank=True)
-
+    contact_position = models.CharField(max_length=100,verbose_name="Position of Primary Contact")
+    # We use the email of the administrator as the point of contact
+    phone_number = models.BigIntegerField(max_length=15,null=True,blank=True,verbose_name="Phone Number")
+    address = models.ForeignKey('Address',related_name="main_address")
+    website = models.CharField(max_length=60,blank=True)
+    logo = models.ImageField(upload_to=create_logo_path,null=True,blank=True)
 
     ###### Referrals ##########
 
@@ -88,16 +87,21 @@ class Group(TimeStampedModel,SlugModel):
 
     # References to clinic and supplier objects
     # In forms, clean() ensures that either clinic or supplier is not null
-    GROUP_TYPES = (('clinic','clinic'),('supplier','supplier'))
+    GROUP_TYPES = (
+        ('clinic','clinic'),
+        ('supplier','supplier')
+    )
     group_type = models.CharField(max_length=10,choices=GROUP_TYPES) 
     clinic = models.OneToOneField('clinics.Clinic',null=True,blank=True)
     supplier = models.OneToOneField('suppliers.Supplier',null=True,blank=True)
     
+    ###### Group Foreign Keys ##########
+
+    # A group can belong to several different buying groups
+    buying_groups = models.ManyToManyField('BuyingGroup',null=True,blank=True) 
 
     def group(self):
-        ''' 
-        Provide a handle to access the group specific credentials
-        '''
+        # Provide a handle to access the group specific credentials
         return self.supplier if self.group_type == 'supplier' else self.clinic
 
 
@@ -117,15 +121,19 @@ class Group(TimeStampedModel,SlugModel):
 ############################################
 
 class Address(models.Model):
-    group = models.ForeignKey(Group,null=True,blank=True,related_name="address_group")
-    name = models.CharField(max_length=50) # full name
-    address_one = models.CharField(max_length=100) # street address,p.o. box, company name c/o
-    address_two = models.CharField(max_length=100,blank=True,null=True) # apartment, suite, unit, building,floor,etc.
+    '''
+    Address
+    '''
+    group = models.ForeignKey(Group,related_name="address_group",null=True,blank=True)
+    name = models.CharField(max_length=100) # full name
+    address_one = models.CharField(max_length=100, verbose_name = "Address Line 1", help_text="Street Address, P.O. Box, Company Name c/o") 
+    address_two = models.CharField(max_length=100, blank=True, verbose_name="Apartment, Suite, Unit, Building, Floor, etc.") 
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100) # Can be state/province/or region
-    country = models.CharField(max_length=50, default="United States")
-    postalcode = models.CharField(max_length=10) # Can be zipcode or postal code, i.e. in Canada its A2E4D9
-    phone_number = models.BigIntegerField(max_length=15,blank=True,null=True) # Optional phone number (for drop shipping)
+    country = models.CharField(max_length=3, default="usa")
+    postalcode = models.CharField(max_length=6,verbose_name="Zipcode") 
+    # Phone number is used for non-primary addresses (drop ship addresses)
+    phone_number = models.BigIntegerField(max_length=15,blank=True,null=True,verbose_name="Phone Number")
 
     def __str__(self):
         '''
@@ -133,6 +141,18 @@ class Address(models.Model):
         '''
         address_two_string = str(self.address_two)+"\n" if self.address_two else ""
         return str(self.name)+"\n"+str(self.address_one)+"\n"+address_two_string+str(self.city)+", "+str(self.state)+" "+str(self.postalcode)
+
+
+############################################
+############ Buying Group ##################
+############################################
+
+class BuyingGroup(models.Model):
+    '''
+    A pricing group is a buying group or vetcove group that gives the
+    ability for sellers to have different price points for different groups
+    '''
+    name = models.CharField(max_length=100) 
 
 
 

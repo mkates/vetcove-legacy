@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="checkout-container">
+
+	<div class="checkout">
+
+		{# Checkout header #}
+		<div class="checkout-header">
+			<h2 class="title">{{ page_checkout_title }}</h2>
+
+			{# Progress Steps Bar #}
+			<div class="steps-container">
+				{# step-progress-5 means there are 5 steps #}
+				<div class="step-progress step-progress-4"> {# each step is 100/number of steps #}
+					<div class="step-progress-bar
+						{% if page_checkout_shipping %}
+							step-progress-bar-1
+						{% elif page_checkout_billing %}
+							step-progress-bar-2
+						{% elif page_checkout_review %}
+							step-progress-bar-3
+						{% endif %}
+					"></div>
+				</div>
+
+				{# Step 1 #}
+				<div class="step-container step25 complete">
+					<a href='{% url "shop:cart" %}' class="step-bubble">
+						<i class="fa fa-shopping-cart"></i>
+					</a>
+					<p class="step-text">Your Cart</p>
+				</div>
+
+				{# Step 2 #}
+				<div class="step-container step25
+						{% if page_checkout_shipping %}
+							active
+						{% elif page_checkout_billing %}
+							complete
+						{% elif page_checkout_review %}
+							complete
+						{% endif %}
+				">
+					<a href='{% url "shop:checkout-shipping" %}' class="step-bubble">
+						<i class="fa fa-truck"></i>
+					</a>
+					<p class="step-text">Shipping</p>
+				</div>
+
+				{# Step 3 #}
+				<div class="step-container step25
+						{% if page_checkout_billing %}
+							active
+						{% elif page_checkout_review %}
+							complete
+						{% endif %}
+				">
+					<a href='{% url "shop:checkout-billing" %}' class="step-bubble">
+						<i class="fa fa-credit-card"></i>
+					</a>
+					<p class="step-text">Payment</p>
+				</div>
+
+				{# Step 4 #}
+				<div class="step-container step25
+						{% if page_checkout_review %}
+							active
+						{% endif %}
+				">
+					<a href='{% url "shop:checkout-review" %}' class="step-bubble">
+						<i class="fa fa-check-square-o"></i>
+					</a>
+					<p class="step-text">Review & Purchase</p>
+				</div>
+			</div>
+
+		</div>
+
+		{# Checkout Content #}
+		<div class="checkout-content">
+			{% block checkout_content %}
+
+			{% endblock %}
+		</div>
+
+		{# Checkout Bar #}
+		<div class="checkout-bar">
+			<button class="continue button button-success button-rounded">Continue</button>
+			<button class="button button-rounded">Return to Cart</button>
+		</div>
+
+	</div>{# End Checkout #}
+</div>
+
+
+{% endblock %}

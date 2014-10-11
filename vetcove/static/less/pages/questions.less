@@ -1,0 +1,176 @@
+
+// Displaying a Question
+// ************************************
+
+.question-display {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	position:relative;
+	&.border-bottom {
+		border-bottom: 1px solid #eaeaea;
+	}
+	// Question Header
+	.question-display-question {
+		font-size: 16px;
+		margin-bottom: 3px;
+	}
+	// Question Author
+	.question-display-author {
+		font-size: 11px;
+		color: #777;
+	}
+	//Question Text More
+	.question-display-answer-container {
+		margin: 35px 0 20px 0;
+		.question-display-answer-author {
+			margin-bottom:3px;
+			border-bottom:1px solid #eaeaea;
+			font-weight: 500;
+			color: #888;
+		}
+		.show-all-more {
+			color: @colorMain;
+			.link;
+		}
+	}
+	// Question action bar
+	.question-display-answer-actions {
+		margin-top: 8px;
+		p,a {
+			display:inline-block;
+			font-size: 12px;
+		}
+		.question-display-answer-helpful {
+			margin-right: 12px;
+		}
+		.question-display-vote-loader {
+			font-size: 16px;
+			color: @colorMain;
+		}
+		.question-display-vote-complete {
+			display:none;
+			font-weight: 500;
+			color: @colorGreen;
+		}
+	}
+}
+
+
+// Upvoter
+// ************************************
+.question-upvoter {
+	position:absolute;
+	width: 50px;
+	left: -50px;
+	top: -3px;
+	text-align: center;
+	.glyphicon {
+		font-size: 20px;
+		margin: 0;
+		color: #666;
+		transition:color .1s;
+		&:hover {
+			color: #444;
+			cursor:pointer;
+		}
+		&.upvote.active {
+			color: @colorGreen;
+		}
+		&.downvote.active {
+			color: @colorRed;
+		}
+	}
+	.question-upvoter-count {
+		p {
+			margin: 0;
+			line-height: 1
+		}
+		.count {
+			margin-top: -3px;
+			font-size: 14px;
+		}
+		.votes {
+			font-size: 9px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+//** Comments Box **//
+.comments-container {
+	//display:none;
+	&.visible {
+		display:block
+	}
+	border-radius: 2px;
+	border: 1px solid #ddd;
+	padding: 20px;
+	background: #f1f1f1;
+	position:relative;
+	.comments {
+		.comment {
+			border-bottom:1px solid #d6d6d6;
+			padding: 0 0 10px 0;
+			margin: 0 0 10px 0;
+			p {
+				margin: 0;
+			}
+			.author {
+				font-size: 11px;
+				margin: 0;
+			}
+			&:last-child {
+				border-bottom:none;
+			}
+			.delete {
+				color: @colorMain;
+				.link;
+			}
+		}
+	}
+	&:before {
+	  position: absolute;
+	  top: -8px;
+	  left: 31px;
+	  display: inline-block;
+	  border-right: 7px solid transparent;
+	  border-bottom: 7px solid #ddd;
+	  border-left: 7px solid transparent;
+	  border-bottom-color: rgba(0, 0, 0, .1);
+	  content: '';
+	}
+	&:after {
+	  position: absolute;
+	  top: -6px;
+	  left: 32px;
+	  display: inline-block;
+	  border-right: 6px solid transparent;
+	  border-bottom: 6px solid #f1f1f1;
+	  border-left: 6px solid transparent;
+	  content: '';
+	}
+	.newcomment {
+		margin: 0px 0;
+		textarea {
+			margin-bottom: 10px;
+		}
+		.submitter {
+			float:left;
+			p,a {
+				display:inline-block;
+			}
+		}
+		.submit {
+			float: right;
+		}
+		.submitter-form {
+			display:none;
+			clear: both;
+			input, select {
+				max-width: 150px;
+				float: left;
+			}
+		}
+		.floatfix;
+	}
+}

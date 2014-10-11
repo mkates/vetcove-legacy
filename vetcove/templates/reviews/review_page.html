@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="community-page-top-bar">
+	<div class="image">
+		<img src="{% static "img/products/flunixin.jpg" %}">
+	</div>
+	<div class="title">
+		<h3>Your Product Review For Equizone Phenylbutazone Powder</h3>
+		<p>This review was originally written on Sept 14th, 2014 and last modified on Oct 11th, 2014</p>
+		<div class="ratings">
+			<div class="star star40"></div> Based on 14 reviews
+		</div>
+	</div>
+	<div class="actions">
+		<a href="#" class="button button-rounded">Product Details</a>
+		<a href="#" class="button button-rounded button-primary">Edit this Review</a>
+	</div>
+</div>
+
+<div class="community-page-element-container">
+	{% include "reviews/review_display.html" %}
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

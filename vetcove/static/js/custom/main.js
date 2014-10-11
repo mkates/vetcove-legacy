@@ -84,33 +84,11 @@ $(document).ready(function(){
 });
 
 // *************************************************
-// ********** Enable all tooltips ******************
+// ********** Enable bootstrap elems ***************
 // *************************************************
 
 $(document).ready(function(){
 	$('.tooltip-div').tooltip();
-});
-
-
-// *************************************************
-// ********** Create Loaders ***********************
-// *************************************************
-
-$(document).ready(function(){
-	createLoader($(".loader"),'#5ecadf');
-});
-
-// *************************************************
-// ********** Footer Effect ************************
-// *************************************************
-
-$(document).ready(function(){
-	$(".footer-links a").hover(function() {
-		$(".footer-links a").addClass('faded');
-		$(this).removeClass('faded');
-	},function() {
-		$(".footer-links a").removeClass('faded');
-	});
 });
 
 // *************************************************
@@ -224,32 +202,6 @@ $(document).ready(function(){
 });
 
 // *************************************************
-// ********** Support Center ***********************
-// *************************************************
-// Functionality for the support center question filtering
-$(document).ready(function(){
-	$('.support-sidebar a').click(function(){
-		//Activate the css for the sidebar
-		$('.support-sidebar a').removeClass('active');
-		$(this).addClass('active');
-		// Set the title to the main of the sidebar span element
-		$('.help-title').html($(this).find('span').html());
-		// Get the sidebar's tag name
-		tag_name = $(this).attr('data-tag');
-		// Only show questions with that tag
-		$.each($(".question"),function(idx,value){
-			has_tag = $(value).attr('data-tag-'+tag_name);
-			if (has_tag) {
-				$(value).css('display','block');
-			} else {
-				$(value).css('display','none');
-			}
-		});
-
-	});
-});
-
-// *************************************************
 // ********** Activate the side menu ***************
 // *************************************************
 $(document).ready(function() {
@@ -289,7 +241,6 @@ $(document).ready(function() {
 	    event.preventDefault();
 
 	    var files = event.dataTransfer.files; // FileList object.
-	    console.log(files);
   	});
 
 
@@ -405,3 +356,61 @@ function dropzoneRemoveError(dropzone) {
 
 
 
+// *************************************************
+// ********** Sliders ******************************
+// *************************************************
+// http://refreshless.com/nouislider/slider-options/
+
+$(document).ready(function() {
+	if ($('#slider-range').length) {
+		$('#slider-range').noUiSlider({
+		start: [ 0, 100 ],
+			connect: true,
+			step: 1,
+			range: {
+				'min': 0,
+				'max': 100
+			}
+		});
+		$('#slider-range').on({
+			set: function(){
+			},
+			slide: function() {
+				value = $('#slider-range').val();
+				console.log($(this));
+				container = $(this).closest('.slider-container');
+				container.find("span.low").html("$"+value[0])
+				container.find("span.high").html("$"+value[1])
+			},
+		});
+	}
+});
+
+// *************************************************
+// ********** Tabs *********************************
+// *************************************************
+
+$(document).ready(function() {
+  $(".tabs").tabs();
+});
+
+// *************************************************
+// ********** Quantity Box *************************
+// *************************************************
+
+$(document).ready(function() {
+  $(".quantity-box .quantity-minus").click(function(){
+  	input = $(this).closest('.quantity-box').find("input");
+  	value = parseInt(input.val());
+  	if (value) {
+  		input.val(Math.max(1,value-1));
+  	} else {
+  		input.val(1);
+  	}
+  });
+  $(".quantity-box .quantity-plus").click(function(){
+  	input = $(this).closest('.quantity-box').find("input");
+  	value = parseInt(input.val());
+  	input.val(value+1);
+  });
+});

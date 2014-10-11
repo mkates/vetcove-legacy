@@ -1,0 +1,353 @@
+
+.shop-cart-header {
+	background: #fff;
+	h3 {
+		margin: 0;
+		font-weight: normal;
+		padding: 20px;
+		display:inline-block;
+	}
+	.button {
+		float: right;
+		margin: 20px;
+	}
+	border-bottom:1px solid #dadada;
+}
+
+.shop-cart-body {
+	margin: 20px 20px 40px 20px;
+	// Formatting for each row of the shopping cart table
+	.shop-cart-row-container {
+		width: 100%;
+		display:table;
+	}
+	.shop-cart-row {
+		display:table-row;
+		width: 100%;
+		.image, .text, .unit, .quantity, .price {
+			vertical-align: top;
+			display:table-cell;
+		}
+		.image    {   width: 140px }
+		.unit     {   width: 100px }
+		.quantity {   width: 100px }
+		.price    {   width: 120px; text-align: right; padding-right: 20px }
+	}
+	// 
+	.shop-cart-legend {
+		border-bottom:1px solid #ddd;
+		background: #fafafa;
+		.borderRadiusTop(3px);
+		font-weight: bold;
+	}
+	.shop-cart-item {
+		padding: 20px 0;
+		border-bottom:1px solid #eee;
+		.image {
+			text-align: center;
+			img {
+				max-width: 90px;
+				max-height: 90px
+			}
+		}
+		.text {
+			.shop-cart-item-name {
+				margin: 0 0 0px 0;
+				font-size: 16px;
+				color: #555;
+				font-weight: 500;
+			}
+			.manufacturer {
+				font-size: 11px;
+				margin: 0 0 10px 0;
+				padding: 0 0 5px 0;
+			}
+			p {
+				margin: 3px 0 3px 0;
+				font-size: 12px;
+			}
+			.actions {
+				margin-top: 20px;
+				a {
+					border:1px solid #dadada;
+					border-radius: 2px;
+					background: #fafafa;
+					padding: 2px 5px;
+					color: #555;
+					font-size: 12px;
+					margin-right: 5px;
+					&:hover {
+						text-decoration: none;
+						cursor:pointer;
+					}
+				}
+			}
+			.change {
+				.link;
+				margin-left: 5px;
+				color: @colorMain;
+			}
+		}
+		.price {
+			font-size: 15px;
+			font-weight: bold;
+			text-align: right;
+		}
+	}
+	.shop-cart-summary {
+		text-align: right;
+		padding: 10px 20px;
+		.promotion {
+			text-align: center;
+			float: left;
+			padding: 10px;
+			border-radius: 3px;
+			background: #fafafa;
+			border:1px solid #dadada;
+			margin: 30px 0 0 120px;
+			p {
+				margin: 0;
+			}
+			.promotion-message {
+				display:none;
+				margin: 0 auto;
+				max-width: 230px;
+				&.success {
+					color:@colorGreen;
+					font-weight: bold;
+				}
+				&.error {
+					color:@colorRed;
+					font-weight: bold;
+				}
+			}
+			.button {
+				height: 34px;
+				.borderRadiusLeft(0px);
+			}
+			input {
+				.borderRadiusRight(0px);
+			}
+			table {
+				margin-top: 10px;
+			}
+		}
+		.shop-cart-totals {
+			float: right;
+			display:inline-block;
+			p {
+				margin-bottom: 3px;
+			}
+			span {
+				width: 90px;
+				font-weight: 500;
+				display:inline-block;
+			}
+			.green {
+				color: @colorGreen;
+			}
+			.total {
+				font-size: 19px;
+				font-weight: 500;
+				margin-top: 5px;
+				padding-top: 5px;
+				border-top:1px solid #dadada;
+			}
+		}
+	}
+	.shop-cart-checkout {
+		background: #fafafa;
+		padding: 20px;
+		text-align: right;
+		border-top:1px solid #dadada;
+	}
+}
+
+
+.shipping-box {
+	display:none;
+	width: 100%;
+	background: #fafafa;
+	border:1px solid #dadada;
+	border-radius: 3px;
+	padding-top: 5px;
+	span {
+		float: right;
+	}
+	.radio {
+		padding: 0px 5px;
+		.floatfix;
+	}
+	.update {
+		padding: 5px;
+		border-top:1px solid #dadada;
+		background: #fafafa;
+		text-align: left;
+		.update-button {
+			float: right;
+		}
+	}
+}
+
+
+//******* Checkout Formatting ********** //
+
+.checkout-container {
+	padding: 30px 20px;
+	overflow: auto;
+	.checkout-header {
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom:1px solid #dadada;
+	}
+	.checkout {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+	// Page title
+	.title {
+		text-align: center;
+		font-weight: 400;
+		margin-bottom: 30px;
+	}
+	// Bar at the bottom of each checkout page
+	.checkout-bar {
+		border-top:1px solid #dadada;
+		margin: 20px 0 20px 0;
+		padding-top: 20px;
+		border-radius: 3px;
+		// The continue button 
+		.continue {
+			float: right;
+		}
+	}
+	// Shipping Page
+	.checkout-shipping {
+		background: #fff;
+		border-radius: 3px;
+		border: 1px solid #dadada;
+		.checkout-section-header {
+			background: #fafafa;
+			border-bottom:1px solid #dadada;
+			padding: 5px;
+			font-size: 16px;
+		}
+	}
+}
+
+.checkout-item {
+	border-bottom:1px solid #eee;
+	display:table;
+	width: 100%;
+	padding: 15px 10px;
+	position: relative;
+	&:last-child {
+		border-bottom:none;
+	}
+	// Checkout Image
+	.image {
+		display:table-cell;
+		vertical-align: top;
+		width: 150px;
+		text-align: center;
+		img {
+			max-height: 80px;
+			max-width: 80px;
+		}
+	}
+	// Checkout content
+	.checkout-item-content {
+		display:table-cell;
+		vertical-align: top;
+		// Item's Name
+		.checkout-item-name {
+			margin-right: 240px;
+			font-size: 14px;
+			font-weight: 500;
+		}
+		// Price, Quantity, and Final Price Formatting
+		.checkout-item-price > span {
+			width: 80px;
+			display:inline-block;
+			text-align: right;
+		}
+		.checkout-item-price {
+			position:absolute;
+			top: 15px;
+			right: 0;
+			.quantity {
+				width: 60px;
+			}
+			.finalprice {
+				font-weight: bold;
+			}
+		}
+	}
+}
+.shipping-time-container {
+	background: #fafafa;
+	border:1px solid #dadada;
+	border-radius: 2px;
+	padding: 2px 10px;
+	margin: 10px 0 5px 0;
+	label {
+		font-size: 12px;
+	}
+	.price {
+		font-weight: 500;
+		float: right;
+		padding-left: 25px;
+	}
+	.arrival {
+		color: @colorGreen;
+		font-weight: bold;
+	}
+}
+.shipping-address {
+	margin-bottom: 10px;
+	position:relative;
+	display:inline-block;
+	// The selected shipping address
+	.shipping-selected {
+		font-size: 12px;
+		border:1px solid #dadada;
+		padding: 1px 6px;
+		background: #fafafa;
+		transition: background .1s;
+		i {
+			margin-left: 6px;
+		}
+		&:hover {
+			background: #f1f1f1;
+			cursor:pointer;
+		}
+	}
+	// The address options 
+	.shipping-options {
+		display:none;
+		border:1px solid #dadada;
+		position:absolute;
+		background: #fafafa;
+		right: 0;
+		z-index: 1;
+		max-height: 300px;
+		overflow-y:scroll;
+	}
+	.shipping-address-block {
+		padding: 3px 10px;
+		border-bottom:1px solid #dadada;
+		p {
+			margin: 0;
+			white-space: nowrap;
+			font-size: 12px;
+		}
+		&.active {
+			color: #fff;
+			.gradient(@colorMain,darken(@colorMain,20%),@colorMain);
+		}
+		&:not(.active):hover {
+			cursor:pointer;
+			background: #eee;
+		}
+	}
+}

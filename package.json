@@ -1,17 +1,18 @@
 {
   "name": "vetcove",
-  "description": "A platform for ordering veterinary supplies",
+  "description": "A platform to order veterinary supplies",
   "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mkates/vetcove.git"
   },
   "homepage": "https://www.vetcove.com",
-  "author": "Vetcove, LLC",
+  "author": "Vetcove",
   "engines": {
     "node": "~0.10.31"
   },
   "devDependencies": {
+    "bower": "^1.3.1",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^1.0.1",
     "grunt-banner": "^0.2.3",
@@ -20,6 +21,13 @@
     "grunt-contrib-less": "^0.11.4",
     "grunt-contrib-nodeunit": "~0.4.1",
     "grunt-contrib-uglify": "~0.5.0",
-    "load-grunt-tasks": "^0.6.0"
+    "http-server": "^0.6.1",
+    "karma": "^0.12.24",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "load-grunt-tasks": "^0.6.0",
+    "protractor": "~1.0.0",
+    "shelljs": "^0.2.6",
+    "tmp": "0.0.23"
   }
 }

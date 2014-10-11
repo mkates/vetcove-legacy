@@ -99,6 +99,9 @@ STATICFILES_FINDERS = (
 )
 ########## END STATIC FILE CONFIGURATION
 
+########## API KEYS
+EASY_POST_API_KEY = 'BgumZg6bo3z1rDIYdZR2dg' # test key
+########## END API KEYS
 
 
 ########## SITE CONFIGURATION
@@ -158,7 +161,7 @@ INSTALLED_APPS = (
     'reports',
     'reviews',
     'rewards',
-    'search',
+    'shipping',
     'shop',
     'staff',
     'suppliers',

@@ -2,7 +2,7 @@
 import ast
 # Django Imports
 from django.db import models
-
+from django.utils.text import slugify
 # Third Party App Imports
 from imagekit.processors import ResizeToFill, ResizeToFit
 from imagekit.models import ProcessedImageField, ImageSpecField
@@ -17,17 +17,36 @@ class SlugModel(models.Model):
     """
     An abstract base class model that provides a slug
     field that is automatically created from the model's name.
-    Requires a name field
+    Requires a self.name field before it can slug
     """
     slug = models.SlugField()
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.name)
+        if self.name:
+            self.slug = slugify(self.name)
         super(SlugModel, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
 
+###########################################
+###### Image ##############################
+###########################################
+
+
+class ImageSizes(models.Model):
+    ''' 
+    The six default image sizes that ImageKit can user
+    '''
+    small_thumbnail = ImageSpecField(source='image',  processors=[ResizeToFit(50, 50)],   format='PNG')
+    medium_thumbnail = ImageSpecField(source='image', processors=[ResizeToFit(100,100)],  format='PNG')
+    large_thumbnail = ImageSpecField(source='image',  processors=[ResizeToFit(200,200)],  format='PNG')
+    small_image = ImageSpecField(source='image',      processors=[ResizeToFit(500, 500)], format='PNG')
+    medium_image = ImageSpecField(source='image',     processors=[ResizeToFit(700,700)],  format='PNG')
+    large_image = ImageSpecField(source='image',      processors=[ResizeToFit(1200,1200)],format='PNG')
+
+    class Meta:
+        abstract = True
 
 
 ###########################################

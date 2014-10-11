@@ -21,7 +21,7 @@ class NewSupplierBasics(forms.Form):
     category = forms.ChoiceField(
         label="Supplier type",
         widget = CoreSelect(),
-        choices =Supplier._meta.get_field('company_type').choices
+        choices =Supplier._meta.get_field('seller_type').choices
     )
     contact_name = forms.CharField(
         label="Primary Contact Name",

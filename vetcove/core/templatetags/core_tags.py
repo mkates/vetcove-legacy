@@ -22,3 +22,11 @@ def widgetType(field):
 @register.filter
 def equals(value,arg):
 	return value==arg
+
+@register.filter
+def get_range( value ):
+  return range( value )
+
+@register.filter
+def get_reverse_range( value ):
+  return range(value,0,-1)

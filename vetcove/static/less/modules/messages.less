@@ -18,13 +18,21 @@
 	width: 100%;
 	position:fixed;
 	z-index: 200;
+	&.info {
+		background: #35a3dc;
+	}
+	&.success {
+		background: #57b755;
+	}
+	&.error {
+		background: #ff5858;
+	}
 	.message {
 		padding: 0px 10px;
 		height: 50px;
 		max-width: 100%;
-		width: calc((@pageWidth+@sideGutter*2));
+		width: calc((@pageWidth+-20px));
 		margin: 0px auto;
-		background:#35a3dc;
 		.bottomRoundedCorners(2px);
 		overflow: auto;
 		display:table;
@@ -50,14 +58,5 @@
 				opacity: .8;
 			}
 		}
-	}
-	&.info .message {
-		background: #35a3dc;
-	}
-	&.success .message{
-		background: #57b755;
-	}
-	&.error .message {
-		background: #ff5858;
 	}
 }

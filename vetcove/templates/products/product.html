@@ -1,0 +1,425 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load staticfiles %}
+
+<div class="carousel-full">
+	<div class="exit"><span class="glyphicon glyphicon-remove"></span></div>
+	<div class="arrow arrow-left">&lsaquo;</div>
+	<div class="arrow arrow-right">&rsaquo;</div>
+	<img src="{% static 'img/products/flunixin.jpg' %}">
+</div>
+<div class="product-header">
+	<div>
+		<a href='#'>&larr; View all Phenylbutazone Products</a>
+		<div class="breadcrumbs">
+			<a href='#'>
+				Equine
+			</a> /
+			<a href='#'>
+				Pharmaceuticals
+			</a> /
+			<a href='#'>
+				Anti-inflammatories
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="product-body">
+	<div class="row">
+		<div class="col-4 images">
+			<div class="image-zoom">
+				<img id="product-image-small" src="{% static 'img/products/idrop.jpg' %}">
+			</div>
+			<div class="thumbnail-container">
+				<div class="thumbnail">
+					<img src="{% static 'img/products/flunixin.jpg' %}">
+				</div>
+				<div class="thumbnail">
+					<i class="fa fa-play video-icon"></i>
+					<img src="{% static 'img/products/flunixin.jpg' %}">
+				</div>
+				<div class="thumbnail active">
+					<i class="fa fa-play video-icon"></i>
+					<img src="{% static 'img/products/flunixin.jpg' %}">
+				</div>
+				<div class="thumbnail">
+					<img src="{% static 'img/products/flunixin.jpg' %}">
+				</div>
+			</div>
+		</div>
+		<div class="col-5 info">
+			<p>A&G Pharmacueticals</p>
+			<h3>Equizone Phenylbutazone Powder</h3>
+			<div class="rating-container">
+				<div class="star star40"></div> | <strong>Excellent</strong> - 23 Reviews
+			</div>
+			<div class="options">
+				<form>
+					<table class="">
+						<thead>
+							<th></th>
+							<th>Option</th>
+							<th>Manufacturer ID</th>
+							<th>MSRP</th>
+							<th class="price">Price</th>
+						</thead>
+						<tbody>
+							<tr class="active">
+								<td>
+									<input name="item" type="radio" checked>
+								</td>
+								<td>
+									<label>
+										1.1lb Jar
+									</label>
+								</td>
+								<td>29DIS329</td>
+								<td class="msrp">$14.94</td>
+								<td class="price">$11.29</td>
+							</tr>
+							<tr class="">
+								<td>
+									<input name="item" type="radio">
+								</td>
+								<td>
+									<label>
+										1.1lb Jar
+									</label>
+								</td>
+								<td>29DIS329</td>
+								<td class="msrp">$14.94</td>
+								<td class="price">$11.29</td>
+							</tr>
+							<tr class="">
+								<td>
+									<input name="item" type="radio">
+								</td>
+								<td>
+									<label>
+										1.1lb Jar
+									</label>
+								</td>
+								<td>29DIS329</td>
+								<td class="msrp">$14.94</td>
+								<td class="price">$11.29</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="description">
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into ...</p>
+			</div>
+		</div>
+		<div class="col-3 actions">
+			<div class="summary-container">
+				<div class="summary">
+					<div class="buy">
+						<p class="price">$128.43</p>
+						<p class="listprice"><span class="bold">List Price:</span> <span class="line-through">$15.53</span></p>
+						<p class="save"><span class="bold">You Save: </span> $3.10 (12%)</p>
+						<div class="form-group">
+							<label>Shipping Location</label>
+							<select class="form-control">
+								<option>Route 33-34, Farmingdale NJ</option>
+								<option>George Green (1 Main Street, Brooklyn NY</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Quantity</label>
+							<div class="quantity-box">
+								<div class="quantity-minus quantity-change">
+									<span class="glyphicon glyphicon-minus"></span>
+								</div>
+								<input type="text" class="form-control" value="1">
+								<div class="quantity-plus quantity-change">
+									<span class="glyphicon glyphicon-plus"></span>
+								</div>
+							</div>
+						</div>
+						<button class="button button-primary button-rounded">Add to Cart</button>
+					</div>
+					<div class="more">
+						<p><i class="fa fa-th-list"></i> Add to A List <i class="fa fa-angle-down"></i></p>
+						<p><i class="fa fa-pencil"></i> Write a Review</p>
+						<p><i class="fa fa-bell"></i> Report an Error</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="product-extra">
+	<div class="row">
+		{# Similar Products#}
+		<div class="col-12 product-section">
+			<div class="product-section-header">
+				<h4>Similar Clinics Also Bought</h4>
+			</div>
+			<div class="product-section-body">	
+				<div class="row">
+					<div class="col-12-5 col-sm-12-5">
+						<a href='#' class="product-box">
+							<div class="ribbon"></div>
+							<div class="image" style='background-image:url("{{STATIC_URL}}img/products/flunixin.jpg")'></div>
+							<div class="details">
+								<p class="name">Phenylbutazone Powder</p>
+								<div class="rating">
+									<div class="star blackstar star{{rating}}"></div><span class="quantity">(3)</span>
+								</div>
+								<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
+							</div>
+						</a>
+					</div>
+					<div class="col-12-5 col-sm-12-5">
+						<a href='#' class="product-box">
+							<div class="ribbon"></div>
+							<div class="image" style='background-image:url("{{STATIC_URL}}img/products/flunixin.jpg")'></div>
+							<div class="details">
+								<p class="name">Phenylbutazone Powder</p>
+								<div class="rating">
+									<div class="star blackstar star{{rating}}"></div><span class="quantity">(3)</span>
+								</div>
+								<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
+							</div>
+						</a>
+					</div>
+					<div class="col-12-5 col-sm-12-5">
+						<a href='#' class="product-box">
+							<div class="ribbon"></div>
+							<div class="image" style='background-image:url("{{STATIC_URL}}img/products/flunixin.jpg")'></div>
+							<div class="details">
+								<p class="name">Phenylbutazone Powder</p>
+								<div class="rating">
+									<div class="star blackstar star{{rating}}"></div><span class="quantity">(3)</span>
+								</div>
+								<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
+							</div>
+						</a>
+					</div>
+					<div class="col-12-5 col-sm-12-5">
+						<a href='#' class="product-box">
+							<div class="ribbon"></div>
+							<div class="image" style='background-image:url("{{STATIC_URL}}img/products/flunixin.jpg")'></div>
+							<div class="details">
+								<p class="name">Phenylbutazone Powder</p>
+								<div class="rating">
+									<div class="star blackstar star{{rating}}"></div><span class="quantity">(3)</span>
+								</div>
+								<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
+							</div>
+						</a>
+					</div>
+					<div class="col-12-5 col-sm-12-5">
+						<a href='#' class="product-box">
+							<div class="ribbon"></div>
+							<div class="image" style='background-image:url("{{STATIC_URL}}img/products/flunixin.jpg")'></div>
+							<div class="details">
+								<p class="name">Phenylbutazone Powder</p>
+								<div class="rating">
+									<div class="star blackstar star{{rating}}"></div><span class="quantity">(3)</span>
+								</div>
+								<p class="price"><span class="listprice">$1,743.31<span class="msrp">$2400.00</span></p>
+							</div>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		{# Product Details #}
+		<div class="col-12 product-section">
+			<div class="product-section-header">
+				<h4>Product Information</h4>
+			</div>
+			<div class="product-section-body">	
+				<div class="row tabs">
+					<div class="col-3 colorized-tabs">
+						<div class="tab-option active" data-ref="#details-1">
+							Product Description<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+						<div class="tab-option" data-ref="#details-2">
+							FDA Approved Letter<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+						<div class="tab-option" data-ref="#details-3">
+							Highlights<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+						<div class="tab-option" data-ref="#details-5">
+							NSAID Comparison<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+						<div class="tab-option" data-ref="#details-4">
+							Usage<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+						<div class="tab-option" data-ref="#details-4">
+							Specifications<span class="glyphicon glyphicon-chevron-right"></span>
+						</div>
+					</div>
+					<div class="col-9 product-section-body-main">
+						<div id="details-1" class="tab-content initial">
+							<h4>Description</h4>
+							<p>Equizone 100  was the  FIRST FDA approved phenylbutazone powder on the market.  A  palatable bute ( citrus flavored) powder approved for oral use in horses by the FDA.  Equizone 100 and Equizone 50 are  both made from all natural sweetners, no artificial sweetners added.</p>
+							<p><strong>EQUIZONE 50</strong> Powder is supplied in 1.1 lb (0.5 kg) jars each containing a dispensing scoop. One level scoop delivers 10 grams of powder containing 1 gram of phenylbutazone</p>
+							<p><strong>EQUIZONE 100</strong> Powder is supplied in 2.2 lb (1 kg) jars each containing a dispensing scoop. One level scoop delivers 10 grams of powder containing 1 gram of phenylbutazone</p>
+						</div>
+						<div id="details-2" class="tab-content">
+							<h4>FDA Approval</h4>
+							<p>Dear Veterinarian:</p>
+							
+							<p>As you know, phenylbutazone is a non-steroidal anti-inflammatory drug commonly used for the relief of inflammatory conditions associated with the musculoskeletal system in horses.  There are 48 actively-marketed phenylbutazone products that are approved by the U.S. Food and Drug Administration (FDA) for use in horses (please refer to the complete product list below).  These products are available in multiple dosage forms, including oral tablets, boluses, pastes, and powders; and solutions for intravenous injection.  Two of the approved powders are flavored for use in feed.</p>
+							<p>Each FDA-approved animal drug goes through a rigorous evaluation process, and prior to approval, is clinically tested for safety and effectiveness in the target animal species.  In addition, the FDA thoroughly inspects and evaluates the adequacy of the manufacturing process to ensure that the product’s indentity, strength, quality, and purity are preserved.  The FDA continues to monitor the product’s quality and safety after it is approved.</p>
+							<p>In prescribing an FDA-approved phenylbutazone product, you are providing your clients and their horses with a drug that has demonstrated safety and effectiveness in horses and whose manufacturing process met the FDA’s standards for quality, purity, and potency.</p>
+							<p>The numerous FDA-approved phenylbutazone products for horses, available in multiple dosage forms and two flavors, greatly reduce the need for compounding.  In very limited cases when you have specific patients that require phenylbutazone in a strength or dosage form that is not available among the approved products, phenylbutazone can only be legally compounded by using an FDA-approved phenylbutazone product as the starting material.  Phenylbutazone should not be compounded from bulk.  An animal drug that is compounded from bulk drug ingredients is not FDA-approved, and therefore, the safety and effectiveness of the compounded drug, as well as the adequacy of the manufacturing process, have not been evaluated.</p>
+							<p>The requirements for legal animal drug compounding can be found in Title 21, Code of Federal Regulations, Section 530.13.</p>
+							<p>At the FDA’s Center for Veterinary Medicine (CVM), we are committed to promoting and protecting animal health by ensuring that safe and effective products are available  for veterinary use.</p>
+						</div>
+						<div id="details-3" class="tab-content">
+							<h4>Highlights</h4>
+							
+						</div>
+						<div id="details-4" class="tab-content">
+							<h4>Usage</h4>
+							<p><strong>For Horses Only:</strong> Administer orally  (using the 0.6 ounce (18 mL) scoop provided) on a small amount of palatable feed and mix well. Give 1 to 2 level scoops per 500 pounds of body weight, but do not exceed 4 scoops per animal daily. Use the high dose for the first 48 hours, then gradually reduce to a maintenance dose.</p>
+
+
+							<p>Each 10 grams of powder contains:</p>
+							<p>Phenylbutazone ............................. 1 gram</p>
+							<p>One level scoop delivers 10 grams of powder.</p>
+
+							<p><strong>WARNING:</strong> Do not use in horses intended for human consumption.</p>
+
+							<p><strong>HUMAN WARNINGS:</strong> Keep this and all medications out of reach of children. Dispense in tight, child resistant containers.</p>
+
+							<p><strong>PRECAUTION:</strong> Concomitant use with other anti-inflammatory drugs, such as NSAIDs or corticosteroids, should be avoided or closely monitored.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Reviews #}
+		<div class="col-12 product-section">
+			<div class="product-section-header">
+				<h4>Ratings and Reviews</h4>
+			</div>
+			<div class="product-section-body">	
+				<div class="row tabs">
+					<div class="col-3 col-xs-12">
+						{% include "reviews/ratings_table.html" %}
+						<div class="product-section-sidebox">
+							<p>Reviews help build us a community of trust</p>
+							<a href='#' class="button button-rounded button-primary">Rate this Product</a>
+						</div>
+					</div>
+					<div class="col-9 product-section-body-main">
+						 {% include "reviews/review_display.html" %}
+						 {% include "reviews/review_display.html" %}
+						 {% include "reviews/review_display.html" %}
+						 <a href="#"> View All Reviews <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{# Q and A #}
+		<div class="col-12 product-section">
+			<div class="product-section-header">
+				<h4>Questions and Answers</h4>
+			</div>
+			<div class="product-section-body">	
+				<div class="row tabs">
+					<div class="col-3 col-xs-12">
+						<p>Can't find the answer that you are looking for?</p>
+						<a href='#' class="button button-rounded button-primary">Ask a Question</a>
+					</div>
+					<div class="col-9 product-section-body-main">
+						 {% include "questions/question_display.html" %}
+						 {% include "questions/question_display.html" %}
+						 {% include "questions/question_display.html" %}
+						 <a href="#"> View All Questions <i class="fa fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+	{{block.super}}
+<script>
+$(document).ready(function() {
+
+	$(".image-box").hover(function(){
+		$(".product-result").fadeIn('fast');
+		$(".section").css('display','block');
+	}, function() {
+		$(".product-result").fadeOut('fast');
+		$(".section").css('display','none');
+	});
+	$(".image-box").hover(function(){
+		$(".product-result").fadeIn('fast');
+		$(".section").css('display','block');
+	}, function() {
+		$(".product-result").fadeOut('fast');
+		$(".section").css('display','none');
+	});
+
+	$(".image-box").mousemove(function(e){
+
+	   var product_box_width = $(".image-box").width();
+	   var product_box_height = $(".image-box").height();
+	   var product_image_width = $(".image-box img").width();
+	   var product_image_height = $(".image-box img").height();
+	   var ratio = parseFloat($("#product-image-large").width()/$("#product-image-small").width());
+	   var section_width = product_box_width/ratio;
+	   var section_height = product_box_height/ratio;
+	   
+	   $(".product-result").css('display','block');
+
+	   absX = parseFloat(e.pageX - $(".image-box").offset().left);
+	   absY = parseFloat(e.pageY - $(".image-box").offset().top);
+	   relX = parseFloat(e.pageX - $("#product-image-small").offset().left);
+	   relY = parseFloat(e.pageY - $("#product-image-small").offset().top);
+
+	   // Position the section element
+	   $(".section").css('width',section_width);
+	   $(".section").css('height',section_height);
+	   section_width_half = section_width/2
+	   max_x = Math.max(section_width_half,Math.min(product_box_width-section_width_half,absX));
+	   $(".section").css('left',max_x-section_width_half);
+	   section_height_half = section_height/2
+	   max_y = Math.max(section_height_half,Math.min(product_box_height-section_height_half,absY));
+	   $(".section").css('top',max_y-section_height_half);
+	   
+	   // Position the x axis of the zoomed in picture
+	   dif = (product_box_width-product_image_width)/2;
+	   min_relX = section_width_half-dif;
+	   max_relX = product_box_width-(section_width_half+dif);
+	   relX = Math.max(Math.min(relX,max_relX),min_relX);
+
+	   margin_left= (ratio*relX*-1)+200;
+	   $("#product-image-large").css('margin-left',margin_left);
+
+	   // Position the y axis of the zoomed in picture
+	   dif = (product_box_height-product_image_height)/2
+	   min_relY = section_height_half-dif;
+	   max_relY = product_box_height-(section_height_half+dif);
+	   relY = Math.max(Math.min(relY,max_relY),min_relY);
+
+	   margin_top= (ratio*relY*-1)+150;
+	   $("#product-image-large").css('margin-top',margin_top);
+
+	});
+});
+
+
+
+</script>
+{% endblock %}

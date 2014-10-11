@@ -9,7 +9,7 @@ from core.form_fields import * # Custom Form Elements
 from clinics.models import Clinic
 
 
-class NewClinicBasics(forms.Form):
+class NewClinicBasics(forms.ModelForm):
 
     '''
     The basic clinic details, including meta informatio and address
@@ -61,7 +61,7 @@ class NewClinicVerify(forms.ModelForm):
     '''
     def __init__(self, *args, **kwargs):
         super(NewClinicVerify, self).__init__(*args, **kwargs)
-        self.fields['license_no'].required = True
+        # Conditionally require the image pending the license submit option
         self.fields['license_image'].required = True
 
     LICENSE_SUBMIT_CHOICES = (
@@ -70,6 +70,7 @@ class NewClinicVerify(forms.ModelForm):
         ('fax',"I'd like to fax in a copy to XXX-XXX-XXXX"),
         ('skip',"I'll skip this for now, but I'll upload one later ")
     )
+    # Moved purchaser and position to the verification to avoid confusion
     purchaser = forms.CharField(
         label = "Name of person doing the purchasing",
         widget=CoreTextInput(attrs={'placeholder':"Name of purchaser"})
@@ -112,6 +113,16 @@ class NewClinicVerify(forms.ModelForm):
             'license_image': CoreFileInput(),
         }
 
+    def clean(self):
+        # Checks that a license is uploaded if they chose to upload an image
+        license_submit = self.cleaned_data['license_submit']
+        license_image = self.cleaned_data['license_image']
+        if license_submit == 'upload' and not license_image:
+            self.add_error(None,forms.ValidationError("Please upload an image of your veterinary license"))
+        return self.cleaned_data
+
+
+
 
 class NewClinicTOS(forms.Form):
     '''
@@ -133,8 +144,6 @@ class NewClinicTOS(forms.Form):
         widget= CoreCheckboxInput(),
         label="I acknowledge that I am, or am acting on behalf, of a valid veterinarian and have the right to purchase said products"
     )
-
-
 
 class SalesExempt(forms.Form):
 	pass

@@ -9,11 +9,11 @@
 
 <div class="signup-box">
 	<div class="title">
-		{% block form_title %}Clinic Sign Up{% endblock %}
-		{% block form_title_subtext %}{% endblock %}
+		<h2>{% block form_title %}Clinic Sign Up{% endblock %}</h2>
+		<p>{% block form_title_subtext %}{% endblock %}</p>
 		<div class="steps-container">
 			{# step-progress-5 means there are 5 steps #}
-			<div class="step-progress step-progress-4">
+			<div class="step-progress step-progress-4"> {# each step is 100/number of steps #}
 				<div class="step-progress-bar
 					{% if page_newclinicbasics %}
 						step-progress-bar-1
@@ -24,9 +24,9 @@
 					{% elif page_newclinicomplete %}
 						step-progress-bar-4
 					{% endif %}
-				"></div>{# mark your step # #}
+				"></div>
 			</div>
-			<div class="step-container step25 complete"> {# each step is 100/number of steps #}
+			<div class="step-container step25 complete">
 				<div class="step-bubble">
 					<i class="fa fa-user"></i>
 				</div>

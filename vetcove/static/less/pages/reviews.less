@@ -1,0 +1,96 @@
+
+// Ratings Table 
+// ************************************
+
+.review-ratings-table-container {
+	display:table;
+	width: 100%;
+	margin: 10px 0;
+}
+.review-ratings-table-tr {
+	display:table-row;
+	width: 100%;
+	p {
+		display:table-cell;
+		vertical-align: top;
+		width: auto;
+		white-space: nowrap;
+	}
+	.progress-container {
+		display:table-cell;
+		vertical-align: top;
+		width: 100%;
+		.progress {
+			margin: 5px;
+			border-radius: 2px;
+			height: 10px;
+			.progress-bar {
+				background: @colorMain;
+			}
+		}
+		&:after { //Necessary to fill available width
+			content:"  ";
+		}
+	}
+}
+
+// Displaying a Review
+// ************************************
+.review-display {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	&.border-bottom {
+		border-bottom: 1px solid #eaeaea;
+	}
+	// Review Header
+	.review-display-header {
+		font-size: 16px;
+	}
+	//Review Text More
+	.review-display-text {
+		.show-all-more {
+			color: @colorMain;
+			.link;
+		}
+	}
+	// Review Author
+	.review-display-author {
+		font-size: 11px;
+		color: #777;
+		margin-bottom: 5px;
+		.author {
+			font-weight: 500;
+		}
+		.location {
+			font-weight: 500;
+		}
+	}
+	// Review action bar
+	.review-display-actions {
+		// Review Comment Count
+		.review-display-comments {
+			padding-right: 3px;
+			margin-right: 3px;
+		}
+		// Helpful Form
+		.review-display-helpful {
+			display:inline-block;
+			margin-left: 5px;
+			.review-display-helpful-buttons {
+				margin-left: 15px;
+				display:inline-block;
+			}
+			.review-display-helpful-loader {
+				font-size: 16px;
+				color: @colorMain;
+			}
+			.review-display-helpful-complete {
+				display:none;
+				font-weight: 500;
+				color: @colorGreen;
+			}
+		}
+	}
+}
+
+

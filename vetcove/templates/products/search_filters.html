@@ -1,0 +1,328 @@
+
+{% load core_tags %}
+
+{% load staticfiles %}
+
+<div class="search-container">
+	<div class="search-filter-container">
+		<div class="search-filter">
+			<h5>Refine by Category<span class="search-filter-clear">clear</span></h5>
+			<div>Anti-Inflammatories<span class="count">342</span></div>
+			<div>Antibiotics<span class="count">342</span></div>
+			<div>Antihistamines<span class="count">342</span></div>
+			<div>Antidotes<span class="count">342</span></div>
+			<div>Fluid Therapy<span class="count">342</span></div>
+			<div>Diuretics<span class="count">342</span></div>
+			</ul>
+		</div>
+		<div class="search-filter">
+			<h5>Syringe Type<span class="search-filter-clear">clear</span></h5>
+			<div class="icon-container">
+				<div class="icon-syringe icon-syringe-1 tooltip-div" data-toggle="tooltip" title="Regular Lock"></div>
+				<div class="active icon-syringe icon-syringe-3 tooltip-div" data-toggle="tooltip" title="Luer Lock"></div>
+				<div class="active icon-syringe icon-syringe-4 tooltip-div" data-toggle="tooltip" title="Eccentric"></div>
+				<div class="icon-syringe icon-syringe-5 tooltip-div" data-toggle="tooltip" title="Catheter"></div>
+				<div class="icon-syringe icon-syringe-6 tooltip-div" data-toggle="tooltip" title="Oral"></div>
+				<div class="icon-syringe icon-syringe-2 tooltip-div" data-toggle="tooltip" title="Curved"></div>
+			</div>
+		</div>
+		<div class="search-filter">
+			<h5>Manufacturers<span class="search-filter-clear">clear</span></h5>
+			{% for i in 5|get_reverse_range %}
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">Zoetis<span class="count">40</span>
+					</label>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="search-filter">
+			<h5>Price<span class="search-filter-clear">clear</span></h5>
+			<div class="slider-container">
+				<div id="slider-range"></div>
+				<p class="values"><span class="low">$0.00</span><span class="high">$100.00</span></p>
+			</div>
+		</div>
+		<div class="search-filter">
+			<h5>Discount</h5>
+			<div class="radio">
+				<label>
+					<input type="radio" name="discount">50% or More<span class="count">40</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="discount">25% or More<span class="count">40</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="discount">10% or More<span class="count">40</span>
+				</label>
+			</div>
+		</div>
+		<div class="search-filter">
+			<h5>Availability</h5>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox">Remove Out of Stock
+				</label>
+			</div>
+		</div>
+		<div class="search-filter">
+			<h5>On Promotion</h5>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox">Only Items on Promotion
+				</label>
+			</div>
+		</div>
+		<div class="search-filter">
+			<h5>Make</h5>
+			<div class="radio">
+				<label>
+					<input type="radio" name="make">Manufactured only<span class="count">40</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="make">Compounded only<span class="count">40</span>
+				</label>
+			</div>
+			<div class="radio">
+				<label>
+					<input type="radio" name="make">Both<span class="count">40</span>
+				</label>
+			</div>
+		</div>
+		<div class="search-filter">
+			<h5>Rating</h5>
+			<ul>
+				{% for i in 5|get_reverse_range %}
+				<li>
+					<div class="radio">
+						<label>
+							<input type="radio" name="rating" value="{{i}}0"><div class="star star{{i}}0"></div><span class="light"> & up</span><span class="floatright">40</span>
+						</label>
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="search-results-container">
+		<div class="search-summary">
+ 			<p class="count"><strong>124 results</strong> for phenylbutazone powders</p>
+ 			<div class="search-display">
+ 				Sort By: <select>
+ 					<option>Relevance</option>
+ 					<option>Best Selling</option>
+ 					<option>Price: Low to High</option>
+ 					<option>Price: High to Low</option>
+ 				</select>
+ 			</div>
+ 			<p class="related"> <strong>Related Searches:</strong>
+				<a href="#">flunixin powders</a>,
+				<a href="#">fibrocoxib powders</a>,
+				<a href="#">fibrocoxib powders</a>
+			</p>
+		</div>
+		<div class="search-results">
+			<div class="search-loader">
+				<i class="fa fa-5x fa-spin fa-spinner"></i>
+			</div>
+			<div class="product-search">
+				<div class="product-row">
+					<div class="price-container">
+						<p class="msrp">$14.42</p>
+						<p class="price">$12.24</p>
+						<a class="button button-rounded button-primary">Select</a>
+						<p class="wishlist"> + Add to List</p>
+					</div>
+					<div class="text-container">
+						<h5>Equizone 100 Phenylbutazone Powder, 1.1lb</h5>
+						<div class="rating">
+							<div class="star star40"></div> <span>|</span> <a href='#'> <strong>Excellent</strong> - 34 Reviews</a>
+						</div>
+						<div class="tags"> 
+							<p data-toggle="tooltip" title="Quantity Available: 98" class='tooltip-div'><span class="glyphicon glyphicon-ok"></span> In Stock</p>
+							<p data-toggle="tooltip" title="Out of Stock as of June 2nd" class='tooltip-div'><span class="glyphicon glyphicon-remove-sign"></span> Out of Stock</p>
+							<p data-toggle="tooltip" title="The item is currently 50% off retail price" class='tooltip-div'><span class="glyphicon glyphicon-tag"></span> Promotion</p>
+							<p data-toggle="tooltip" title="This item is currently on backorder"  class='tooltip-div'><span class="glyphicon glyphicon-warning-sign"></span> Backorder</p>
+							{% comment %}
+							<p data-toggle="tooltip" title="This item is shipped directly from the manufacturer" class='result-orange'><span class=" glyphicon glyphicon-plane"></span> Drop Shipped</p>
+							<p data-toggle="tooltip" title="Additional Information is required to order this item" class='result-blue'><span class="glyphicon glyphicon-earphone"></span> More Info Req'd</p>
+							<p data-toggle="tooltip" title="You last ordered this item on Sept 14, 2013" class='tooltip-div'><span class="glyphicon glyphicon-shopping-cart"></span> Ordered Before</p>
+							<p data-toggle="tooltip" title="You last ordered this item on Sept 14, 2013" class='tooltip-div'><span class="glyphicon glyphicon-ban-circle"></span> Indefinite Back Order</p>
+							{% endcomment %}
+						</div>
+						<div class="sizes">
+							<a class="price-size" href="#">
+								<p class="size">
+									<span class="name">2.2lb</span>
+									<span class="price">$20.24</span>
+									<span class="msrp">$15.24</span>
+								</p>
+							</a>
+							<a class="more" href='#'>View All Sizes &rsaquo;</a>
+						</div>
+						<div class="more-buttons">
+							<button class="">
+								Details
+							</button>
+							<button class="">
+								Reviews
+							</button>	
+							<button class="">
+								Purchase History
+							</button>
+						</div>
+					</div>
+					<div class="image-container">
+						<div class="image" style="background-image:url('{% static "img/products/glycoflex.jpg" %}')"></div>
+					</div>
+				</div>
+				<div class="additional">
+					<div class="additional-div">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						<div class="continue">
+							cool
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-search">
+				<div class="product-row">
+					<div class="price-container">
+						<p class="msrp">$14.42</p>
+						<p class="price">$12.24</p>
+						<a class="button button-rounded button-primary">Select</a>
+						<p class="wishlist"> + Add to List</p>
+					</div>
+					<div class="text-container">
+						<h5>Equizone 50  Phenylbutazone Powder, 2.2lb</h5>
+						<div class="rating">
+							<div class="star star40"></div> <span>|</span> <a href='#'> <strong>Excellent</strong> - 34 Reviews</a>
+						</div>
+						<div class="tags"> 
+							<p data-toggle="tooltip" title="Quantity Available: 98" class='tooltip-div'><span class="glyphicon glyphicon-ok"></span> In Stock</p>
+							{% comment %}
+							<p data-toggle="tooltip" title="This item is shipped directly from the manufacturer" class='result-orange'><span class=" glyphicon glyphicon-plane"></span> Drop Shipped</p>
+							<p data-toggle="tooltip" title="Additional Information is required to order this item" class='result-blue'><span class="glyphicon glyphicon-earphone"></span> More Info Req'd</p>
+							<p data-toggle="tooltip" title="You last ordered this item on Sept 14, 2013" class='tooltip-div'><span class="glyphicon glyphicon-shopping-cart"></span> Ordered Before</p>
+							<p data-toggle="tooltip" title="You last ordered this item on Sept 14, 2013" class='tooltip-div'><span class="glyphicon glyphicon-ban-circle"></span> Indefinite Back Order</p>
+							{% endcomment %}
+						</div>
+						<div class="sizes">
+							<a class="price-size" href="#">
+								<p class="size">
+									<span class="name">500ml</span>
+									<span class="price">$12.24</span>
+									<span class="msrp">$15.24</span>
+								</p>
+							</a>
+							<a class="price-size" href="#">
+								<p class="size">
+									<span class="name">Equizone 50, 1.1lb <i class="fa fa-tag"></i></span>
+									<span class="price">$12.24</span>
+									<span class="msrp">$15.24</span>
+								</p>
+							</a>
+							<a class="price-size" href="#">
+								<p class="size">
+									<span class="name">500ml</span>
+									<span class="price">$12.24</span>
+									<span class="msrp">$15.24</span>
+								</p>
+							</a>
+							<a class="more" href='#'>View All Sizes &rsaquo;</a>
+						</div>
+						<div class="more-buttons">
+							<button class="">
+								Details
+							</button>
+							<button class="">
+								Reviews
+							</button>	
+							<button class="">
+								Purchase History
+							</button>
+						</div>
+					</div>
+					<div class="image-container">
+						<div class="image" style="background-image:url('{% static "img/products/glycoflex.jpg" %}')"></div>
+					</div>
+				</div>
+				<div class="additional">
+					<div class="additional-div">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						<div class="continue">
+							cool
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-search">
+				<div class="product-row">
+					<div class="price-container">
+						<p class="msrp">$20.42</p>
+						<p class="price">$12.24</p>
+						<a class="button button-rounded button-primary">Select</a>
+						<p class="wishlist"> + Add to List</p>
+					</div>
+					<div class="text-container">
+						<h5>Dr. Larson's Medi-Cartridge Applicator Gun</h5>
+						<div class="rating">
+							<div class="star star40"></div> <span>|</span> <a href='#'> <strong>Excellent</strong> - 34 Reviews</a>
+						</div>
+						<div class="tags"> 
+							<p data-toggle="tooltip" title="Quantity Available: 98" class='tooltip-div'><span class="glyphicon glyphicon-ok"></span> In Stock</p>
+							<p data-toggle="tooltip" title="Out of Stock as of June 2nd" class='tooltip-div'><span class="glyphicon glyphicon-remove-sign"></span> Out of Stock</p>
+							<p data-toggle="tooltip" title="The item is currently 50% off retail price" class='tooltip-div'><span class="glyphicon glyphicon-tag"></span> Promotion</p>
+							<p data-toggle="tooltip" title="This item is currently on backorder"  class='tooltip-div'><span class="glyphicon glyphicon-warning-sign"></span> Backorder</p>
+							{% comment %}
+							<p data-toggle="tooltip" title="This item is shipped directly from the manufacturer" class='result-orange'><span class=" glyphicon glyphicon-plane"></span> Drop Shipped</p>
+							<p data-toggle="tooltip" title="Additional Information is required to order this item" class='result-blue'><span class="glyphicon glyphicon-earphone"></span> More Info Req'd</p>
+							<p data-toggle="tooltip" title="You last ordered this item on Sept 14, 2013" class='tooltip-div'><span class="glyphicon glyphicon-shopping-cart"></span> Ordered Before</p>
+							<p data-toggle="tooltip" title="You last ordered this item on Sept 14, 2013" class='tooltip-div'><span class="glyphicon glyphicon-ban-circle"></span> Indefinite Back Order</p>
+							{% endcomment %}
+						</div>
+						<div class="sizes">
+							<a class="price-size" href="#">
+								<p class="size">
+									<span class="name">50ml</span>
+									<span class="price">$12.24</span>
+									<span class="msrp">$15.24</span>
+								</p>
+							</a>
+							<a class="more" href='#'>View All Sizes &rsaquo;</a>
+						</div>
+						<div class="more-buttons">
+							<button class="">
+								Details
+							</button>
+							<button class="">
+								Reviews
+							</button>	
+							<button class="">
+								Purchase History
+							</button>
+						</div>
+					</div>
+					<div class="image-container">
+						<div class="image" style="background-image:url('{% static "img/products/glycoflex.jpg" %}')"></div>
+					</div>
+				</div>
+				<div class="additional">
+					<div class="additional-div">
+						Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						<div class="continue">
+							cool
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

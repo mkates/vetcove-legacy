@@ -58,40 +58,9 @@ CACHES = {
 }
 ########## END CACHE CONFIGURATION
 
-
-###### Django Pipeline
-# INSTALLED_APPS += (
-#     'pipeline', # Django Pipeline for compression and minification of the CSS/JS files
-# )
-# STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
-
-# PIPELINE_CSS = {
-#     'colors': {
-#         'source_filenames': (
-#           'css/core.css',
-#           'css/colors/*.css',
-#           'css/layers.css'
-#         ),
-#         'output_filename': 'css/colors.css',
-#         'extra_context': {
-#             'media': 'screen,projection',
-#         },
-#     },
-# }
-
-# PIPELINE_JS = {
-#     'stats': {
-#         'source_filenames': (
-#           'js/jquery.js',
-#           'js/d3.js',
-#           'js/collections/*.js',
-#           'js/application.js',
-#         ),
-#         'output_filename': 'js/stats.js',
-#     }
-# }
-####### End Django Pipeline
-
+########## API KEYS
+EASY_POST_API_KEY = 'BgumZg6bo3z1rDIYdZR2dg' # test key
+########## END API KEYS
 
 ########## TOOLBAR CONFIGURATION
 # See: http://django-debug-toolbar.readthedocs.org/en/latest/installation.html#explicit-setup

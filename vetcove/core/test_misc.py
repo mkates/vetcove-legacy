@@ -3,7 +3,7 @@ from .misc import *
 
 class convertIntegerDollarsToFloatDollarsTests(TestCase):
 
-	'Tests the function convertIntegerDollarsToFloatDollars'
+    'Tests the function convertIntegerDollarsToFloatDollars'
 
     def test_noInput(self):
         """A None value for a dollar amount"""

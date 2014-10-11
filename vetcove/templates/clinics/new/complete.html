@@ -1,1 +1,22 @@
-completed signup
+{% extends "simple_base.html" %}
+
+{% block simplecontent %}
+
+<div class="fullpage-container">
+	<i class="fa-check-circle-o fa fa-5x"></i>
+	<h5><strong>You have successfully completed the online sign up!</strong></h5>
+	<h5>
+		 We plan on calling you shortly to officially welcome you to Vetcove, help you with any getting started questions, and verify your account. Welcome to the community!
+	</h5>
+	{% if True %}
+		<h5 class="color-red">We will also need a copy of your veterinary license, which can be faxed or emailed to the address below: </h5>
+		<div class="contact">
+			<p><strong>Email:</strong> team@vetcove.com</p>
+			<p><strong>Fax:</strong> (xxx) xxx-xxxx</p>
+		</div>
+	{% endif %}
+	<a href='{% url "general:index" %}' class="button button-rounded button-standard">Return Home</a>
+	<a href='{% url "general:index" %}' class="button button-rounded button-primary">Take a Virtual Tour</a>
+</div>
+
+{% endblock %}
